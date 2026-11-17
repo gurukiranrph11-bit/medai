@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#e5eeff", "tertiary-container": "#053444", "tertiary": "#001e29", "on-surface-variant": "#43474d", "border-focus": "#16A6A1", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#006f6b", "primary-fixed": "#cfe5ff", "tertiary-fixed": "#c1e8fd", "secondary-fixed": "#7ef5ef", "surface": "#f8f9ff", "on-tertiary-fixed-variant": "#244b5c", "on-secondary-fixed": "#00201f", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#7f9ab8", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#0b1c30", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#2e4963", "surface-container-low": "#eff4ff", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504d", "tertiary-fixed-dim": "#a5cce0", "primary": "#001d33", "surface-container-high": "#dce9ff", "surface-variant": "#d3e4fe", "on-tertiary-container": "#769db0", "primary-container": "#15324b", "on-surface": "#0b1c30", "canvas-bg": "#F5F8FA", "inverse-on-surface": "#eaf1ff", "background": "#f8f9ff", "primary-fixed-dim": "#aec9e9", "surface-dim": "#cbdbf5", "inverse-primary": "#aec9e9", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#001f2a", "on-primary-fixed": "#001d33", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#213145", "border-subtle": "#E2E8F0", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#DCFCE7", "surface-tint": "#46617c", "surface-container-highest": "#d3e4fe", "secondary-container": "#7bf3ed", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#f8f9ff", "secondary": "#006a66", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#60d9d3", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-bg font-body-md text-on-surface antialiased"><div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">Clinical Safety Advisory:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div></div><header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle"><div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="MediScan AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical Decision Support</span></div></div><div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO / SIMULATED</span></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, ID, DICOM studies, MRN..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></button><div class="h-6 w-px bg-border-subtle"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end hidden lg:flex"><span class="font-body-bold text-body-bold text-on-surface leading-tight">Dr. A. Mehta</span><span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief Radiologist</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/></div></div></div></header><aside class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(21,50,75,0.03)]"><div class="flex-1 overflow-y-auto py-space-md px-space-sm"><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical Workflows</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="upload-scan" href="#"><span class="material-symbols-outlined text-lg">upload_file</span><span>Upload Scan</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="ai-analysis" href="#"><span class="material-symbols-outlined text-lg">neurology</span><span>AI Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="clinical-datasets" href="#"><span class="material-symbols-outlined text-lg">database</span><span>Clinical Datasets</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="patients" href="#"><span class="material-symbols-outlined text-lg">personal_injury</span><span>Patients</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="risk-prioritization" href="#"><span class="material-symbols-outlined text-lg">acute</span><span>Risk Prioritization</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span class="material-symbols-outlined text-lg">description</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="notifications" href="#"><span class="material-symbols-outlined text-lg">notifications_active</span><span>Notifications</span></a><div class="my-space-xs border-t border-border-subtle"></div><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span></div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-profile" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Settings / Profile</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="admin" href="#"><span class="material-symbols-outlined text-lg">admin_panel_settings</span><span>Admin</span></a></nav></div><div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span></div><button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-sm">keyboard_arrow_down</span></button></div><div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging Active</span></div></div></div></aside><div class="pl-64"><main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg"><div class="flex flex-col w-full">
+<!-- Interactive State Controller & Layout Shell -->
+<div class="flex flex-col gap-space-lg w-full">
+<!-- Title & Clinical Action Hub -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Patient Clinical Directory &amp; Master Index</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            HL7 FHIR v4.0.1 SYNCED
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          EHR/PACS-integrated patient registry with automated triage status, imaging study histories, and risk profiles.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-2 h-10 px-4 rounded-xl bg-surface-card text-on-surface-variant hover:text-on-surface shadow-sm hover:shadow transition-all font-body-bold text-body-bold">
+<span class="material-symbols-outlined text-lg text-secondary">file_download</span>
+<span>Export Directory</span>
+</button>
+<button class="flex items-center gap-2 h-10 px-4 rounded-xl bg-surface-card text-on-surface-variant hover:text-on-surface shadow-sm hover:shadow transition-all font-body-bold text-body-bold">
+<span class="material-symbols-outlined text-lg text-secondary">sync_alt</span>
+<span>Import Master Index (HL7/FHIR)</span>
+</button>
+<button class="flex items-center gap-2 h-10 px-4 rounded-xl bg-primary-container text-on-primary shadow-md hover:bg-tertiary-container transition-all font-body-bold text-body-bold">
+<span class="material-symbols-outlined text-lg">person_add</span>
+<span>+ Register New Patient</span>
+</button>
+</div>
+</div>
+<!-- Summary Metric Counters Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Total Active -->
+<div class="p-space-lg rounded-2xl bg-surface-card shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Total Active Registry</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">1,420</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-medium">+14 today</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Synchronized across 4 PACS nodes</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">groups</span>
+</div>
+</div>
+<!-- Critical In-Queue -->
+<div class="p-space-lg rounded-2xl bg-surface-card shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-code-sm text-label-code-sm text-priority-critical uppercase tracking-wider font-semibold">Critical In-Queue</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-priority-critical font-bold">12</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-critical-soft text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+              Immediate
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">&lt; 15 min target triage latency</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-priority-critical-soft flex items-center justify-center text-priority-critical">
+<span class="material-symbols-outlined text-2xl">emergency</span>
+</div>
+</div>
+<!-- Pending Doctor Sign-off -->
+<div class="p-space-lg rounded-2xl bg-surface-card shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-code-sm text-label-code-sm text-priority-high uppercase tracking-wider font-semibold">Studies Pending Sign-off</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-priority-high font-bold">37</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">
+              Action Req.
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Avg. wait time: 42m</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-priority-high-soft flex items-center justify-center text-priority-high">
+<span class="material-symbols-outlined text-2xl">pending_actions</span>
+</div>
+</div>
+<!-- Discharge / Normal -->
+<div class="p-space-lg rounded-2xl bg-surface-card shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider font-semibold">Discharge / Normal Findings</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-secondary font-bold">984</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-low-soft text-priority-low font-label-code-sm text-label-code-sm font-bold">
+              Stable
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cleared for routine follow-up</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Control Panel -->
+<div class="p-space-md rounded-2xl bg-surface-card shadow-sm flex flex-col gap-space-md">
+<!-- Search Input -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-3 text-outline text-xl pointer-events-none">search</span>
+<input class="w-full h-12 pl-12 pr-28 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-card focus:shadow-md outline-none transition-all" id="patient-search-input" placeholder="Search by Patient ID (e.g. PT-20481), MRN, Full Name, National ID, or Clinical Condition..." type="text"/>
+<div class="absolute right-3 top-2.5 flex items-center gap-1.5">
+<kbd class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm">⌘K</kbd>
+<button class="p-1 rounded text-outline hover:text-on-surface" title="Clear search">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</div>
+<!-- Filters & Bulk Controls Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Modality Filter -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm font-medium outline-none hover:bg-surface-container cursor-pointer transition-colors">
+<option>Modality: All</option>
+<option>Chest X-ray (CXR)</option>
+<option>Brain MRI (Axial/Sag)</option>
+<option>Abdominal CT (W/Contrast)</option>
+<option>Musculoskeletal MSK</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-base pointer-events-none">expand_more</span>
+</div>
+<!-- Review Status Filter -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm font-medium outline-none hover:bg-surface-container cursor-pointer transition-colors">
+<option>Review Status: All</option>
+<option>Uploaded</option>
+<option>Processing</option>
+<option>Awaiting Doctor Review</option>
+<option>Approved / Signed</option>
+<option>Needs Further Assessment</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-base pointer-events-none">expand_more</span>
+</div>
+<!-- Risk Priority Filter -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm font-medium outline-none hover:bg-surface-container cursor-pointer transition-colors">
+<option>Risk Priority: All</option>
+<option>Critical Tier 1</option>
+<option>High Priority</option>
+<option>Moderate Priority</option>
+<option>Low / Routine</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-base pointer-events-none">expand_more</span>
+</div>
+<!-- Clinician Filter -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm font-medium outline-none hover:bg-surface-container cursor-pointer transition-colors">
+<option>Assigned: All Clinicians</option>
+<option>Dr. A. Mehta (Lead)</option>
+<option>Dr. S. Rao</option>
+<option>Dr. P. Iyer</option>
+<option>Dr. K. Nair</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-base pointer-events-none">expand_more</span>
+</div>
+<!-- Date Filter -->
+<div class="flex items-center gap-1.5 h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-outline text-base">calendar_today</span>
+<span class="font-medium">Date: Last 7 Days</span>
+</div>
+<button class="h-9 px-2.5 rounded-lg text-secondary hover:bg-secondary-fixed/30 font-body-bold text-body-bold flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-base">filter_alt_off</span>
+<span>Reset</span>
+</button>
+</div>
+<!-- Bulk Action Controls -->
+<div class="flex items-center gap-2">
+<div class="relative">
+<button class="flex items-center gap-1.5 h-9 px-3 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold hover:bg-surface-variant transition-colors" id="bulk-btn">
+<span class="material-symbols-outlined text-base">checklist</span>
+<span>Bulk Actions (<span id="selected-count">0</span>)</span>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Customize columns">
+<span class="material-symbols-outlined text-lg">view_column</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Reload queue">
+<span class="material-symbols-outlined text-lg">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Master Patient Workspace (Grid with Main Table + Dynamic Quick View Flyout) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Table Container (xl:col-span-8 or 9 when preview active, here xl:col-span-9) -->
+<div class="xl:col-span-9 flex flex-col gap-space-md">
+<div class="rounded-2xl bg-surface-card shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm uppercase tracking-wider">
+<th class="py-3.5 px-4 w-10 text-center">
+<input class="w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" id="select-all-checkbox" type="checkbox"/>
+</th>
+<th class="py-3.5 px-4 font-semibold">Patient &amp; Demographics</th>
+<th class="py-3.5 px-3 font-semibold">MRN &amp; Accession</th>
+<th class="py-3.5 px-3 font-semibold">Clinical Indication</th>
+<th class="py-3.5 px-3 font-semibold">Modality</th>
+<th class="py-3.5 px-3 font-semibold">Study Timestamp</th>
+<th class="py-3.5 px-3 font-semibold">AI Triage Status</th>
+<th class="py-3.5 px-3 font-semibold">Risk Tier</th>
+<th class="py-3.5 px-3 font-semibold">Assigned MD</th>
+<th class="py-3.5 px-4 text-right font-semibold">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm text-on-surface">
+<!-- ROW 1: David Morrison (CRITICAL) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group bg-priority-critical-soft/20" onclick="selectPatient('PT-20481')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-critical-soft text-priority-critical flex items-center justify-center font-bold text-xs">
+                        DM
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Morrison, David</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20481</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">61y • M</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-884920</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99214</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Acute dyspnea, suspected tension pneumothorax / effusion">
+                      Acute dyspnea, suspected tension pneumothorax
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-priority-critical font-semibold">ICU Bed #4B</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      CXR PA
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">17 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">08:31 AM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-ping"></span>
+                      Awaiting MD Review
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-critical-soft text-priority-critical font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">local_fire_department</span>
+                      Critical
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-bold">AM</div>
+<span class="text-on-surface-variant font-medium">Dr. A. Mehta</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Elena Rostova (HIGH) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20485')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-high-soft text-priority-high flex items-center justify-center font-bold text-xs">
+                        ER
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Rostova, Elena</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20485</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">47y • F</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-671204</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99201</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Subacute thunderclap headache, visual field defects">
+                      Thunderclap headache, visual field defects
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Neuro Triage</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Brain MRI
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">17 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">07:54 AM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high"></span>
+                      Awaiting MD Review
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      High
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[10px] font-bold">SR</div>
+<span class="text-on-surface-variant font-medium">Dr. S. Rao</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Marcus Chen (PROCESSING) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20488')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold text-xs">
+                        MC
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Chen, Marcus</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20488</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">35y • M</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-902311</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99198</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Blunt abdominal trauma, focused assessment FAST scan">
+                      Blunt abdominal trauma, FAST assessment
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Emergency Dept</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Abdomen CT
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">17 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">07:42 AM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-container font-badge-label text-badge-label font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                      AI Pipeline 74%
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-outline font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">hourglass_empty</span>
+                      Calculating
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-bold">AM</div>
+<span class="text-on-surface-variant font-medium">Dr. A. Mehta</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container text-outline cursor-not-allowed" title="Processing DICOM Pipeline">
+<span class="material-symbols-outlined text-lg">sync</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Aisha Al-Mansoor (MODERATE) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20489')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-moderate-soft text-priority-moderate flex items-center justify-center font-bold text-xs">
+                        AA
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Al-Mansoor, Aisha</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20489</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">52y • F</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-554189</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99175</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Chronic cough, interstitial opacities on baseline chest film">
+                      Chronic dry cough, interstitial opacities
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Pulmonology Outpatient</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      CXR PA/LAT
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">17 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">06:50 AM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high"></span>
+                      Awaiting MD Review
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-moderate-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                      Moderate
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center text-[10px] font-bold">PI</div>
+<span class="text-on-surface-variant font-medium">Dr. P. Iyer</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Sarah Jenkins (COMPLETED / LOW) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20490')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-low-soft text-priority-low flex items-center justify-center font-bold text-xs">
+                        SJ
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Jenkins, Sarah</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20490</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">29y • F</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-419082</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99150</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Post-op lumbar spine fixation routine verification">
+                      Post-op spine fixation routine follow-up
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Orthopedics</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Spine X-ray
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">16 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">18:20 PM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">check</span>
+                      Signed &amp; Approved
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                      Low / Normal
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-primary flex items-center justify-center text-[10px] font-bold">KN</div>
+<span class="text-on-surface-variant font-medium">Dr. K. Nair</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Michael Chang (NEEDS FURTHER ASSESSMENT) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20492')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-critical-soft text-priority-critical flex items-center justify-center font-bold text-xs">
+                        MC
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Chang, Michael</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20492</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">72y • M</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-781903</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99120</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Focal right lower lobe consolidation, hemoptysis">
+                      Consolidation RLL, hemoptysis
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Inpatient Ward 3</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Chest CT High-Res
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">16 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">15:45 PM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error-container text-error font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">contact_support</span>
+                      Needs Assessment
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      High
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-bold">AM</div>
+<span class="text-on-surface-variant font-medium">Dr. A. Mehta</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 7: James O'Connor (UPLOADED) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20502')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold text-xs">
+                        JO
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">O'Connor, James</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20502</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">58y • M</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-330194</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99084</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Suspected micro-fracture scaphoid, wrist fall on outstretched hand">
+                      Wrist trauma, rule out scaphoid fx
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-outline">Urgent Care Center</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Wrist X-ray 3V
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">16 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">14:10 PM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">cloud_done</span>
+                      Uploaded (Raw)
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                      Low
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[10px] font-bold">SR</div>
+<span class="text-on-surface-variant font-medium">Dr. S. Rao</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 8: Priya Patel (AWAITING REVIEW / HIGH) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group" onclick="selectPatient('PT-20511')">
+<td class="py-3.5 px-4 text-center" onclick="event.stopPropagation()">
+<input class="patient-row-checkbox w-4 h-4 rounded text-secondary focus:ring-border-focus cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-priority-high-soft text-priority-high flex items-center justify-center font-bold text-xs">
+                        PP
+                      </div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-primary group-hover:text-secondary transition-colors">Patel, Priya</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">PT-20511</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-medium">41y • F</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">#MRN-192830</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">ACC-99041</span>
+</div>
+</td>
+<td class="py-3.5 px-3 max-w-[200px]">
+<p class="truncate font-medium text-on-surface" title="Suspected left hemispheric ischemic stroke onset within 3 hrs">
+                      Acute ischemic stroke onset &lt; 3h
+                    </p>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-semibold">Stroke Code 1</span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold">
+                      Brain CT Non-Con
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-medium">16 Nov 2026</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">12:30 PM</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high"></span>
+                      Awaiting MD Review
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      High
+                    </span>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-bold">AM</div>
+<span class="text-on-surface-variant font-medium">Dr. A. Mehta</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<a class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-secondary transition-colors" href="#" title="Open AI Analysis DICOM Viewer">
+<span class="material-symbols-outlined text-lg">neurology</span>
+</a>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-space-md bg-surface-card border-t border-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                Showing <span class="font-bold text-on-surface">1 - 8</span> of <span class="font-bold text-on-surface">1,420</span> patients
+              </span>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm text-outline">Rows:</span>
+<select class="h-8 px-2 rounded-lg bg-surface-container-low text-on-surface font-label-code-sm text-label-code-sm outline-none">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+</div>
+</div>
+<!-- Page Switcher -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-bold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-code-sm text-label-code-sm font-medium transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-code-sm text-label-code-sm font-medium transition-colors">3</button>
+<span class="px-1 text-outline font-label-code-sm text-label-code-sm">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-code-sm text-label-code-sm font-medium transition-colors">178</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Patient Preview Flyout / Detail Drawer (Desktop col-span-3) -->
+<div class="xl:col-span-3 flex flex-col gap-space-md" id="preview-panel">
+<div class="p-space-lg rounded-2xl bg-surface-card shadow-sm flex flex-col gap-space-md sticky top-[7.5rem]">
+<!-- Drawer Header & Badges -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Active Selection</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold" id="flyout-name">David Morrison</h2>
+<div class="flex items-center gap-1.5 pt-0.5">
+<span class="font-label-code text-label-code text-secondary font-bold" id="flyout-id">PT-20481</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="flyout-demographics">61y • Male</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-critical-soft text-priority-critical font-badge-label text-badge-label font-bold" id="flyout-priority-badge">
+<span class="material-symbols-outlined text-xs">local_fire_department</span>
+              Tier 1
+            </span>
+</div>
+<!-- Synthetic Patient Photo & Radiograph Preview Card -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden bg-viewer-dark shadow-inner flex items-center justify-center group">
+<div class="w-full h-full bg-cover bg-center opacity-85 group-hover:opacity-100 transition-opacity" data-alt="Digital frontal PA chest radiograph showcasing radiographic markers with AI heat-map diagnostic overlays in amber and cyan tints highlighting left pleural cavity opacity in clinical high resolution medical dark background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrGQZtwP6kNa8i8lvvs_Y5l8J6Wby5wr1Zvxk6GmdyTAj5EdxaDsVP7oitvjHDjmekTTQKZoTdfVF5NiQoqkcpMTdjI_lSyLUdoROmR5By6cx7h78VA4wpqh1MmbrCz3bhBMGKkKlDOyunIdE6xJt2Y_U0zjwqw0nagqWpcW4AIyX1NzoGi4edugVdjlaL5Xmrn0gkpEZtn9_UJhbwzIHje5-TZttmisQg7pSpJqw')"></div>
+<!-- Glass Radiograph HUD Overlay -->
+<div class="absolute bottom-2 left-2 right-2 p-2 rounded-lg bg-viewer-surface/85 backdrop-blur-md flex items-center justify-between text-on-primary">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm font-semibold tracking-wide">STUDY: CXR_PA_099214.DCM</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">AI Probability: 94.2% Effusion</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">fullscreen</span>
+</div>
+</div>
+<!-- Critical Clinical Alerts (Allergies & Contraindications) -->
+<div class="flex flex-col gap-1.5 p-3 rounded-xl bg-priority-critical-soft/40">
+<div class="flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">report</span>
+<span>Allergies &amp; Safety Flags</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-priority-critical text-on-error font-badge-label text-badge-label font-semibold">
+                Penicillin (Anaphylaxis)
+              </span>
+<span class="px-2 py-0.5 rounded-md bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-semibold">
+                IV Iodinated Contrast (Moderate Risk)
+              </span>
+</div>
+</div>
+<!-- Latest Recorded Vitals (Simulated Telemetry) -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Telemetry &amp; Vitals</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-medium">12m ago</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-outline">BP (Arterial)</span>
+<span class="font-label-code text-label-code text-on-surface font-bold">142/91 <span class="text-xs text-outline font-normal">mmHg</span></span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-outline">Heart Rate</span>
+<span class="font-label-code text-label-code text-priority-high font-bold">104 <span class="text-xs text-outline font-normal">bpm</span></span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-outline">SpO2 (Pulse)</span>
+<span class="font-label-code text-label-code text-priority-critical font-bold">89% <span class="text-xs text-outline font-normal">on Room Air</span></span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-outline">Resp Rate</span>
+<span class="font-label-code text-label-code text-on-surface font-bold">24 <span class="text-xs text-outline font-normal">/min</span></span>
+</div>
+</div>
+</div>
+<!-- Emergency Contacts & Care Team -->
+<div class="flex flex-col gap-1.5 p-3 rounded-xl bg-surface-container-low">
+<span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Emergency Contact</span>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-on-surface">Rachel Morrison</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Spouse • (555) 019-4821</span>
+</div>
+<a class="p-2 rounded-lg bg-surface-card text-secondary hover:bg-surface-container transition-colors shadow-sm" href="#" title="Contact relative">
+<span class="material-symbols-outlined text-base">call</span>
+</a>
+</div>
+</div>
+<!-- Primary Direct Action Launcher -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<a class="w-full h-11 rounded-xl bg-primary-container text-on-primary flex items-center justify-center gap-2 font-body-bold text-body-bold shadow-md hover:bg-tertiary-container transition-all" href="#">
+<span class="material-symbols-outlined text-lg text-secondary-fixed">neurology</span>
+<span>Launch AI Analysis Viewer</span>
+</a>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container text-body-sm font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">assignment</span>
+<span>Case Chart</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container text-body-sm font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">forward_to_inbox</span>
+<span>Transfer</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Governance, Audit Logging & Regulatory Compliance Footer Section -->
+<div class="mt-space-lg p-space-md rounded-2xl bg-surface-card shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">verified</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-bold">FDA 21 CFR Part 820 Class II CDS Cleared</span>
+</div>
+<div class="h-4 w-px bg-border-subtle hidden sm:block"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-xl">lock_clock</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">HIPAA Audit Trail: Session SHA-256 #830F-9942 active</span>
+</div>
+<div class="h-4 w-px bg-border-subtle hidden sm:block"></div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-priority-low"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PACS Gateway: Mount Sinai Main / Synapse v5.7</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Dataset Version: 2026.4.19</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface font-label-code-sm text-label-code-sm hover:bg-surface-container transition-colors">
+          View Audit Log
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive UI Script for Patient Selection and Bulk Actions
+  const patientsData = {
+    'PT-20481': {
+      name: 'David Morrison',
+      demographics: '61y • Male',
+      priority: 'Tier 1 Critical',
+      badgeClass: 'bg-priority-critical-soft text-priority-critical',
+      icon: 'local_fire_department',
+      allergies: 'Penicillin (Anaphylaxis)',
+      vitals: { bp: '142/91', hr: '104', spo2: '89%', rr: '24' },
+      contact: 'Rachel Morrison (Spouse) • (555) 019-4821'
+    },
+    'PT-20485': {
+      name: 'Elena Rostova',
+      demographics: '47y • Female',
+      priority: 'Tier 2 High',
+      badgeClass: 'bg-priority-high-soft text-priority-high',
+      icon: 'warning',
+      allergies: 'Sulfa Drugs',
+      vitals: { bp: '138/85', hr: '88', spo2: '97%', rr: '18' },
+      contact: 'Viktor Rostov (Brother) • (555) 014-9982'
+    },
+    'PT-20488': {
+      name: 'Marcus Chen',
+      demographics: '35y • Male',
+      priority: 'Calculating Triage',
+      badgeClass: 'bg-surface-container text-outline',
+      icon: 'hourglass_empty',
+      allergies: 'No Known Drug Allergies (NKDA)',
+      vitals: { bp: '124/80', hr: '92', spo2: '99%', rr: '20' },
+      contact: 'Linda Chen (Mother) • (555) 012-3341'
+    },
+    'PT-20489': {
+      name: 'Aisha Al-Mansoor',
+      demographics: '52y • Female',
+      priority: 'Tier 3 Moderate',
+      badgeClass: 'bg-priority-moderate-soft text-priority-high',
+      icon: 'schedule',
+      allergies: 'Aspirin, NSAIDs',
+      vitals: { bp: '130/84', hr: '76', spo2: '94%', rr: '19' },
+      contact: 'Tariq Al-Mansoor (Spouse) • (555) 017-6629'
+    },
+    'PT-20490': {
+      name: 'Sarah Jenkins',
+      demographics: '29y • Female',
+      priority: 'Tier 4 Routine / Low',
+      badgeClass: 'bg-priority-low-soft text-priority-low',
+      icon: 'check_circle',
+      allergies: 'Latex hypersensitivity',
+      vitals: { bp: '118/76', hr: '68', spo2: '99%', rr: '14' },
+      contact: 'Mark Jenkins (Parent) • (555) 016-7788'
+    },
+    'PT-20492': {
+      name: 'Michael Chang',
+      demographics: '72y • Male',
+      priority: 'Tier 2 High',
+      badgeClass: 'bg-priority-high-soft text-priority-high',
+      icon: 'warning',
+      allergies: 'Codeine',
+      vitals: { bp: '155/96', hr: '98', spo2: '91%', rr: '22' },
+      contact: 'Grace Chang (Daughter) • (555) 013-4412'
+    },
+    'PT-20502': {
+      name: "James O'Connor",
+      demographics: '58y • Male',
+      priority: 'Tier 4 Low',
+      badgeClass: 'bg-priority-low-soft text-priority-low',
+      icon: 'check_circle',
+      allergies: 'NKDA',
+      vitals: { bp: '122/79', hr: '72', spo2: '98%', rr: '16' },
+      contact: "Patricia O'Connor (Wife) • (555) 015-8833"
+    },
+    'PT-20511': {
+      name: 'Priya Patel',
+      demographics: '41y • Female',
+      priority: 'Tier 2 High',
+      badgeClass: 'bg-priority-high-soft text-priority-high',
+      icon: 'warning',
+      allergies: 'Morphine',
+      vitals: { bp: '160/100', hr: '110', spo2: '95%', rr: '21' },
+      contact: 'Raj Patel (Spouse) • (555) 011-9920'
+    }
+  };
+
+  function selectPatient(id) {
+    const data = patientsData[id];
+    if (!data) return;
+
+    document.getElementById('flyout-name').textContent = data.name;
+    document.getElementById('flyout-id').textContent = id;
+    document.getElementById('flyout-demographics').textContent = data.demographics;
+    
+    const badge = document.getElementById('flyout-priority-badge');
+    badge.className = `inline-flex items-center gap-1 px-2.5 py-1 rounded-full font-badge-label text-badge-label font-bold ${data.badgeClass}`;
+    badge.innerHTML = `<span class="material-symbols-outlined text-xs">${data.icon}</span> ${data.priority}`;
+  }
+
+  // Checkbox management for bulk actions
+  const selectAll = document.getElementById('select-all-checkbox');
+  const rowCheckboxes = document.querySelectorAll('.patient-row-checkbox');
+  const countEl = document.getElementById('selected-count');
+
+  function updateCount() {
+    const checkedCount = document.querySelectorAll('.patient-row-checkbox:checked').length;
+    countEl.textContent = checkedCount;
+  }
+
+  if (selectAll) {
+    selectAll.addEventListener('change', (e) => {
+      rowCheckboxes.forEach(cb => cb.checked = e.target.checked);
+      updateCount();
+    });
+  }
+
+  rowCheckboxes.forEach(cb => {
+    cb.addEventListener('change', updateCount);
+  });
+</script></main></div><script src="../mediscan-router.js"></script></body></html>

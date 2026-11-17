@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="tablet_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-card": "#FFFFFF",
+            "priority-high": "#F39A38",
+            "surface-container": "#e5eeff",
+            "tertiary-container": "#053444",
+            "tertiary": "#001e29",
+            "on-surface-variant": "#43474d",
+            "border-focus": "#16A6A1",
+            "outline-variant": "#c3c7ce",
+            "viewer-surface": "#121E2A",
+            "on-secondary-container": "#006f6b",
+            "primary-fixed": "#cfe5ff",
+            "tertiary-fixed": "#c1e8fd",
+            "secondary-fixed": "#7ef5ef",
+            "surface": "#f8f9ff",
+            "on-tertiary-fixed-variant": "#244b5c",
+            "on-secondary-fixed": "#00201f",
+            "priority-critical-soft": "#FEE2E2",
+            "on-primary-container": "#7f9ab8",
+            "on-primary": "#ffffff",
+            "outline": "#73777e",
+            "on-background": "#0b1c30",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#2e4963",
+            "surface-container-low": "#eff4ff",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#00504d",
+            "tertiary-fixed-dim": "#a5cce0",
+            "primary": "#001d33",
+            "surface-container-high": "#dce9ff",
+            "surface-variant": "#d3e4fe",
+            "on-tertiary-container": "#769db0",
+            "primary-container": "#15324b",
+            "on-surface": "#0b1c30",
+            "canvas-bg": "#F5F8FA",
+            "inverse-on-surface": "#eaf1ff",
+            "background": "#f8f9ff",
+            "primary-fixed-dim": "#aec9e9",
+            "surface-dim": "#cbdbf5",
+            "inverse-primary": "#aec9e9",
+            "viewer-dark": "#0B131B",
+            "on-tertiary-fixed": "#001f2a",
+            "on-primary-fixed": "#001d33",
+            "surface-container-lowest": "#ffffff",
+            "priority-high-soft": "#FFEDD5",
+            "inverse-surface": "#213145",
+            "border-subtle": "#E2E8F0",
+            "priority-moderate-soft": "#FEF9C3",
+            "priority-low-soft": "#DCFCE7",
+            "surface-tint": "#46617c",
+            "surface-container-highest": "#d3e4fe",
+            "secondary-container": "#7bf3ed",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "priority-critical": "#DC4444",
+            "surface-bright": "#f8f9ff",
+            "secondary": "#006a66",
+            "priority-moderate": "#E8BD45",
+            "secondary-fixed-dim": "#60d9d3",
+            "priority-low": "#36A477"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-2xl": "3rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "label-code-sm": ["JetBrains Mono"],
+            "label-code": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "badge-label": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }],
+            "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }],
+            "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }],
+            "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }],
+            "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-canvas-bg font-body-md text-on-surface antialiased">
+<!-- Clinical Safety Top Notice Banner -->
+<div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-sm sm:px-space-md flex items-center justify-between text-xs shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-1.5 overflow-hidden">
+<span class="material-symbols-outlined text-priority-high text-sm shrink-0">verified_user</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold uppercase shrink-0">Clinical Advisory:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Decision support only. Clinical review required.</span>
+</div>
+<div class="flex items-center gap-1.5 shrink-0 pl-2">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-bold whitespace-nowrap">PROTO-21 CFR</span>
+</div>
+</div>
+<!-- Tablet Header (Left aligned with collapsed sidebar at 4.5rem/72px) -->
+<header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle">
+<div class="w-full h-full px-space-md flex items-center justify-between gap-space-sm">
+<!-- Left brand & demo chip -->
+<div class="flex items-center gap-2.5">
+<div class="flex items-center justify-center w-10 h-10 rounded-lg bg-surface-container-low shrink-0">
+<img alt="MediScan AI Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span>
+<span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span>
+</div>
+<span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold ml-1">DEMO</span>
+</div>
+<!-- Tablet Compact Search Box -->
+<div class="flex-1 max-w-xs mx-space-sm">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-base pointer-events-none">search</span>
+<input class="w-full h-9 pl-8 pr-3 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, MRN..." type="text"/>
+</div>
+</div>
+<!-- Right User Controls -->
+<div class="flex items-center gap-2">
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold text-[10px]">4</span>
+</button>
+<div class="h-6 w-px bg-border-subtle"></div>
+<div class="flex items-center gap-2 pl-1" title="Dr. A. Mehta (Chief Radiologist)">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/>
+</div>
+</div>
+</div>
+</header>
+<!-- TABLET (768px): Collapsed Icon-Only Left Sidebar (w-16) -->
+<aside class="fixed left-0 top-[5.75rem] bottom-0 w-16 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between items-center py-3 shadow-[2px_0_12px_rgba(21,50,75,0.03)]">
+<nav aria-label="Tablet navigation" class="flex flex-col items-center gap-2 w-full px-2">
+<!-- Active Dashboard Icon -->
+<a aria-label="Dashboard" class="relative group flex items-center justify-center w-11 h-11 rounded-xl bg-primary-container text-on-primary shadow-sm transition-all" href="#" title="Dashboard">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Dashboard</span>
+</a>
+<!-- Upload Scan -->
+<a aria-label="Upload Scan" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Upload Scan">
+<span class="material-symbols-outlined text-xl">upload_file</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Upload Scan</span>
+</a>
+<!-- AI Analysis -->
+<a aria-label="AI Analysis" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="AI Analysis">
+<span class="material-symbols-outlined text-xl">neurology</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">AI Analysis</span>
+</a>
+<!-- Datasets -->
+<a aria-label="Clinical Datasets" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Clinical Datasets">
+<span class="material-symbols-outlined text-xl">database</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Clinical Datasets</span>
+</a>
+<!-- Patients -->
+<a aria-label="Patients" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Patients">
+<span class="material-symbols-outlined text-xl">personal_injury</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Patients</span>
+</a>
+<!-- Risk Prioritization -->
+<a aria-label="Risk Prioritization" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Risk Prioritization">
+<span class="material-symbols-outlined text-xl">acute</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Risk Prioritization</span>
+</a>
+<!-- Reports -->
+<a aria-label="Reports" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Reports">
+<span class="material-symbols-outlined text-xl">description</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Reports</span>
+</a>
+<!-- Notifications -->
+<a aria-label="Notifications" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Notifications">
+<span class="material-symbols-outlined text-xl">notifications_active</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Notifications</span>
+</a>
+<div class="w-8 border-t border-border-subtle my-1"></div>
+<!-- Settings / Profile -->
+<a aria-label="Settings" class="relative group flex items-center justify-center w-11 h-11 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#" title="Settings">
+<span class="material-symbols-outlined text-xl">manage_accounts</span>
+<span class="absolute left-14 z-50 px-2 py-1 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Settings / Profile</span>
+</a>
+</nav>
+<!-- Bottom System Status Pill Icon -->
+<div class="relative group flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low text-priority-low" title="All Systems Operational • Audit Logged">
+<span class="w-2.5 h-2.5 rounded-full bg-priority-low"></span>
+<span class="absolute left-14 z-50 px-2.5 py-1.5 bg-viewer-surface text-white text-xs font-medium rounded shadow-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">Systems Operational (HIPAA Logged)</span>
+</div>
+</aside>
+<!-- TABLET MAIN CONTENT (Offset by 4rem / 64px for collapsed sidebar) -->
+<div class="pl-16">
+<main class="min-h-screen pt-[5.75rem] w-full px-space-md sm:px-space-lg pb-space-2xl bg-canvas-bg">
+<div class="flex flex-col w-full max-w-5xl mx-auto">
+<!-- 1. Tablet Welcome & Global Action Row -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary font-bold">Diagnostic Triage Center</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant font-medium">RAD-ONC-04</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Good morning, Dr. Mehta</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Tuesday, Nov 18, 2026 • <span class="font-body-bold text-body-bold text-priority-critical">12 urgent reviews</span> awaiting sign-off.
+            </p>
+</div>
+<!-- Tablet Action Cluster -->
+<div class="flex items-center gap-2 self-start sm:self-auto shrink-0 pt-1 sm:pt-0">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-card text-on-surface hover:bg-surface-container-low border border-border-subtle shadow-sm font-body-bold text-body-bold text-xs" title="Batch Prioritization">
+<span class="material-symbols-outlined text-base text-on-surface-variant">tune</span>
+<span>Prioritize</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all shadow-md font-body-bold text-body-bold text-xs group">
+<span class="material-symbols-outlined text-secondary-container text-base group-hover:rotate-90 transition-transform">add_circle</span>
+<span>+ Upload DICOM</span>
+</button>
+</div>
+</div>
+<!-- 2. Metric Stat Cards: Dedicated 2x2 Grid Layout for Tablet -->
+<div class="grid grid-cols-2 gap-space-md mb-space-lg">
+<!-- Card 1: Volume -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle/70 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Volume (30D)</span>
+<div class="font-headline-lg text-headline-lg text-primary font-bold mt-0.5">1,248</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-xl">folder_managed</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-priority-low text-sm">trending_up</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">+12% vs last mo</span>
+<span class="font-body-sm text-body-sm text-outline ml-auto hidden sm:inline">Instances</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container"></div>
+</div>
+<!-- Card 2: Pending Reviews -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle/70 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Pending</span>
+<span class="px-1.5 py-0.2 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-[10px] font-bold">Active</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary font-bold mt-0.5">37</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-priority-high-soft flex items-center justify-center text-priority-high">
+<span class="material-symbols-outlined text-xl">hourglass_top</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-priority-high text-sm">stethoscope</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Doctor Approval</span>
+<span class="font-label-code-sm text-label-code-sm text-outline ml-auto">Avg 22m</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-high/60"></div>
+</div>
+<!-- Card 3: Critical Queue -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle/70 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1">
+<span class="font-label-code-sm text-label-code-sm text-priority-critical uppercase font-bold tracking-wider">Critical</span>
+<span class="w-1.5 h-1.5 rounded-full bg-priority-critical animate-ping"></span>
+</div>
+<div class="font-headline-lg text-headline-lg text-priority-critical font-bold mt-0.5">12</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-priority-critical-soft flex items-center justify-center text-priority-critical">
+<span class="material-symbols-outlined text-xl">e911_emergency</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-priority-critical text-sm">emergency</span>
+<span class="font-body-bold text-body-bold text-priority-critical text-xs sm:text-body-sm truncate">Immediate SLA</span>
+<span class="font-label-code-sm text-label-code-sm text-outline ml-auto">&lt;60m</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-critical"></div>
+</div>
+<!-- Card 4: Verified Decisions -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle/70 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Verified</span>
+<div class="font-headline-lg text-headline-lg text-primary font-bold mt-0.5">1,086</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-priority-low-soft flex items-center justify-center text-priority-low">
+<span class="material-symbols-outlined text-xl">task_alt</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-priority-low text-sm">verified</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">99.4% match</span>
+<span class="font-body-sm text-body-sm text-outline ml-auto hidden sm:inline">AI vs MD</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-low"></div>
+</div>
+</div>
+<!-- 3. Responsive Inflow Chart Section Adapted for Tablet Width -->
+<div class="p-space-md rounded-xl bg-surface-card shadow-sm border border-border-subtle mb-space-lg">
+<div class="flex items-center justify-between gap-space-sm mb-3">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-primary">Inflow &amp; Sign-off Velocity</h2>
+<span class="px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-[10px] font-bold">SIMULATED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI RAW INFERENCE VS. BOARD-CERTIFIED SIGN-OFFS</p>
+</div>
+<!-- Segmented Pill Range Selector -->
+<div class="inline-flex p-0.5 rounded-lg bg-surface-container-low shrink-0" id="tablet-chart-toggle">
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors" onclick="setChartRangeTablet('7D', this)">7D</button>
+<button class="px-2.5 py-1 rounded-md bg-surface-card shadow-sm text-primary font-label-code-sm text-label-code-sm font-bold transition-colors" onclick="setChartRangeTablet('30D', this)">30D</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors" onclick="setChartRangeTablet('90D', this)">90D</button>
+</div>
+</div>
+<!-- Compact Spark Stats Bar -->
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low mb-3 text-xs">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container"></span>
+<span class="text-on-surface">Scans: <strong class="font-label-code font-bold">1,248</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-border-focus"></span>
+<span class="text-on-surface">Approved: <strong class="font-label-code font-bold">1,086</strong></span>
+</div>
+</div>
+<div class="text-outline font-label-code-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+<span>Peak: 14:00 - 18:00</span>
+</div>
+</div>
+<!-- Tablet Responsive SVG Velocity Chart -->
+<div class="w-full h-48 relative">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 700 180">
+<defs>
+<lineargradient id="tabletProcFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#15324B" stop-opacity="0.22"></stop>
+<stop offset="100%" stop-color="#15324B" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="tabletApprFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#16A6A1" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#16A6A1" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="20" y2="20"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="70" y2="70"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="120" y2="120"></line>
+<!-- Processed line -->
+<path d="M0,130 Q65,115 130,90 T260,85 T390,45 T520,60 T650,28 L700,20 L700,175 L0,175 Z" fill="url(#tabletProcFill)"></path>
+<path d="M0,130 Q65,115 130,90 T260,85 T390,45 T520,60 T650,28 L700,20" stroke="#15324B" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Approved line -->
+<path d="M0,150 Q65,135 130,110 T260,105 T390,65 T520,75 T650,45 L700,32 L700,175 L0,175 Z" fill="url(#tabletApprFill)"></path>
+<path d="M0,150 Q65,135 130,110 T260,105 T390,65 T520,75 T650,45 L700,32" stroke="#16A6A1" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Interactive key node points -->
+<circle cx="390" cy="45" fill="#15324B" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="390" cy="65" fill="#16A6A1" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="650" cy="28" fill="#15324B" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="650" cy="45" fill="#16A6A1" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+</svg>
+<div class="flex justify-between items-center text-outline font-label-code-sm text-[11px] mt-2 pt-1 border-t border-border-subtle/50">
+<span>Nov 01</span>
+<span>Nov 05</span>
+<span>Nov 09</span>
+<span>Nov 13</span>
+<span>Nov 17 (Peak)</span>
+<span>Today</span>
+</div>
+</div>
+</div>
+<!-- 4. 2-COLUMN SECTION: Modalities/Risk Stack (Left) + Triage Action Hub (Right) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mb-space-lg">
+<!-- Column 1: Modality Breakdown & Risk Stratification Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- Modality Breakdown -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary text-base">Modality Breakdown</h3>
+<span class="material-symbols-outlined text-outline text-lg">medical_services</span>
+</div>
+<!-- Segmented ratio bar -->
+<div class="w-full h-3 rounded-full overflow-hidden flex bg-surface-container my-2">
+<div class="h-full bg-primary-container" style="width: 54%" title="Chest X-Ray 54%"></div>
+<div class="h-full bg-border-focus" style="width: 28%" title="Brain MRI 28%"></div>
+<div class="h-full bg-secondary-fixed" style="width: 18%" title="Abdominal CT 18%"></div>
+</div>
+<div class="flex flex-col gap-1.5 mt-1 font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>Chest X-ray</span>
+<span class="font-label-code text-label-code font-bold text-primary">54% <span class="text-outline text-xs font-normal">(674)</span></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-border-focus"></span>Brain MRI</span>
+<span class="font-label-code text-label-code font-bold text-primary">28% <span class="text-outline text-xs font-normal">(349)</span></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>Abdominal CT</span>
+<span class="font-label-code text-label-code font-bold text-primary">18% <span class="text-outline text-xs font-normal">(225)</span></span>
+</div>
+</div>
+</div>
+<!-- Risk Stratification Donut -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary text-base">Risk Stratification</h3>
+<span class="material-symbols-outlined text-outline text-lg">pie_chart</span>
+</div>
+<div class="flex items-center gap-4 my-auto">
+<div class="relative w-24 h-24 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4.2"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#36A477" stroke-dasharray="42, 100" stroke-linecap="round" stroke-width="4.2"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E8BD45" stroke-dasharray="34, 100" stroke-dashoffset="-42" stroke-width="4.2"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#F39A38" stroke-dasharray="16, 100" stroke-dashoffset="-76" stroke-width="4.2"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#DC4444" stroke-dasharray="8, 100" stroke-dashoffset="-92" stroke-linecap="round" stroke-width="4.2"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-label-code text-sm font-bold text-primary">100%</span>
+<span class="font-label-code-sm text-[9px] text-outline">Triage</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 w-full text-xs">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-critical"></span>Critical</span>
+<span class="font-label-code-sm font-bold text-priority-critical">8%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-high"></span>High</span>
+<span class="font-label-code-sm font-bold text-priority-high">16%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-moderate"></span>Moderate</span>
+<span class="font-label-code-sm font-bold text-on-surface">34%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span>Low</span>
+<span class="font-label-code-sm font-bold text-priority-low">42%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Triage Action Hub (Touch-friendly urgent review cards) -->
+<div class="p-4 rounded-xl bg-surface-card shadow-sm border border-border-subtle flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-priority-critical text-xl">priority_high</span>
+<h3 class="font-headline-sm text-headline-sm text-primary text-base">Triage Action Hub</h3>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-[10px] font-bold">URGENT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+              Automated high-risk neural network alerts filtered for fast clinical sign-off.
+            </p>
+<div class="flex flex-col gap-3">
+<!-- Urgent Card 1: PT-20481 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-priority-critical/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-code font-bold text-priority-critical">PT-20481</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-[10px]">Chest X-Ray</span>
+</div>
+<span class="inline-flex items-center gap-1 text-priority-critical font-label-code-sm text-xs font-bold">
+<span class="material-symbols-outlined text-xs">timer</span>
+                    &lt; 45m SLA
+                  </span>
+</div>
+<div class="font-body-bold text-body-bold text-primary text-sm">
+                  Right Pleural Effusion Suspicion
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                  Dense blunting of right costophrenic angle detected (<strong class="text-priority-critical">89% confidence</strong>).
+                </p>
+<div class="mt-1 flex items-center justify-between pt-1 border-t border-border-subtle/50">
+<span class="font-label-code-sm text-label-code-sm text-outline text-[10px]">14 mins ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-priority-critical text-on-error hover:bg-error transition-colors font-body-bold text-body-bold text-xs shadow-sm flex items-center gap-1 active:scale-95">
+<span>Review now</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Urgent Card 2: PT-20489 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-priority-high/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-code font-bold text-priority-high">PT-20489</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-[10px]">Brain MRI</span>
+</div>
+<span class="inline-flex items-center gap-1 text-priority-high font-label-code-sm text-xs font-bold">
+<span class="material-symbols-outlined text-xs">timer</span>
+                    &lt; 1h 10m
+                  </span>
+</div>
+<div class="font-body-bold text-body-bold text-primary text-sm">
+                  Acute Ischemic Sign Simulated
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                  DWI hyperintensity in left middle cerebral artery territory.
+                </p>
+<div class="mt-1 flex items-center justify-between pt-1 border-t border-border-subtle/50">
+<span class="font-label-code-sm text-label-code-sm text-outline text-[10px]">28 mins ago</span>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors font-body-bold text-body-bold text-xs shadow-sm flex items-center gap-1 active:scale-95">
+<span>Review now</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Tablet-Optimized Medical Worklist Table Module -->
+<div class="rounded-xl bg-surface-card shadow-sm border border-border-subtle overflow-hidden mb-space-lg">
+<!-- Table Header & Filter Toolbar -->
+<div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border-subtle">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary text-base">Recent Medical Worklist</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live DICOM ingest queue mapped to AI triage</p>
+</div>
+<div class="flex items-center gap-2">
+<select class="h-9 pl-3 pr-7 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface border border-transparent focus:outline-none cursor-pointer">
+<option value="all">All Modalities</option>
+<option value="xr">Chest X-ray</option>
+<option value="mri">Brain MRI</option>
+<option value="ct">Abdominal CT</option>
+</select>
+<div class="relative">
+<input class="h-9 pl-2.5 pr-7 bg-surface-container-low rounded-lg font-label-code-sm text-xs text-on-surface placeholder:text-outline focus:outline-none" placeholder="Filter PT..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-base">search</span>
+</div>
+</div>
+</div>
+<!-- Tablet Responsive Table with Touch Friendly Rows -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm uppercase tracking-wider">
+<tr>
+<th class="py-3 px-4 font-semibold">Patient ID</th>
+<th class="py-3 px-3 font-semibold">Modality</th>
+<th class="py-3 px-3 font-semibold">AI Status</th>
+<th class="py-3 px-3 font-semibold">Priority</th>
+<th class="py-3 px-3 font-semibold hidden sm:table-cell">Clinician</th>
+<th class="py-3 px-4 font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle/60 font-body-sm">
+<!-- Case 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-priority-critical text-base">emergency</span>
+<div>
+<span class="font-label-code text-label-code font-bold text-primary block">PT-20481</span>
+<span class="text-[10px] text-outline font-label-code-sm">Nov 17, 2026</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-body-sm text-xs font-medium whitespace-nowrap">Chest X-ray</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-[11px] font-bold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+                      Review
+                    </span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-critical-soft text-priority-critical font-badge-label text-[10px] font-bold uppercase whitespace-nowrap">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      Critical
+                    </span>
+</td>
+<td class="py-3 px-3 font-body-bold text-xs text-on-surface hidden sm:table-cell">
+                    Dr. A. Mehta
+                  </td>
+<td class="py-3 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-xs shadow-sm transition-transform active:scale-95">
+<span>Review</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Case 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-surface-container-lowest/50">
+<td class="py-3 px-4">
+<span class="font-label-code text-label-code font-bold text-primary block">PT-20485</span>
+<span class="text-[10px] text-outline font-label-code-sm">Nov 17, 2026</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-body-sm text-xs font-medium whitespace-nowrap">Brain MRI</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-priority-low-soft text-priority-low font-badge-label text-[11px] font-bold whitespace-nowrap">
+<span class="material-symbols-outlined text-xs">done</span>
+                      Done
+                    </span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-badge-label text-[10px] font-bold uppercase whitespace-nowrap">
+<span class="material-symbols-outlined text-xs">info</span>
+                      Moderate
+                    </span>
+</td>
+<td class="py-3 px-3 font-body-bold text-xs text-on-surface hidden sm:table-cell">
+                    Dr. S. Rao
+                  </td>
+<td class="py-3 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-body-bold text-xs transition-colors">
+<span>View</span>
+<span class="material-symbols-outlined text-xs">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Case 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-priority-high text-base">priority_high</span>
+<div>
+<span class="font-label-code text-label-code font-bold text-primary block">PT-20492</span>
+<span class="text-[10px] text-outline font-label-code-sm">Nov 17, 2026</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-body-sm text-xs font-medium whitespace-nowrap">Abdominal CT</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-[11px] font-bold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+                      Review
+                    </span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-[10px] font-bold uppercase whitespace-nowrap">
+<span class="material-symbols-outlined text-xs">warning_amber</span>
+                      High
+                    </span>
+</td>
+<td class="py-3 px-3 font-body-bold text-xs text-on-surface hidden sm:table-cell">
+                    Dr. K. Nair
+                  </td>
+<td class="py-3 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-xs shadow-sm transition-transform active:scale-95">
+<span>Review</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Case 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-surface-container-lowest/50">
+<td class="py-3 px-4">
+<span class="font-label-code text-label-code font-bold text-primary block">PT-20510</span>
+<span class="text-[10px] text-outline font-label-code-sm">Nov 17, 2026</span>
+</td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-body-sm text-xs font-medium whitespace-nowrap">Chest X-ray</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-secondary font-badge-label text-[11px] font-bold whitespace-nowrap">
+<span class="material-symbols-outlined text-xs animate-spin">sync</span>
+                      Running
+                    </span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-[10px] font-bold uppercase whitespace-nowrap">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                      Low
+                    </span>
+</td>
+<td class="py-3 px-3 font-body-bold text-xs text-on-surface hidden sm:table-cell">
+                    Dr. A. Mehta
+                  </td>
+<td class="py-3 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-low text-outline font-body-bold text-xs cursor-not-allowed" disabled="">
+<span>Wait</span>
+<span class="material-symbols-outlined text-xs">hourglass_empty</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination -->
+<div class="p-3 bg-surface-card flex items-center justify-between border-t border-border-subtle text-xs">
+<span class="text-on-surface-variant font-body-sm">
+              Showing <strong>1-4</strong> of <strong>37</strong> studies
+            </span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded bg-surface-container-low text-outline disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded bg-primary text-on-primary font-label-code-sm font-bold">1</button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface font-label-code-sm">2</button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface font-label-code-sm">3</button>
+<button class="p-1 rounded bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 6. Bottom Regulatory Compliance Card -->
+<div class="p-3.5 rounded-xl bg-surface-card border border-border-subtle shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-lg">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-bold text-primary text-xs">SaMD Advisory Notice</span>
+<span class="font-label-code-sm text-[9px] px-1.5 py-0.2 rounded bg-surface-container font-semibold">ISO 13485</span>
+</div>
+<p class="text-on-surface-variant font-body-sm text-[11px] leading-tight">
+                MediScan AI operates as non-autonomous computer-assisted triage. Primary evaluation rests with clinician.
+              </p>
+</div>
+</div>
+<button class="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors font-body-bold text-[11px] whitespace-nowrap">
+            View Audit Certificate
+          </button>
+</div>
+</div>
+</main>
+</div>
+<script>
+    function setChartRangeTablet(range, el) {
+      const parent = document.getElementById('tablet-chart-toggle');
+      if (!parent) return;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
+        btn.classList.add('text-on-surface-variant');
+      });
+      el.classList.remove('text-on-surface-variant');
+      el.classList.add('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
+    }
+  </script>
+<script src="../mediscan-router.js"></script></body></html>

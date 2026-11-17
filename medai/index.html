@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediScan AI — Master Clinical Hub & Connected Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#15324B",
+            "primary-dark": "#0B1C30",
+            secondary: "#16A6A1",
+            "secondary-dark": "#006A66",
+            "canvas-bg": "#F5F8FA",
+            "surface-card": "#FFFFFF",
+            "priority-critical": "#DC4444",
+            "priority-high": "#F39A38",
+            "priority-moderate": "#E8BD45",
+            "priority-low": "#36A477",
+            "priority-critical-soft": "#FEE2E2",
+            "priority-high-soft": "#FFEDD5",
+            "priority-moderate-soft": "#FEF9C3",
+            "priority-low-soft": "#DCFCE7",
+            "border-subtle": "#E2E8F0"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #F5F8FA; color: #0B1C30; }
+    .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
+    .device-shadow { box-shadow: 0 25px 50px -12px rgba(21, 50, 75, 0.15), 0 0 0 1px rgba(21, 50, 75, 0.08); }
+    .pipeline-step:hover .step-badge { transform: scale(1.1); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- Compliance Banner -->
+  <aside class="w-full bg-priority-moderate-soft text-primary py-2 px-4 flex items-center justify-center gap-2 border-b border-priority-moderate/20 text-xs font-mono z-50">
+    <span class="material-symbols-outlined text-priority-high text-base">verified_user</span>
+    <span><strong>CLINICAL SAFETY ADVISORY:</strong> AI-assisted decision support. Not a medical diagnosis. Prototype uses synthetic data. All 18 screens interconnected.</span>
+    <span class="bg-white/80 text-priority-high px-2 py-0.5 rounded text-[10px] font-bold uppercase ml-1 border border-priority-moderate/30">CONNECTED PROTOTYPE</span>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-border-subtle shadow-sm px-6 py-3.5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
+        <span class="material-symbols-outlined text-secondary text-2xl">radiology</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-headline font-extrabold text-xl tracking-tight text-primary">MediScan</span>
+          <span class="font-headline font-bold text-xl text-secondary">AI</span>
+          <span class="bg-secondary/10 text-secondary text-xs px-2 py-0.5 rounded-full font-mono font-semibold">Master Hub</span>
+        </div>
+        <p class="text-xs text-slate-500 font-mono">Clinical Clarity System • 18 Screen Views Connected</p>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="hidden lg:flex items-center gap-6 font-mono text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-priority-low animate-pulse"></span>
+        <span class="text-slate-600">Cross-Screen Router: <strong>Active</strong></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-slate-400">|</span>
+        <span class="text-slate-600">Primary Case: <strong>PT-20481 (CXR)</strong></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-slate-400">|</span>
+        <span class="text-slate-600">Design System: <strong>Clinical Clarity</strong></span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-2">
+      <a href="stitch.md" target="_blank" class="px-3 py-1.5 rounded-lg border border-border-subtle bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+        <span class="material-symbols-outlined text-sm">description</span>
+        <span>Stitch Spec</span>
+      </a>
+      <a href="clinical_clarity/DESIGN.md" target="_blank" class="px-3 py-1.5 rounded-lg border border-border-subtle bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+        <span class="material-symbols-outlined text-sm">palette</span>
+        <span>Design Tokens</span>
+      </a>
+      <button onclick="launchFullscreen()" class="px-3.5 py-1.5 rounded-lg bg-primary text-white hover:bg-primary-dark text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all">
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+        <span>Launch App</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-[1600px] w-full mx-auto px-6 py-8 flex flex-col gap-10">
+
+    <!-- Hero / Connection Overview -->
+    <section class="bg-gradient-to-br from-primary to-[#0f2438] rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute right-40 top-10 opacity-10 pointer-events-none hidden md:block">
+        <svg class="w-80 text-secondary stroke-current" fill="none" viewBox="0 0 500 160">
+          <path d="M0 80h80l15-35 25 70 30-100 25 140 20-75h45l10-20 15 40 10-20h225" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+        </svg>
+      </div>
+
+      <div class="relative z-10 max-w-3xl flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 w-fit text-xs font-mono text-secondary">
+          <span class="w-2 h-2 rounded-full bg-secondary"></span>
+          <span>Unified Clinical Decision Support Ecosystem</span>
+        </div>
+        <h1 class="font-headline font-bold text-3xl lg:text-4xl leading-tight">
+          Every Screen, Workflow & Diagnostic Decision — Connected.
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+          MediScan AI synthesizes 18 Stitch-generated screens into an end-to-end clinical loop: from instant DICOM ingestion and AI CADe lesion localization to risk-adjusted emergency triage, longitudinal case tracking, and board-certified physician sign-off.
+        </p>
+        
+        <div class="flex flex-wrap items-center gap-3 mt-2">
+          <button onclick="setScreen('main_dashboard_mediscan_ai_1/code.html')" class="px-5 py-2.5 rounded-xl bg-secondary text-white font-semibold text-sm hover:bg-secondary-dark transition-all flex items-center gap-2 shadow-md">
+            <span class="material-symbols-outlined text-lg">play_arrow</span>
+            <span>Explore Connected Live App</span>
+          </button>
+          <button onclick="document.getElementById('workflow-journey').scrollIntoView({behavior: 'smooth'})" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all border border-white/20 flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">schema</span>
+            <span>View Architecture Map</span>
+          </button>
+          <div class="text-xs text-slate-300 font-mono ml-2 py-1">
+            Through-line: <span class="text-white font-bold bg-white/10 px-2 py-1 rounded">Patient PT-20481</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE RUNNER SECTION -->
+    <section class="flex flex-col gap-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-border-subtle">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-headline font-bold text-xl text-primary">Interactive Application Preview</h2>
+            <span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-mono font-bold">LIVE ROUTING</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">Click any sidebar item or button inside the frame — navigation routes smoothly across all screens.</p>
+        </div>
+
+        <!-- Viewport & Screen Selector Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Screen Dropdown -->
+          <div class="relative">
+            <select id="screen-select" onchange="setScreen(this.value)" class="appearance-none bg-white border border-border-subtle text-slate-800 text-xs font-semibold rounded-lg pl-3 pr-8 py-2 focus:ring-2 focus:ring-secondary focus:outline-none shadow-sm cursor-pointer">
+              <optgroup label="Core Clinical Pipeline">
+                <option value="main_dashboard_mediscan_ai_1/code.html" selected>1. Main Dashboard (Executive V1)</option>
+                <option value="upload_medical_scan_mediscan_ai/code.html">2. Upload Medical Scan (DICOM)</option>
+                <option value="ai_image_analysis_mediscan_ai/code.html">3. AI CADe Analysis (Hero Viewer)</option>
+                <option value="risk_prioritization_board_mediscan_ai_1/code.html">4. Risk Prioritization Board (Kanban)</option>
+                <option value="case_details_pt_20481_mediscan_ai/code.html">5. Case Details (PT-20481 Longitudinal)</option>
+                <option value="medical_reports_mediscan_ai/code.html">6. Medical Reports & Sign-Off</option>
+                <option value="patient_management_mediscan_ai/code.html">7. Patient Registry Management</option>
+                <option value="clinical_dataset_analysis_mediscan_ai/code.html">8. Clinical Dataset Analysis (CSV)</option>
+                <option value="notifications_mediscan_ai/code.html">9. Notifications & Urgent Triage</option>
+                <option value="user_profile_settings_mediscan_ai/code.html">10. User Profile & Security</option>
+                <option value="login_registration_mediscan_ai/code.html">11. Login & Clinical Verification</option>
+              </optgroup>
+              <optgroup label="Dashboard Variants">
+                <option value="main_dashboard_mediscan_ai_2/code.html">Main Dashboard (Variant 2)</option>
+                <option value="main_dashboard_mediscan_ai_3/code.html">Main Dashboard (Variant 3)</option>
+              </optgroup>
+              <optgroup label="Tablet Responsive Views">
+                <option value="ai_image_analysis_tablet_mediscan_ai_1/code.html">AI Viewer (Tablet V1)</option>
+                <option value="ai_image_analysis_tablet_mediscan_ai_2/code.html">AI Viewer (Tablet V2)</option>
+                <option value="ai_image_analysis_tablet_mediscan_ai_3/code.html">AI Viewer (Tablet V3)</option>
+                <option value="ai_image_analysis_tablet_mediscan_ai_4/code.html">AI Viewer (Tablet V4 - Inspector)</option>
+              </optgroup>
+              <optgroup label="Triage Board Variants">
+                <option value="risk_prioritization_board_mediscan_ai_2/code.html">Risk Prioritization (Variant 2)</option>
+              </optgroup>
+            </select>
+            <span class="material-symbols-outlined text-slate-400 text-sm absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+          </div>
+
+          <!-- Device Viewport Toggle -->
+          <div class="inline-flex p-1 rounded-lg bg-slate-200/80 border border-slate-300/60" id="device-toggle">
+            <button onclick="setDevice('desktop')" id="btn-desktop" class="px-3 py-1 rounded-md text-xs font-semibold bg-white text-primary shadow-sm flex items-center gap-1.5 transition-all">
+              <span class="material-symbols-outlined text-sm">desktop_windows</span>
+              <span class="hidden sm:inline">Desktop (1440px)</span>
+            </button>
+            <button onclick="setDevice('tablet')" id="btn-tablet" class="px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-primary transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">tablet</span>
+              <span class="hidden sm:inline">Tablet (768px)</span>
+            </button>
+            <button onclick="setDevice('mobile')" id="btn-mobile" class="px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-primary transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">smartphone</span>
+              <span class="hidden sm:inline">Mobile (390px)</span>
+            </button>
+          </div>
+
+          <!-- Direct Open Button -->
+          <a id="btn-direct-link" href="main_dashboard_mediscan_ai_1/code.html" target="_blank" class="p-2 rounded-lg bg-white border border-border-subtle hover:bg-slate-50 text-slate-700 shadow-sm transition-colors" title="Open Current Screen in Full Tab">
+            <span class="material-symbols-outlined text-base">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Frame Viewport Container -->
+      <div class="w-full flex justify-center bg-slate-900/5 rounded-2xl p-2 sm:p-4 border border-border-subtle">
+        <div id="viewport-frame" class="w-full h-[760px] bg-white rounded-xl overflow-hidden device-shadow transition-all duration-300 relative">
+          <iframe id="app-iframe" src="main_dashboard_mediscan_ai_1/code.html" class="w-full h-full border-0"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL WORKFLOW & CLINICAL JOURNEY (MAKING THE CONNECTION) -->
+    <section id="workflow-journey" class="flex flex-col gap-6 pt-6">
+      <div>
+        <div class="flex items-center gap-2">
+          <h2 class="font-headline font-bold text-2xl text-primary">The Clinical Connection Loop</h2>
+          <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold">END-TO-END FLOW</span>
+        </div>
+        <p class="text-sm text-slate-600 mt-1">
+          How data, AI inference, clinician oversight, and regulatory compliance connect seamlessly across the MediScan AI platform.
+        </p>
+      </div>
+
+      <!-- Flowchart Visual Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Step 1: Ingestion -->
+        <div class="p-5 rounded-xl bg-white border border-border-subtle shadow-sm flex flex-col justify-between hover:border-secondary transition-all group">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold font-mono">01</div>
+              <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-mono font-medium">Ingestion</span>
+            </div>
+            <h3 class="font-headline font-bold text-base text-primary">Scan Ingestion & Datasets</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Accepts DICOM, Chest X-rays, Brain MRIs, Abdominal CTs, and clinical cohort CSV datasets with validation.
+            </p>
+            <div class="text-[11px] font-mono text-slate-500 bg-slate-50 p-2 rounded border border-slate-100">
+              Screens: <a href="javascript:void(0)" onclick="setScreen('upload_medical_scan_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">Upload Scan</a>, <a href="javascript:void(0)" onclick="setScreen('clinical_dataset_analysis_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">CSV Datasets</a>
+            </div>
+          </div>
+          <button onclick="setScreen('upload_medical_scan_mediscan_ai/code.html')" class="mt-4 w-full py-1.5 rounded-lg bg-slate-50 hover:bg-secondary hover:text-white text-xs font-semibold text-slate-700 transition-colors flex items-center justify-center gap-1">
+            <span>Load Upload Module</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Step 2: AI Triage -->
+        <div class="p-5 rounded-xl bg-white border border-border-subtle shadow-sm flex flex-col justify-between hover:border-secondary transition-all group">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center font-bold font-mono">02</div>
+              <span class="px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high text-[11px] font-mono font-medium">CADe / CADx</span>
+            </div>
+            <h3 class="font-headline font-bold text-base text-primary">AI Inference & Explainability</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Runs lesion detection, CAM heatmap generation, bounding box overlays, and confidence/uncertainty scoring.
+            </p>
+            <div class="text-[11px] font-mono text-slate-500 bg-slate-50 p-2 rounded border border-slate-100">
+              Screens: <a href="javascript:void(0)" onclick="setScreen('ai_image_analysis_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">AI Viewer</a>, <a href="javascript:void(0)" onclick="setScreen('risk_prioritization_board_mediscan_ai_1/code.html')" class="text-secondary font-bold hover:underline">Triage Board</a>
+            </div>
+          </div>
+          <button onclick="setScreen('ai_image_analysis_mediscan_ai/code.html')" class="mt-4 w-full py-1.5 rounded-lg bg-slate-50 hover:bg-secondary hover:text-white text-xs font-semibold text-slate-700 transition-colors flex items-center justify-center gap-1">
+            <span>Load AI Viewer</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Step 3: Clinician Review -->
+        <div class="p-5 rounded-xl bg-white border border-border-subtle shadow-sm flex flex-col justify-between hover:border-secondary transition-all group">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-priority-high/10 text-priority-high flex items-center justify-center font-bold font-mono">03</div>
+              <span class="px-2 py-0.5 rounded-full bg-priority-critical-soft text-priority-critical text-[11px] font-mono font-medium">Human-in-Loop</span>
+            </div>
+            <h3 class="font-headline font-bold text-base text-primary">Doctor Review & Approval</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Qualified radiologists (Dr. Mehta, Dr. Nair) inspect longitudinal history, audit logs, and approve/override AI findings.
+            </p>
+            <div class="text-[11px] font-mono text-slate-500 bg-slate-50 p-2 rounded border border-slate-100">
+              Screens: <a href="javascript:void(0)" onclick="setScreen('case_details_pt_20481_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">Case PT-20481</a>, <a href="javascript:void(0)" onclick="setScreen('patient_management_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">Patients</a>
+            </div>
+          </div>
+          <button onclick="setScreen('case_details_pt_20481_mediscan_ai/code.html')" class="mt-4 w-full py-1.5 rounded-lg bg-slate-50 hover:bg-secondary hover:text-white text-xs font-semibold text-slate-700 transition-colors flex items-center justify-center gap-1">
+            <span>Load Case PT-20481</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Step 4: Final Reporting -->
+        <div class="p-5 rounded-xl bg-white border border-border-subtle shadow-sm flex flex-col justify-between hover:border-secondary transition-all group">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-priority-low/10 text-priority-low flex items-center justify-center font-bold font-mono">04</div>
+              <span class="px-2 py-0.5 rounded-full bg-priority-low-soft text-priority-low text-[11px] font-mono font-medium">Compliance</span>
+            </div>
+            <h3 class="font-headline font-bold text-base text-primary">Report Sign-Off & Audit</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Generates legal PDF medical reports with digital clinician signature, PACS archival, and urgent notification alerts.
+            </p>
+            <div class="text-[11px] font-mono text-slate-500 bg-slate-50 p-2 rounded border border-slate-100">
+              Screens: <a href="javascript:void(0)" onclick="setScreen('medical_reports_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">Reports</a>, <a href="javascript:void(0)" onclick="setScreen('notifications_mediscan_ai/code.html')" class="text-secondary font-bold hover:underline">Alert Center</a>
+            </div>
+          </div>
+          <button onclick="setScreen('medical_reports_mediscan_ai/code.html')" class="mt-4 w-full py-1.5 rounded-lg bg-slate-50 hover:bg-secondary hover:text-white text-xs font-semibold text-slate-700 transition-colors flex items-center justify-center gap-1">
+            <span>Load Reports</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Deep Dive: The Patient PT-20481 Thread -->
+      <div class="p-6 rounded-2xl bg-white border border-border-subtle shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-priority-critical-soft text-priority-critical flex items-center justify-center font-mono font-bold text-lg flex-shrink-0">
+            <span class="material-symbols-outlined text-2xl">vital_signs</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <span class="font-headline font-bold text-lg text-primary">Patient PT-20481: The Connecting Clinical Thread</span>
+              <span class="px-2 py-0.5 rounded-full bg-priority-critical text-white text-[10px] font-mono font-bold">CRITICAL TRIAGE</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              A 64-year-old male with Chest PA X-Ray showing right lower lobe alveolar consolidation and elevated fever (38.8°C). This single patient links the entire platform:
+              <strong>Dashboard</strong> (top critical alert) &rarr;
+              <strong>Risk Board</strong> (&lt;1h emergency review column) &rarr;
+              <strong>AI Analysis</strong> (94.2% pneumonia probability + heatmap) &rarr;
+              <strong>Case Details</strong> (full longitudinal history) &rarr;
+              <strong>Reports</strong> (signed diagnostic summary).
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button onclick="setScreen('case_details_pt_20481_mediscan_ai/code.html')" class="px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold hover:bg-primary-dark transition-colors shadow-sm">
+            View PT-20481 Details
+          </button>
+          <button onclick="setScreen('ai_image_analysis_mediscan_ai/code.html')" class="px-4 py-2 rounded-xl border border-secondary text-secondary text-xs font-semibold hover:bg-secondary/10 transition-colors">
+            Inspect Heatmap
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLETE SCREEN CATALOG & MATRIX -->
+    <section class="flex flex-col gap-6 pt-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-headline font-bold text-2xl text-primary">Complete Screen Gallery (18 Views)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Every exported screen and responsive layout variant generated from the master prompt.</p>
+        </div>
+        <div class="text-xs font-mono text-slate-500">
+          Total: <strong class="text-primary font-bold">18 Screens</strong>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- Card: Login -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="login_registration_mediscan_ai/screen.png" alt="Login" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 01</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Authentication & Access</h3>
+              <p class="text-xs text-slate-500">SAML/OAuth2 institutional login, clinician credentialing, role verification.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('login_registration_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Main Dashboard V1 -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="main_dashboard_mediscan_ai_1/screen.png" alt="Dashboard V1" onerror="this.src='main_dashboard_mediscan_ai_2/screen.png'" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 02 (Hero)</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Main Clinical Dashboard</h3>
+              <p class="text-xs text-slate-500">Executive metrics, inflow rate, high-priority emergency queue, 30D trends.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('main_dashboard_mediscan_ai_1/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Upload Scan -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="upload_medical_scan_mediscan_ai/screen.png" alt="Upload" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 03</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Upload Medical Scan</h3>
+              <p class="text-xs text-slate-500">Drag-and-drop DICOM validator, modality segmented selector, PACS query.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('upload_medical_scan_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: AI CADe Viewer -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group border-secondary">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="ai_image_analysis_mediscan_ai/screen.png" alt="AI Viewer" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-secondary text-white font-mono text-[10px] px-2 py-0.5 rounded font-bold">Hero Screen 04</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">AI Image Analysis (Desktop)</h3>
+              <p class="text-xs text-slate-500">Dark diagnostic DICOM viewport, CAM heatmap toggle, uncertainty intervals.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('ai_image_analysis_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-secondary text-white hover:bg-secondary-dark text-xs font-semibold transition-colors">
+              Open Hero Viewer
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Risk Board -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="risk_prioritization_board_mediscan_ai_1/screen.png" alt="Risk Board" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 08</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Risk Prioritization Board</h3>
+              <p class="text-xs text-slate-500">Kanban triage lanes (Critical, High, Moderate, Low) with threshold sliders.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('risk_prioritization_board_mediscan_ai_1/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Case Details PT-20481 -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="case_details_pt_20481_mediscan_ai/screen.png" alt="Case Details" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 07</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Case Details (PT-20481)</h3>
+              <p class="text-xs text-slate-500">Patient demographics, historical scans, clinical timeline, and audit trail.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('case_details_pt_20481_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Medical Reports -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="medical_reports_mediscan_ai/screen.png" alt="Reports" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 09</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Medical Reports & Sign-Off</h3>
+              <p class="text-xs text-slate-500">Legal diagnostic documentation, digital signature capture, and PDF export.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('medical_reports_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Patient Management -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="patient_management_mediscan_ai/screen.png" alt="Patients" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 06</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Patient Management</h3>
+              <p class="text-xs text-slate-500">Master patient directory, modality filters, doctor assignments, triage status.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('patient_management_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Clinical Datasets -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="clinical_dataset_analysis_mediscan_ai/screen.png" alt="Datasets" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 05</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Clinical Dataset Analysis</h3>
+              <p class="text-xs text-slate-500">CSV dataset quality scores, missing-value heatmaps, parameter histograms.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('clinical_dataset_analysis_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Notifications -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="notifications_mediscan_ai/screen.png" alt="Notifications" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 10</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Alerts & Notifications</h3>
+              <p class="text-xs text-slate-500">Critical findings alert dispatch, pending review reminders, real-time events.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('notifications_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Settings -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="user_profile_settings_mediscan_ai/screen.png" alt="Settings" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-primary/90 text-white font-mono text-[10px] px-2 py-0.5 rounded">Screen 11</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Clinician Profile & Settings</h3>
+              <p class="text-xs text-slate-500">Physician NPI credentials, security settings, 2FA, data retention policies.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('user_profile_settings_mediscan_ai/code.html')" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Screen
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Tablet Responsive Views -->
+        <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="h-44 bg-slate-100 overflow-hidden relative border-b border-border-subtle">
+              <img src="ai_image_analysis_tablet_mediscan_ai_4/screen.png" alt="Tablet View" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+              <span class="absolute top-2 left-2 bg-slate-800 text-white font-mono text-[10px] px-2 py-0.5 rounded">Tablet & Mobile</span>
+            </div>
+            <div class="p-4 flex flex-col gap-1.5">
+              <h3 class="font-headline font-bold text-sm text-primary">Tablet / Mobile Views (4 Variants)</h3>
+              <p class="text-xs text-slate-500">Ergonomic touch layouts for bedside tablet rounds and emergency consults.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <button onclick="setScreen('ai_image_analysis_tablet_mediscan_ai_4/code.html'); setDevice('tablet');" class="w-full py-1.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-xs font-semibold text-slate-700 transition-colors">
+              Open Tablet View
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL PRINCIPLES & DESIGN SYSTEM TOKENS -->
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-border-subtle shadow-sm flex flex-col gap-6">
+      <div class="flex items-center justify-between border-b border-border-subtle pb-4">
+        <div>
+          <h2 class="font-headline font-bold text-xl text-primary">Clinical Clarity Design System Standards</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Strict ergonomic and diagnostic requirements codified across all screens.</p>
+        </div>
+        <span class="text-xs font-mono text-secondary font-bold">WCAG AA Compliant</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+        <div class="flex flex-col gap-2">
+          <span class="font-headline font-bold text-primary text-sm flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#15324B]"></span>
+            <span>Color Architecture</span>
+          </span>
+          <p class="text-slate-600 leading-relaxed">
+            Medical Navy (<code>#15324B</code>) anchors chrome and high-level hierarchy. Deep Clinical Teal (<code>#16A6A1</code>) drives active toggles, sync states, and progress paths. Diagnostic viewport shifts to dark tokens (<code>#0B131B</code>).
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="font-headline font-bold text-primary text-sm flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#DC4444]"></span>
+            <span>Triage & Urgency Chips</span>
+          </span>
+          <p class="text-slate-600 leading-relaxed">
+            Four priority levels: <strong>Critical</strong> (<code>#DC4444</code>), <strong>High</strong> (<code>#F39A38</code>), <strong>Moderate</strong> (<code>#E8BD45</code>), and <strong>Low</strong> (<code>#36A477</code>). Never rely on color alone—paired with alert iconography and SLA time limits.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="font-headline font-bold text-primary text-sm flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#43474d]"></span>
+            <span>Triple Typography</span>
+          </span>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Plus Jakarta Sans</strong> for geometric architectural authority. <strong>Inter</strong> for dense readable clinical notes. <strong>JetBrains Mono</strong> for tabular patient IDs (<code>PT-20481</code>), coordinates, and confidence bounds.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="font-headline font-bold text-primary text-sm flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#16A6A1]"></span>
+            <span>Safety Copy & Disclaimers</span>
+          </span>
+          <p class="text-slate-600 leading-relaxed">
+            Every AI finding is tagged <code>DEMO / SIMULATED</code>. AI is assistive only and never provides final diagnoses. Mandatory doctor sign-off is required before any report is finalized.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-border-subtle py-6 px-6 mt-12 text-center text-xs text-slate-500 font-mono flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1600px] w-full mx-auto">
+    <div class="flex items-center gap-2">
+      <span class="font-headline font-bold text-primary text-sm">MediScan AI</span>
+      <span>• Assistive Intelligence for Faster, Safer Clinical Review</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span>Synthetic Prototype Data</span>
+      <span>•</span>
+      <span>HIPAA / Audit Log Simulation Active</span>
+      <span>•</span>
+      <a href="stitch.md" class="text-secondary hover:underline">Stitch Specification</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const iframe = document.getElementById('app-iframe');
+    const screenSelect = document.getElementById('screen-select');
+    const directLink = document.getElementById('btn-direct-link');
+    const viewportFrame = document.getElementById('viewport-frame');
+
+    function setScreen(url) {
+      iframe.src = url;
+      screenSelect.value = url;
+      directLink.href = url;
+      window.scrollTo({ top: viewportFrame.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function setDevice(device) {
+      const btnDesk = document.getElementById('btn-desktop');
+      const btnTab = document.getElementById('btn-tablet');
+      const btnMob = document.getElementById('btn-mobile');
+
+      btnDesk.className = "px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-primary transition-all flex items-center gap-1.5";
+      btnTab.className = "px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-primary transition-all flex items-center gap-1.5";
+      btnMob.className = "px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-primary transition-all flex items-center gap-1.5";
+
+      if (device === 'desktop') {
+        btnDesk.className = "px-3 py-1 rounded-md text-xs font-semibold bg-white text-primary shadow-sm flex items-center gap-1.5 transition-all";
+        viewportFrame.style.width = "100%";
+        viewportFrame.style.maxWidth = "100%";
+        viewportFrame.style.height = "760px";
+      } else if (device === 'tablet') {
+        btnTab.className = "px-3 py-1 rounded-md text-xs font-semibold bg-white text-primary shadow-sm flex items-center gap-1.5 transition-all";
+        viewportFrame.style.width = "768px";
+        viewportFrame.style.maxWidth = "768px";
+        viewportFrame.style.height = "820px";
+      } else if (device === 'mobile') {
+        btnMob.className = "px-3 py-1 rounded-md text-xs font-semibold bg-white text-primary shadow-sm flex items-center gap-1.5 transition-all";
+        viewportFrame.style.width = "390px";
+        viewportFrame.style.maxWidth = "390px";
+        viewportFrame.style.height = "780px";
+      }
+    }
+
+    function launchFullscreen() {
+      window.open(screenSelect.value, '_blank');
+    }
+
+    // Synchronize parent dropdown when user navigates inside the live iframe
+    window.addEventListener('message', function(ev) {
+      if (ev.data && ev.data.type === 'MEDISCAN_PAGE_CHANGED') {
+        const folder = ev.data.folder;
+        const targetOption = Array.from(screenSelect.options).find(opt => opt.value.startsWith(folder + '/'));
+        if (targetOption) {
+          screenSelect.value = targetOption.value;
+          directLink.href = targetOption.value;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

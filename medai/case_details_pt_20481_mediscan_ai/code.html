@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#e5eeff", "tertiary-container": "#053444", "tertiary": "#001e29", "on-surface-variant": "#43474d", "border-focus": "#16A6A1", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#006f6b", "primary-fixed": "#cfe5ff", "tertiary-fixed": "#c1e8fd", "secondary-fixed": "#7ef5ef", "surface": "#f8f9ff", "on-tertiary-fixed-variant": "#244b5c", "on-secondary-fixed": "#00201f", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#7f9ab8", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#0b1c30", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#2e4963", "surface-container-low": "#eff4ff", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504d", "tertiary-fixed-dim": "#a5cce0", "primary": "#001d33", "surface-container-high": "#dce9ff", "surface-variant": "#d3e4fe", "on-tertiary-container": "#769db0", "primary-container": "#15324b", "on-surface": "#0b1c30", "canvas-bg": "#F5F8FA", "inverse-on-surface": "#eaf1ff", "background": "#f8f9ff", "primary-fixed-dim": "#aec9e9", "surface-dim": "#cbdbf5", "inverse-primary": "#aec9e9", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#001f2a", "on-primary-fixed": "#001d33", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#213145", "border-subtle": "#E2E8F0", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#DCFCE7", "surface-tint": "#46617c", "surface-container-highest": "#d3e4fe", "secondary-container": "#7bf3ed", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#f8f9ff", "secondary": "#006a66", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#60d9d3", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-bg font-body-md text-on-surface antialiased"><div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">Clinical Safety Advisory:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div></div><header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle"><div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="MediScan AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical Decision Support</span></div></div><div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO / SIMULATED</span></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, ID, DICOM studies, MRN..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></button><div class="h-6 w-px bg-border-subtle"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end hidden lg:flex"><span class="font-body-bold text-body-bold text-on-surface leading-tight">Dr. A. Mehta</span><span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief Radiologist</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/></div></div></div></header><aside class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(21,50,75,0.03)]"><div class="flex-1 overflow-y-auto py-space-md px-space-sm"><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical Workflows</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="upload-scan" href="#"><span class="material-symbols-outlined text-lg">upload_file</span><span>Upload Scan</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="ai-analysis" href="#"><span class="material-symbols-outlined text-lg">neurology</span><span>AI Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="clinical-datasets" href="#"><span class="material-symbols-outlined text-lg">database</span><span>Clinical Datasets</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="patients" href="#"><span class="material-symbols-outlined text-lg">personal_injury</span><span>Patients</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="risk-prioritization" href="#"><span class="material-symbols-outlined text-lg">acute</span><span>Risk Prioritization</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span class="material-symbols-outlined text-lg">description</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="notifications" href="#"><span class="material-symbols-outlined text-lg">notifications_active</span><span>Notifications</span></a><div class="my-space-xs border-t border-border-subtle"></div><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span></div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-profile" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Settings / Profile</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="admin" href="#"><span class="material-symbols-outlined text-lg">admin_panel_settings</span><span>Admin</span></a></nav></div><div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span></div><button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-sm">keyboard_arrow_down</span></button></div><div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging Active</span></div></div></div></aside><div class="pl-64"><main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Action Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div class="flex items-center gap-space-sm">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-body-bold text-body-bold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Back to Worklist</span>
+</a>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider">Triage Queue #CRIT-04</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-ping"></span>
+        SLA Active
+      </span>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center flex-wrap gap-2.5">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-card hover:bg-surface-container-low text-on-surface font-body-bold text-body-bold shadow-sm transition-all" onclick="document.getElementById('audit-priority-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-base text-priority-high">swap_vertical_circle</span>
+<span>Change Priority</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-card hover:bg-surface-container-low text-on-surface font-body-bold text-body-bold shadow-sm transition-all">
+<span class="material-symbols-outlined text-base text-outline">person_add</span>
+<span>Reassign</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-card hover:bg-surface-container-low text-secondary font-body-bold text-body-bold shadow-sm transition-all">
+<span class="material-symbols-outlined text-base">view_in_ar</span>
+<span>Open in PACS Viewer</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-bold text-body-bold shadow-sm transition-all">
+<span class="material-symbols-outlined text-base">task_alt</span>
+<span>Generate Report</span>
+</button>
+</div>
+</div>
+<!-- Main Patient Identity & Header Banner -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm mb-space-lg relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-surface-container-high/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative flex flex-col xl:flex-row xl:items-center justify-between gap-space-lg">
+<!-- Identity & Demographics -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-3">
+<span class="font-label-code text-2xl text-on-surface font-bold tracking-tight bg-surface-container-low px-3 py-1 rounded-lg">PT-20481</span>
+<!-- Priority Chip -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-priority-critical-soft text-priority-critical font-body-bold text-body-bold">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">error</span>
+<span>CRITICAL (Review SLA: &lt; 1 hr)</span>
+</span>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-priority-high-soft text-priority-high font-badge-label text-badge-label">
+<span class="w-2 h-2 rounded-full bg-priority-high"></span>
+<span>Awaiting Clinician Validation</span>
+</span>
+<!-- Modality Badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-sm">radiology</span>
+<span>Chest X-Ray (PA View)</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 pt-1 font-body-md text-body-md text-on-surface-variant">
+<span class="font-semibold text-on-surface">61y Male</span>
+<span class="text-outline-variant">•</span>
+<span>DOB: <strong class="text-on-surface font-medium">14 May 1965</strong></span>
+<span class="text-outline-variant">•</span>
+<span>MRN: <strong class="font-label-code text-label-code text-on-surface">#MRN-884920</strong></span>
+<span class="text-outline-variant">•</span>
+<span>Admitted: <strong class="text-on-surface font-medium">Today, 08:24 AM</strong></span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-priority-critical font-semibold">
+<span class="material-symbols-outlined text-sm">emergency</span>
+            Emergency Dept (Bay 04)
+          </span>
+</div>
+</div>
+<!-- Assigned Clinician Mini-Panel -->
+<div class="flex items-center gap-3.5 bg-surface-container-low px-4 py-3 rounded-xl min-w-[280px]">
+<img alt="Attending Radiologist" class="w-11 h-11 rounded-full object-cover ring-2 ring-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider">Assigned Attending</span>
+<a class="font-body-sm text-body-sm text-secondary hover:underline font-semibold" href="#">Change</a>
+</div>
+<span class="font-body-bold text-body-bold text-on-surface truncate">Dr. A. Mehta</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Chief Radiologist • ID #RAD-9402</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Clinical View Navigation Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto pb-2 mb-space-lg">
+<button class="px-4 py-2.5 rounded-xl bg-primary-container text-on-primary font-body-bold text-body-bold shadow-sm whitespace-nowrap flex items-center gap-2">
+<span class="material-symbols-outlined text-base">dashboard_customize</span>
+<span>Overview</span>
+<span class="px-1.5 py-0.5 rounded-md bg-on-primary-container/40 text-on-primary text-xs font-label-code-sm">Active</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-card hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-body-md text-body-md whitespace-nowrap flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">photo_library</span>
+<span>Images &amp; Series</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface text-xs font-label-code-sm">4</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-card hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-body-md text-body-md whitespace-nowrap flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">neurology</span>
+<span>AI-Assisted Findings</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-card hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-body-md text-body-md whitespace-nowrap flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">chips</span>
+<span>Clinical Data &amp; Labs</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-card hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-body-md text-body-md whitespace-nowrap flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">description</span>
+<span>Reports &amp; Documents</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-card hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-body-md text-body-md whitespace-nowrap flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base">history</span>
+<span>Audit Trail</span>
+<span class="w-1.5 h-1.5 rounded-full bg-priority-low"></span>
+</button>
+</div>
+<!-- Layout: 65% Main Column & 35% Urgent Status Column -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT / MAIN COLUMN (approx 65%) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- 1. Clinical Demographics & History Card -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-gradient-to-r from-surface-container-low to-transparent p-3 rounded-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">medical_information</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Clinical Demographics &amp; History</h2>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">Referring: <strong class="text-on-surface">Dr. S. Rao (Pulmonology)</strong></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Chief Complaint & HPI -->
+<div class="space-y-3">
+<div class="bg-surface-container-low/70 p-3.5 rounded-xl">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider block mb-1">Chief Complaint</span>
+<p class="font-body-md text-body-md text-on-surface font-medium">
+                Acute dyspnea, right-sided pleuritic chest pain, severe hypoxia (<span class="text-priority-critical font-bold">SpO2 88% on Room Air</span>).
+              </p>
+</div>
+<div class="bg-surface-container-low/70 p-3.5 rounded-xl">
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase tracking-wider block mb-1">History of Present Illness</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                3-day worsening shortness of breath with dull right lower thorax heaviness. Low-grade pyrexia noted at home. Non-smoker. No previous thromboembolic history.
+              </p>
+</div>
+</div>
+<!-- Vitals Matrix & Critical Flags -->
+<div class="flex flex-col justify-between gap-2.5">
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-high/40 p-2.5 rounded-xl text-center">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant block">Blood Pressure</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">138/88</span>
+<span class="font-label-code-sm text-label-code-sm text-outline block">mmHg</span>
+</div>
+<div class="bg-priority-high-soft/60 p-2.5 rounded-xl text-center">
+<span class="font-label-code-sm text-label-code-sm text-priority-high block">Heart Rate</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">102</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high block">bpm (Tachy)</span>
+</div>
+<div class="bg-priority-moderate-soft/60 p-2.5 rounded-xl text-center">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant block">Temperature</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">38.1°C</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high block">Pyrexia</span>
+</div>
+</div>
+<div class="bg-priority-critical-soft/50 p-3 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-priority-critical text-base">warning</span>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-priority-critical uppercase tracking-wide font-bold block">Allergies Documented</span>
+<span class="font-body-bold text-body-bold text-on-surface">Penicillin (Severe anaphylactoid reaction)</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-priority-critical text-on-error font-label-code-sm text-label-code-sm font-bold">CRITICAL</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm text-on-surface-variant px-1">
+<span>BMI: <strong class="text-on-surface">27.4</strong> (Overweight)</span>
+<span>eGFR: <strong class="text-on-surface">78 mL/min</strong></span>
+<span>D-Dimer: <strong class="text-priority-high font-bold">1.42 mcg/mL (High)</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Imaging Series Thumbnails Gallery -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">collections</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Imaging Series &amp; Views (4)</h3>
+<span class="font-label-code-sm text-label-code-sm text-outline">Study UID: 1.2.840.113619.2.55.3.882194</span>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary/10 hover:bg-secondary/20 text-secondary font-body-bold text-body-bold transition-colors">
+<span class="material-symbols-outlined text-base">fullscreen</span>
+<span>Open Fullscreen DICOM Viewer</span>
+</button>
+</div>
+<!-- 4 Grid Thumbnails with Active Selection & AI Overlay indicator -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-space-md">
+<!-- Thumbnail 1 (Active/Selected with Grad-CAM heatmap badge) -->
+<div class="relative group rounded-xl overflow-hidden bg-viewer-dark shadow-md p-1 bg-gradient-to-tr from-secondary to-primary-container cursor-pointer">
+<div class="relative h-36 rounded-lg overflow-hidden bg-viewer-surface">
+<img class="w-full h-full object-cover" data-alt="High contrast medical chest radiography frontal posteroanterior view showing right basal opacity with a glowing orange and yellow Grad-CAM heat-map activation overlay focusing on the right costophrenic angle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzLtKayiM_KwpWgpLIis3LYHjipWpEaJPadqGgunBBmdTmUe4iubz-RaewLjJAkQd-I2BMQUs4cvHgucrhHLBn1NGQanxInX2Bm-5lyOOe7OAoonb_UZsKRx3M4wacFW8JKMB7lgTsXdyl6ZyMpvEI5CPrB1j3-o8QRvs0N79DQj2ynIAH2GNhOF45B32nofONX2cmjagma8lvRu9QPJWivwgRXRdlQcuS5G1OT_M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-viewer-dark/80 via-transparent to-black/30"></div>
+<!-- Badges -->
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-secondary text-on-primary font-label-code-sm text-label-code-sm font-bold flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                Grad-CAM Heatmap
+              </span>
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-primary-container/80 backdrop-blur-sm text-on-primary font-label-code-sm text-label-code-sm font-semibold">
+                ACTIVE
+              </span>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end text-white">
+<span class="font-body-bold text-body-bold text-xs truncate">01. PA View (Current)</span>
+<span class="font-label-code-sm text-[10px] text-surface-variant">08:31</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail 2: Lateral View -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer p-1">
+<div class="relative h-36 rounded-lg overflow-hidden bg-viewer-surface">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Lateral chest radiography view showing vertebral column and retrosternal clear space, crisp monochromatic clinical radiological grayscale DICOM rendering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADixX5BQ1Ibk3Bz7fJGBlxEs2bpxeVv20FghFf2uSJsBtk_59CcPhqFMtq9B5ICF7QXwenIbyDDH_V8c7HkqrIz7Ta7FYenJGfnGK8B1BvTdnuKyd4k3jVLnTyenJveNHdpKeoYEaRL2ScKubyheJl0c-hI8b2hRepHRJ5Gqy_aoith-IE5LNp-AS4C3w2PFISy9JR1qbwV7aSziOZ7MlTC0-mxWyUcqB1GYEXVXQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-viewer-dark/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-viewer-dark/70 backdrop-blur text-white font-label-code-sm text-[10px]">
+                LATERAL
+              </span>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end text-white">
+<span class="font-body-bold text-body-bold text-xs truncate">02. Lateral Right</span>
+<span class="font-label-code-sm text-[10px] text-surface-variant">08:33</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail 3: Prior Chest X-ray (Nov 2024) -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer p-1">
+<div class="relative h-36 rounded-lg overflow-hidden bg-viewer-surface">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Monochrome archival chest X-ray comparison image from one year prior showing clear lung fields and normal diaphragmatic contours." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzzn0bB3SgINenUCEvCGoQHTQoXlLkzSizd02UKfEQw_1JtMA2tURDTyOu37QkCuSmtRPw6b5QyzpAaKoL9x8rV1fmEEr9QjfDa-15XeF9_HexC2yUlE4nzczvbEcHX0y0NCk2DzXHFH0VK1rdDKjmTK5P1uzXGwJvKAqRhbZenDmRkw3aZHEXQ67hVvKVI83CfDfPHpnGpyP5wd1LAFlvniDxYQzEA1hXOThALt8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-viewer-dark/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-code-sm text-[10px] font-bold">
+                PRIOR • NOV 2024
+              </span>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end text-white">
+<span class="font-body-bold text-body-bold text-xs truncate">03. Baseline PA</span>
+<span class="font-label-code-sm text-[10px] text-surface-variant">14M Ago</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail 4: Inverted Density Filter -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer p-1">
+<div class="relative h-36 rounded-lg overflow-hidden bg-viewer-surface">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Inverse density medical radiographic filter image showing bone and parenchymal tissue in dark negative contrast highlighting soft tissue margins." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiVA_q3d4S0CMWTEvi80keXMK7t7l69BbrPGUVIimAf4zEQ6JDEwgAp5esrYjorL_FfytxQh1EXPdoVWqxvE5nCgaRUHqoXgIRP00UoQ5SmLWzB-Ivpli6XcQJRrBQx009EeUvcYlP2F7E2Y8_7WUmf2V3T58DMhoHOFvjxukjpcqyfUVD6RPCz6CJst_bwhotiV-ASvZN4jMeTbbuTQAoKKI7CxzhKFso4bxiOqE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-viewer-dark/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-tertiary text-on-primary font-label-code-sm text-[10px]">
+                INVERTED
+              </span>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end text-white">
+<span class="font-body-bold text-body-bold text-xs truncate">04. Density Edge</span>
+<span class="font-label-code-sm text-[10px] text-surface-variant">Filtered</span>
+</div>
+</div>
+</div>
+</div>
+<!-- DICOM Metadata Bar -->
+<div class="flex flex-wrap items-center justify-between gap-2 p-3 bg-surface-container-low rounded-xl font-label-code-sm text-label-code-sm text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span>Series: <strong class="text-on-surface">#01 DICOM 3.0</strong></span>
+<span>Matrix: <strong class="text-on-surface">2048 × 2048</strong></span>
+<span>Technique: <strong class="text-on-surface">120 kVp, 5.0 mAs</strong></span>
+<span>Compression: <strong class="text-priority-low font-bold">Lossless RLE</strong></span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>Pixel Spacing: 0.143mm • Verified Calibrated</span>
+</div>
+</div>
+</div>
+<!-- 3. AI Inference Summary (SIMULATED) -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm">
+<!-- Simulation Notice Banner -->
+<div class="bg-priority-moderate-soft/60 rounded-xl p-3.5 mb-space-md flex items-start gap-3">
+<span class="material-symbols-outlined text-priority-high text-xl flex-shrink-0 mt-0.5">smart_toy</span>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-priority-high/20 font-label-code-sm text-label-code-sm text-priority-high font-bold tracking-wider">DEMO / SIMULATED</span>
+<span class="font-body-bold text-body-bold text-on-surface">AI-Assisted Diagnostic Hypothesis</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Speculative inference layer intended solely for triage prioritization. Not a confirmed radiographic finding. Clinician manual validation is strictly required under PROTO-21 CFR.
+            </p>
+</div>
+<div class="text-right hidden sm:block">
+<span class="font-label-code-sm text-label-code-sm text-outline block">Model Version</span>
+<span class="font-label-code-sm text-label-code-sm font-bold text-on-surface">ThoraxNet-v0.3b</span>
+</div>
+</div>
+<!-- Model Execution Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-2 pb-space-sm mb-space-md border-b border-border-subtle font-label-code-sm text-label-code-sm text-outline">
+<div class="flex items-center gap-4">
+<span>Inference Timestamp: <strong class="text-on-surface">17 Nov 2026, 08:42:18 AM</strong></span>
+<span>Compute Latency: <strong class="text-secondary font-bold">98.2 ms</strong></span>
+</div>
+<span>Input Hash: <strong class="text-on-surface font-mono">0x4F8E...89CD</strong></span>
+</div>
+<!-- Inference Cards Stack -->
+<div class="flex flex-col gap-3">
+<!-- Primary Observation: High Confidence Critical -->
+<div class="bg-priority-critical-soft/30 rounded-xl p-4 transition-all">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-priority-critical"></span>
+<span class="font-label-code-sm text-label-code-sm text-priority-critical font-bold uppercase tracking-wider">Primary Observation (Critical)</span>
+</div>
+<span class="font-label-code text-label-code text-priority-critical font-bold">88.4% Confidence</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">
+              Possible Right Pleural Effusion with adjacent consolidation
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+              Dense blunting of the right costophrenic sulcus observed on frontal projection with meniscus sign. Associated basal airspace consolidation cannot be excluded.
+            </p>
+<!-- Probability Bar & Confidence Interval -->
+<div class="space-y-1">
+<div class="w-full bg-surface-container-high rounded-full h-2.5 overflow-hidden">
+<div class="bg-priority-critical h-2.5 rounded-full" style="width: 88.4%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>95% Confidence Interval: [84.1% — 92.7%]</span>
+<span>Heatmap Peak Centroid: (X: 1420, Y: 1680)</span>
+</div>
+</div>
+</div>
+<!-- Secondary Finding: Moderate Alert -->
+<div class="bg-surface-container-low/70 rounded-xl p-4">
+<div class="flex items-start justify-between gap-3 mb-1.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-priority-high"></span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-bold uppercase tracking-wider">Secondary Observation</span>
+</div>
+<span class="font-label-code text-label-code text-priority-high font-bold">64.2% Confidence</span>
+</div>
+<h5 class="font-body-bold text-body-bold text-on-surface font-semibold">
+              Borderline Cardiomegaly (CTR ~0.53)
+            </h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">
+              Cardiothoracic ratio elevated relative to prior baseline study of Nov 2024 (previously 0.49). Mild ventricular elongation noted.
+            </p>
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden mb-1">
+<div class="bg-priority-high h-1.5 rounded-full" style="width: 64.2%"></div>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-outline">95% CI: [57.0% — 71.4%]</span>
+</div>
+<!-- Rule-out / Negative Finding -->
+<div class="bg-priority-low-soft/40 rounded-xl p-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-priority-low">check_circle</span>
+<div>
+<span class="font-body-bold text-body-bold text-on-surface">Negative Finding: No acute pneumothorax</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Visceral pleural line intact bilaterally; no apical avascular zone detected.</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-priority-low font-bold">96.8% Rule-out</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (approx 35%) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1. Review Urgency & SLA Status Card -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-priority-critical">timer</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Review Urgency &amp; SLA</h3>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-priority-critical-soft text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+            TIER 1
+          </span>
+</div>
+<!-- SLA Progress Graphic -->
+<div class="flex items-center gap-space-md p-4 rounded-xl bg-surface-container-low mb-space-md">
+<!-- Circular Progress SVG -->
+<div class="relative w-20 h-20 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-priority-critical transition-all duration-1000 ease-out" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="53, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface leading-none">32m</span>
+<span class="font-label-code-sm text-[9px] text-outline uppercase">Left</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-on-surface">32 mins remaining</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Maximum Review SLA: 60m</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-semibold mt-1">Target TAT: 45m</span>
+</div>
+</div>
+<!-- Auto-escalation rationale -->
+<div class="p-3.5 bg-priority-high-soft/40 rounded-xl">
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-bold uppercase tracking-wide block mb-1">
+            Prioritization Rationale
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Auto-escalated to <strong class="text-on-surface font-semibold">Tier 1 Critical</strong> triggered by high-confidence acute pleural effusion detection (<span class="font-mono">88.4%</span>) compounded by emergency hypoxia vital signs (<span class="font-mono">SpO2 88%</span>).
+          </p>
+</div>
+</div>
+<!-- 2. Clinical Review Timeline & Audit Trail -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">timeline</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Review Pipeline</h3>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-semibold">5 Events Logged</span>
+</div>
+<!-- Vertical Stepper Timeline -->
+<div class="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Step 1 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-priority-low ring-4 ring-surface-card"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-bold text-body-bold text-on-surface">DICOM Ingested</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">08:35 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">From GE Optima XR646 (Room 2)</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-priority-low ring-4 ring-surface-card"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-bold text-body-bold text-on-surface">AI Inference Completed</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">08:37 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ThoraxNet-v0.3b (98.2ms execution)</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-priority-critical ring-4 ring-surface-card"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-bold text-body-bold text-on-surface">Critical Triage Flagged</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">08:38 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated paging sent to ER Attending</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-secondary ring-4 ring-surface-card"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-bold text-body-bold text-on-surface">Assigned to Dr. Mehta</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">08:40 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Worklist auto-assignment rule #04</p>
+</div>
+</div>
+<!-- Step 5 (Current active) -->
+<div class="relative flex items-start gap-3">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-priority-high ring-4 ring-priority-high/30 animate-pulse"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-bold text-body-bold text-priority-high">Awaiting Clinician Validation</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">Now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Session opened by Dr. A. Mehta (3m ago)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Quick Action Notes / Clinician Triage -->
+<div class="bg-surface-card rounded-2xl p-space-lg shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary-container">edit_note</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Clinician Triage &amp; Actions</h3>
+</div>
+<div class="space-y-3 mb-space-md">
+<label class="block font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">
+            Attending Clinician Rapid Notes
+          </label>
+<textarea class="w-full p-3 bg-surface-container-low rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-card transition-all" placeholder="Enter findings impression, protocol modifications, or differential diagnostics..." rows="3"></textarea>
+</div>
+<!-- Quick Triage Action Buttons -->
+<div class="flex flex-col gap-2">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-secondary hover:bg-secondary/90 text-on-primary font-body-bold text-body-bold shadow-sm transition-all">
+<span class="material-symbols-outlined text-base">thumb_up</span>
+<span>Quick Agree &amp; Accept Findings</span>
+</button>
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-bold text-body-bold transition-all">
+<span class="material-symbols-outlined text-base text-priority-high">swap_calls</span>
+<span>Escalate to CT Angiogram (PE Protocol)</span>
+</button>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-card hover:bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm transition-all">
+<span class="material-symbols-outlined text-base">group</span>
+<span>Second Opinion</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-card hover:bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm transition-all">
+<span class="material-symbols-outlined text-base">forward</span>
+<span>Transfer Case</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Priority Override Audit Modal (Hidden by default, interactive) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-viewer-dark/60 backdrop-blur-sm p-4" id="audit-priority-modal">
+<div class="bg-surface-card rounded-2xl max-w-lg w-full p-space-lg shadow-xl relative animate-in fade-in duration-200">
+<div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-priority-high text-xl">gavel</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Override Triage Priority</h3>
+</div>
+<button class="text-outline hover:text-on-surface p-1" onclick="document.getElementById('audit-priority-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+        Modifying patient priority overrides automated AI triaging rules. An entry will be permanently written to the HIPAA compliance audit log with your clinician ID.
+      </p>
+<div class="space-y-3 mb-space-lg">
+<label class="block font-label-code-sm text-label-code-sm text-outline uppercase">Select Target Priority</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<input checked="" class="accent-priority-critical" name="priority_tier" type="radio"/>
+<span class="font-body-bold text-body-bold text-priority-critical">Tier 1 - Critical</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<input class="accent-priority-high" name="priority_tier" type="radio"/>
+<span class="font-body-bold text-body-bold text-priority-high">Tier 2 - High</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<input class="accent-priority-moderate" name="priority_tier" type="radio"/>
+<span class="font-body-bold text-body-bold text-priority-moderate">Tier 3 - Moderate</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container">
+<input class="accent-priority-low" name="priority_tier" type="radio"/>
+<span class="font-body-bold text-body-bold text-priority-low">Tier 4 - Routine</span>
+</label>
+</div>
+<label class="block font-label-code-sm text-label-code-sm text-outline uppercase mt-3">Mandatory Clinical Justification</label>
+<select class="w-full p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none">
+<option>Patient stabilized following supplemental oxygen administration</option>
+<option>Artifact detected in lateral projection altering true density</option>
+<option>Concomitant acute condition requiring immediate priority elevation</option>
+<option>Direct instruction from Attending Pulmonologist</option>
+</select>
+</div>
+<div class="flex items-center justify-end gap-2.5">
+<button class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-bold text-body-bold text-sm" onclick="document.getElementById('audit-priority-modal').classList.add('hidden')">
+          Cancel
+        </button>
+<button class="px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-body-bold text-body-bold text-sm shadow-sm" onclick="document.getElementById('audit-priority-modal').classList.add('hidden')">
+          Sign &amp; Log Override
+        </button>
+</div>
+</div>
+</div>
+<!-- Footer Clinical Compliance Notice -->
+<footer class="mt-space-2xl pt-space-lg border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-label-code-sm text-label-code-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">verified_user</span>
+<span>Prototype uses synthetic data. No real patient data. Clinical decision support only.</span>
+</div>
+<div class="flex items-center gap-3">
+<span>DICOM Node: <strong class="text-on-surface font-mono">PACS-GATEWAY-EAST-01</strong></span>
+<span>•</span>
+<span>Audit ID: <strong class="text-on-surface font-mono">LOG-20261117-9481</strong></span>
+</div>
+</footer>
+</div>
+<script>
+  // Simple tab click feedback
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.innerText.includes('Change Priority')) {
+        // Handled via inline modal toggle
+      }
+    });
+  });
+</script></main></div><script src="../mediscan-router.js"></script></body></html>

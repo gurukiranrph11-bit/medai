@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>MediScan AI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#c3c7ce", "on-background": "#0b1c30", "surface-card": "#FFFFFF", "inverse-on-surface": "#eaf1ff", "secondary-container": "#7bf3ed", "primary-fixed": "#cfe5ff", "surface-container-highest": "#d3e4fe", "primary-container": "#15324b", "on-secondary-fixed-variant": "#00504d", "surface-container-low": "#eff4ff", "border-subtle": "#E2E8F0", "tertiary-container": "#053444", "priority-critical-soft": "#FEE2E2", "error-container": "#ffdad6", "priority-low": "#36A477", "on-surface": "#0b1c30", "on-secondary-fixed": "#00201f", "error": "#ba1a1a", "border-focus": "#16A6A1", "priority-moderate-soft": "#FEF9C3", "on-primary": "#ffffff", "secondary-fixed": "#7ef5ef", "priority-high": "#F39A38", "secondary": "#006a66", "on-tertiary-fixed": "#001f2a", "on-surface-variant": "#43474d", "on-primary-fixed-variant": "#2e4963", "tertiary": "#001e29", "on-tertiary-container": "#769db0", "surface": "#f8f9ff", "surface-container-lowest": "#ffffff", "surface-variant": "#d3e4fe", "priority-critical": "#DC4444", "primary-fixed-dim": "#aec9e9", "viewer-dark": "#0B131B", "on-error": "#ffffff", "outline": "#73777e", "surface-tint": "#46617c", "priority-moderate": "#E8BD45", "viewer-surface": "#121E2A", "background": "#f8f9ff", "priority-high-soft": "#FFEDD5", "priority-low-soft": "#DCFCE7", "inverse-surface": "#213145", "surface-container": "#e5eeff", "on-tertiary-fixed-variant": "#244b5c", "secondary-fixed-dim": "#60d9d3", "tertiary-fixed": "#c1e8fd", "on-primary-fixed": "#001d33", "on-secondary": "#ffffff", "inverse-primary": "#aec9e9", "primary": "#001d33", "on-error-container": "#93000a", "surface-bright": "#f8f9ff", "surface-container-high": "#dce9ff", "surface-dim": "#cbdbf5", "tertiary-fixed-dim": "#a5cce0", "canvas-bg": "#F5F8FA", "on-tertiary": "#ffffff", "on-secondary-container": "#006f6b", "on-primary-container": "#7f9ab8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "space-2xl": "3rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "margin-mobile": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": [ "Inter" ], "body-bold": [ "Inter" ], "body-lg": [ "Inter" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-code-sm": [ "JetBrains Mono" ], "label-code": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "headline-xl": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "badge-label": [ "Inter" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ] }, "fontSize": { "body-sm": [ "0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" } ], "body-bold": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" } ], "body-lg": [ "1rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-code-sm": [ "0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "label-code": [ "0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-md": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-xl": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" } ], "badge-label": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" } ], "headline-xl-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "headline-md": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><aside aria-label="Clinical Compliance Banner" class="w-full bg-priority-moderate-soft text-on-surface py-space-sm px-gutter flex items-center justify-center gap-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50"><span class="material-symbols-outlined text-priority-high text-body-lg flex-shrink-0">warning</span><p class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-center"><span class="font-body-bold text-on-surface">CLINICAL SAFETY ADVISORY:</span> AI-assisted decision support. Not a medical diagnosis. Prototype uses synthetic data.</p><span class="bg-surface-container-lowest text-on-surface-variant px-space-xs py-0.5 rounded text-label-code-sm font-label-code-sm ml-space-xs uppercase">SIMULATED</span></aside><main class="flex-1 flex flex-col items-center justify-center w-full px-gutter py-space-xl"><div class="flex flex-col w-full max-w-7xl mx-auto my-auto py-space-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 rounded-xl shadow-xl overflow-hidden min-h-[720px] bg-surface-container-lowest">
+<!-- Left Hero & Clinical Trust Panel -->
+<div class="lg:col-span-5 bg-primary-container text-on-primary p-space-xl lg:p-space-2xl flex flex-col justify-between relative overflow-hidden">
+<!-- Ambient Visual Background Grid & Subtle Clinical Pulse -->
+<div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-border-focus/15 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/10 blur-3xl pointer-events-none"></div>
+<!-- Diagnostic Wave Pattern SVG Accent -->
+<div class="absolute top-1/2 left-0 right-0 -translate-y-1/2 opacity-10 pointer-events-none">
+<svg class="w-full text-secondary-fixed stroke-current" fill="none" viewbox="0 0 500 160">
+<path d="M0 80h80l15-35 25 70 30-100 25 140 20-75h45l10-20 15 40 10-20h225" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Top Brand Anchor -->
+<div class="relative z-10 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-card/10 backdrop-blur flex items-center justify-center text-secondary-container shadow-inner">
+<span class="material-symbols-outlined text-headline-sm" style="font-variation-settings: 'FILL' 1;">radiology</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md tracking-tight text-surface-card">MediScan</span>
+<span class="font-headline-md text-headline-md font-bold text-secondary-fixed">AI</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-on-primary-container">Clinical Diagnostic Suite</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-card/10 rounded-full w-fit mt-space-md">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed -ml-2.5"></span>
+<span class="font-label-code-sm text-label-code-sm uppercase text-secondary-container tracking-wider">Clinical Decision Support Platform</span>
+</div>
+</div>
+<!-- Center Value Proposition -->
+<div class="relative z-10 my-space-xl flex flex-col gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-surface-card leading-tight">
+          Assistive intelligence for faster, safer clinical review.
+        </h1>
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+          Empowering radiologists and emergency clinicians with AI-driven DICOM triaging, explainable lesion heatmaps, and automated diagnostic summaries.
+        </p>
+<!-- Compliance Badges -->
+<div class="mt-space-lg flex flex-col gap-space-md">
+<div class="flex items-start gap-space-md bg-surface-card/5 p-space-md rounded-lg backdrop-blur-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/20 flex items-center justify-center flex-shrink-0 text-secondary-fixed">
+<span class="material-symbols-outlined text-body-lg">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-surface-card">256-bit TLS Encrypted</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">In transit &amp; at rest under HIPAA Security Rule CFR § 164.312.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-md bg-surface-card/5 p-space-md rounded-lg backdrop-blur-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/20 flex items-center justify-center flex-shrink-0 text-secondary-fixed">
+<span class="material-symbols-outlined text-body-lg">history_edu</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-surface-card">Immutable Audit Logging</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">FDA 21 CFR Part 11 compliant digital trail for clinical oversight.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-md bg-surface-card/5 p-space-md rounded-lg backdrop-blur-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/20 flex items-center justify-center flex-shrink-0 text-secondary-fixed">
+<span class="material-symbols-outlined text-body-lg">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-surface-card">Role-Based Clinical Access</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">Segregated controls for attending physicians, fellows, &amp; PACS admins.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom System Stamp -->
+<div class="relative z-10 pt-space-md flex items-center justify-between font-label-code-sm text-label-code-sm text-on-primary-container">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-body-sm text-secondary-fixed">terminal</span>
+          SANDBOX ENV: v2.4-STAGING
+        </span>
+<span class="uppercase tracking-widest text-surface-card/80">PROTO-21 CFR COMPLIANT</span>
+</div>
+</div>
+<!-- Right Interaction Panel (Sign In & Register Container) -->
+<div class="lg:col-span-7 bg-surface-card p-space-lg lg:p-space-2xl flex flex-col justify-between">
+<div>
+<!-- Mode Switcher Tabs -->
+<div class="flex items-center justify-between mb-space-xl">
+<div class="inline-flex p-1 bg-surface-container-low rounded-xl">
+<button class="px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all shadow-sm bg-surface-card text-on-surface" id="tab-signin" onclick="switchAuthTab('signin')" type="button">
+              Sign In
+            </button>
+<button class="px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all text-on-surface-variant hover:text-on-surface" id="tab-register" onclick="switchAuthTab('register')" type="button">
+              Register Credentials
+            </button>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs text-secondary font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-body-md">shield</span>
+<span>FHIR SMART on HL7</span>
+</div>
+</div>
+<!-- VIEW 1: SIGN IN VIEW -->
+<div class="flex flex-col" id="signin-view">
+<div class="mb-space-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Clinical Portal Access</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Enter your verified hospital credentials or institutional identity provider to proceed.</p>
+</div>
+<!-- Enterprise SSO Direct Action -->
+<button class="w-full flex items-center justify-center gap-space-md py-space-md px-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-on-surface group" onclick="handleSSOLogin()" type="button">
+<span class="material-symbols-outlined text-secondary text-headline-sm group-hover:scale-110 transition-transform">domain</span>
+<div class="flex flex-col text-left">
+<span class="font-body-bold text-body-bold text-on-surface leading-tight">Institutional Single Sign-On (SSO)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Epic MyChart Provider • Cerner Millenium • NHS Smartcard</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative my-space-lg flex items-center justify-center">
+<div class="absolute inset-0 flex items-center"><div class="w-full h-px bg-surface-container"></div></div>
+<span class="relative bg-surface-card px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Or sign in with workstation email</span>
+</div>
+<!-- Form Fields -->
+<form class="flex flex-col gap-space-md" id="login-form" onsubmit="event.preventDefault(); simulateClinicalLogin();">
+<!-- Email -->
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface flex items-center justify-between" for="work-email">
+<span>Hospital Work Email</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Verified PAC-ID</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-body-lg pointer-events-none">badge</span>
+<input class="w-full pl-10 pr-space-md py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary focus:bg-surface transition-all shadow-sm" id="work-email" placeholder="dr.mehta@stmarys-health.org" required="" type="email" value="dr.mehta@metrohealth.org"/>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-body-bold text-body-bold text-on-surface" for="work-password">Password</label>
+<button class="font-body-sm text-body-sm text-secondary hover:underline focus:outline-none" onclick="toggleForgotPasswordModal(true)" type="button">
+                  Forgot credentials?
+                </button>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-body-lg pointer-events-none">key</span>
+<input class="w-full pl-10 pr-10 py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary focus:bg-surface transition-all shadow-sm" id="work-password" placeholder="••••••••••••••••" required="" type="password" value="clinicalPass2024!"/>
+<button class="absolute right-3 text-on-surface-variant hover:text-on-surface flex items-center focus:outline-none" onclick="togglePasswordVisibility('work-password', this)" type="button">
+<span class="material-symbols-outlined text-body-lg">visibility</span>
+</button>
+</div>
+</div>
+<!-- Checkbox Option -->
+<div class="flex items-center justify-between mt-space-xs">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-secondary cursor-pointer" id="remember-me" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Remember clinical workstation session (8 hrs)</span>
+</label>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-priority-low inline-block"></span>
+                Node Encrypted
+              </span>
+</div>
+<!-- Primary Submit Button -->
+<button class="mt-space-md w-full bg-primary-container text-on-primary hover:bg-tertiary-container font-body-bold text-body-bold py-space-md px-space-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-space-sm group" id="btn-submit" type="submit">
+<span class="material-symbols-outlined text-body-lg text-secondary-fixed">vital_signs</span>
+<span>Sign In to Clinical Workspace</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">login</span>
+</button>
+</form>
+<!-- Quick Demo Accounts Helper -->
+<div class="mt-space-lg bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wide text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm">bolt</span>
+                Pre-configured Diagnostic Profiles
+              </span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">Tap to populate</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mt-1">
+<button class="p-space-sm text-left rounded-lg bg-surface-card hover:bg-surface-container-highest transition-colors flex items-center justify-between" onclick="fillCredential('dr.mehta@metrohealth.org', 'Dr. A. Mehta', 'Lead Radiologist (Thoracic)')" type="button">
+<div>
+<div class="font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Radiology • Thoracic CADe</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-body-lg">arrow_outward</span>
+</button>
+<button class="p-space-sm text-left rounded-lg bg-surface-card hover:bg-surface-container-highest transition-colors flex items-center justify-between" onclick="fillCredential('dr.srao@pulmonarycenter.org', 'Dr. S. Rao', 'ED Attending (Pulmonology)')" type="button">
+<div>
+<div class="font-body-bold text-body-bold text-on-surface">Dr. S. Rao</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Emergency Med • Triage</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-body-lg">arrow_outward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- VIEW 2: REGISTER CREDENTIALS VIEW (HIDDEN BY DEFAULT) -->
+<div class="hidden flex-col" id="register-view">
+<div class="mb-space-lg">
+<div class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded bg-priority-moderate-soft text-on-surface mb-2">
+<span class="material-symbols-outlined text-priority-high text-body-sm">verified</span>
+<span class="font-label-code-sm text-label-code-sm font-semibold">Clinician Verification Required</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Register Practice Account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Account requires NPI verification and authorized institutional medical licensing.</p>
+</div>
+<form class="flex flex-col gap-space-md" id="register-form" onsubmit="event.preventDefault(); simulateClinicalRegister();">
+<!-- Full Name & Primary Specialty -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface">Full Name &amp; Title</label>
+<input class="w-full px-space-md py-space-sm bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg outline-none focus:ring-2 focus:ring-secondary transition-all shadow-sm" placeholder="Dr. Sarah Chen, MD" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface">Clinical Specialty</label>
+<select class="w-full px-space-md py-space-sm bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg outline-none focus:ring-2 focus:ring-secondary transition-all shadow-sm" required="">
+<option value="rad">Diagnostic Radiology</option>
+<option value="neuro">Interventional Neuroradiology</option>
+<option value="em">Emergency Medicine</option>
+<option value="pulm">Pulmonology &amp; Critical Care</option>
+<option value="onco">Medical Oncology</option>
+<option value="res">Clinical Research Fellow</option>
+</select>
+</div>
+</div>
+<!-- Work Email & NPI Number -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface">Institutional Email</label>
+<input class="w-full px-space-md py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary transition-all shadow-sm" placeholder="s.chen@memorial-health.org" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface flex items-center justify-between">
+<span>National Provider ID (NPI)</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">10 digits</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-body-lg pointer-events-none">pin</span>
+<input class="w-full pl-10 pr-space-md py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary transition-all shadow-sm" maxlength="10" pattern="[0-9]{10}" placeholder="1948301948" required="" type="text"/>
+</div>
+</div>
+</div>
+<!-- Role Selection Multi-Pill -->
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface">Requested Portal Role</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<label class="flex items-center justify-center p-space-sm rounded-lg bg-surface-container-low has-[:checked]:bg-secondary has-[:checked]:text-on-secondary cursor-pointer transition-all text-center">
+<input checked="" class="hidden" name="role-tier" type="radio" value="radiologist"/>
+<span class="font-body-sm text-body-sm font-medium">Attending Rad</span>
+</label>
+<label class="flex items-center justify-center p-space-sm rounded-lg bg-surface-container-low has-[:checked]:bg-secondary has-[:checked]:text-on-secondary cursor-pointer transition-all text-center">
+<input class="hidden" name="role-tier" type="radio" value="ed_md"/>
+<span class="font-body-sm text-body-sm font-medium">ED Physician</span>
+</label>
+<label class="flex items-center justify-center p-space-sm rounded-lg bg-surface-container-low has-[:checked]:bg-secondary has-[:checked]:text-on-secondary cursor-pointer transition-all text-center">
+<input class="hidden" name="role-tier" type="radio" value="admin"/>
+<span class="font-body-sm text-body-sm font-medium">PACS Admin</span>
+</label>
+<label class="flex items-center justify-center p-space-sm rounded-lg bg-surface-container-low has-[:checked]:bg-secondary has-[:checked]:text-on-secondary cursor-pointer transition-all text-center">
+<input class="hidden" name="role-tier" type="radio" value="fellow"/>
+<span class="font-body-sm text-body-sm font-medium">Research Fellow</span>
+</label>
+</div>
+</div>
+<!-- Password with Strength Indicator -->
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface" for="new-password">Set Secure Workstation Password</label>
+<input class="w-full px-space-md py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary transition-all shadow-sm" id="new-password" oninput="evaluatePasswordStrength(this.value)" placeholder="Min 12 chars, alphanumeric &amp; symbol" required="" type="password"/>
+<!-- Strength meter bar -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden mt-1 flex">
+<div class="h-full w-1/4 bg-priority-critical transition-all" id="strength-bar"></div>
+</div>
+<div class="flex items-center justify-between font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span id="strength-label">Password Complexity: Low</span>
+<span>FIPS 140-2 Compliant</span>
+</div>
+</div>
+<!-- Mandatory Clinician Consent & Regulatory Acknowledgement -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<label class="flex items-start gap-space-sm cursor-pointer select-none">
+<input class="w-4 h-4 mt-0.5 rounded text-primary focus:ring-secondary cursor-pointer flex-shrink-0" id="consent-check" required="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">
+<strong class="font-semibold text-on-surface">Mandatory Clinician Acknowledgment:</strong> I certify that I understand MediScan AI is an assistive clinical decision support tool and <span class="underline">does not substitute for independent professional diagnosis</span> or primary radiologist sign-off.
+                </span>
+</label>
+</div>
+<!-- Registration CTA -->
+<button class="w-full bg-secondary text-on-secondary hover:bg-on-secondary-container font-body-bold text-body-bold py-space-md px-space-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-space-sm" type="submit">
+<span class="material-symbols-outlined text-body-lg">verified_user</span>
+<span>Submit for Hospital Credentialing Review</span>
+</button>
+</form>
+</div>
+</div>
+<!-- Action Confirmation Dialog / Alert Notification (JS triggered) -->
+<div class="hidden my-space-md p-space-md rounded-xl bg-priority-low-soft text-on-surface flex items-center justify-between transition-all" id="toast-banner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-priority-low text-headline-sm">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold" id="toast-title">Access Granted</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="toast-msg">Connecting securely to PACS DICOM Gateway...</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" onclick="document.getElementById('toast-banner').classList.add('hidden')">close</span>
+</div>
+<!-- Footer Help & Privacy Quick Links -->
+<div class="pt-space-lg mt-space-md flex flex-wrap items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-md">
+<a class="hover:text-secondary flex items-center gap-1" href="#" onclick="alert('PACS Gateway integration protocol: HL7 FHIR v4.0.1. Port: 4242 (Secure TLS). Contact your hospital IT administrator for manual certificate exchange.'); return false;">
+<span class="material-symbols-outlined text-body-sm">hub</span>
+            PACS Node Config
+          </a>
+<span class="text-surface-container">•</span>
+<a class="hover:text-secondary flex items-center gap-1" href="#" onclick="toggleForgotPasswordModal(true)">
+<span class="material-symbols-outlined text-body-sm">contact_support</span>
+            Clinical Help Desk
+          </a>
+</div>
+<div class="flex items-center gap-space-xs font-label-code-sm text-label-code-sm bg-surface-container-low px-space-sm py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-priority-low"></span>
+<span>DICOM GW: OPERATIONAL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Modal: Forgot Password & Credential Recovery -->
+<div class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden items-center justify-center p-gutter" id="forgot-modal">
+<div class="bg-surface-card rounded-2xl max-w-md w-full p-space-xl shadow-2xl flex flex-col gap-space-md relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary-container">
+<span class="material-symbols-outlined text-headline-sm text-secondary">lock_reset</span>
+<span class="font-headline-sm text-headline-sm">Reset Workstation Access</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="toggleForgotPasswordModal(false)" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Due to HIPAA &amp; CFR Part 11 security policies, automated password recovery triggers an alert to your department's medical IT compliance director.
+      </p>
+<div class="flex flex-col gap-1">
+<label class="font-body-bold text-body-bold text-on-surface">Registered Hospital Email</label>
+<input class="w-full px-space-md py-space-sm bg-surface-container-lowest text-on-surface font-label-code text-label-code rounded-lg outline-none focus:ring-2 focus:ring-secondary shadow-sm" id="recovery-email" placeholder="dr.smith@hospital.org" type="email"/>
+</div>
+<div class="p-space-sm bg-priority-moderate-soft rounded-lg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-priority-high text-body-md mt-0.5">info</span>
+<span class="font-body-sm text-body-sm text-on-surface">An encrypted one-time challenge token will be transmitted to your authorized hardware pager or institutional email.</span>
+</div>
+<div class="flex items-center justify-end gap-space-sm mt-space-sm">
+<button class="px-space-md py-space-sm rounded-lg font-body-bold text-body-bold text-on-surface-variant hover:bg-surface-container-low" onclick="toggleForgotPasswordModal(false)" type="button">Cancel</button>
+<button class="px-space-lg py-space-sm rounded-lg font-body-bold text-body-bold bg-primary text-on-primary hover:bg-tertiary" onclick="sendPasswordReset()" type="button">Send Reset Challenge</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchAuthTab(tab) {
+    const signInTab = document.getElementById('tab-signin');
+    const registerTab = document.getElementById('tab-register');
+    const signInView = document.getElementById('signin-view');
+    const registerView = document.getElementById('register-view');
+
+    if (tab === 'signin') {
+      signInTab.className = "px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all shadow-sm bg-surface-card text-on-surface";
+      registerTab.className = "px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all text-on-surface-variant hover:text-on-surface";
+      signInView.classList.remove('hidden');
+      registerView.classList.add('hidden');
+    } else {
+      registerTab.className = "px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all shadow-sm bg-surface-card text-on-surface";
+      signInTab.className = "px-space-lg py-space-xs rounded-lg font-body-bold text-body-bold transition-all text-on-surface-variant hover:text-on-surface";
+      registerView.classList.remove('hidden');
+      signInView.classList.add('hidden');
+    }
+  }
+
+  function togglePasswordVisibility(fieldId, triggerBtn) {
+    const input = document.getElementById(fieldId);
+    const icon = triggerBtn.querySelector('.material-symbols-outlined');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  function fillCredential(email, name, role) {
+    document.getElementById('work-email').value = email;
+    document.getElementById('work-password').value = 'diagnosticSim#2024';
+    
+    // Give tactile feedback
+    const toast = document.getElementById('toast-banner');
+    const toastTitle = document.getElementById('toast-title');
+    const toastMsg = document.getElementById('toast-msg');
+    
+    toastTitle.textContent = "Profile Auto-Filled: " + name;
+    toastMsg.textContent = role + " credentials loaded for immediate simulation test.";
+    toast.className = "my-space-md p-space-md rounded-xl bg-surface-container-high text-on-surface flex items-center justify-between";
+    toast.classList.remove('hidden');
+  }
+
+  function handleSSOLogin() {
+    const toast = document.getElementById('toast-banner');
+    const toastTitle = document.getElementById('toast-title');
+    const toastMsg = document.getElementById('toast-msg');
+    
+    toastTitle.textContent = "Connecting to Institutional SAML 2.0 / OAuth2";
+    toastMsg.textContent = "Redirecting through NHS / Epic Systems Smart on FHIR authenticating handshake...";
+    toast.className = "my-space-md p-space-md rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-between";
+    toast.classList.remove('hidden');
+
+    setTimeout(() => {
+      toastTitle.textContent = "Clinician Identity Verified";
+      toastMsg.textContent = "Authentication ticket granted: Dr. Mehta (Lead Radiologist). Launching DICOM CADe viewer...";
+      toast.className = "my-space-md p-space-md rounded-xl bg-priority-low-soft text-on-surface flex items-center justify-between";
+    }, 1200);
+  }
+
+  function simulateClinicalLogin() {
+    const btn = document.getElementById('btn-submit');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-body-lg">progress_activity</span><span>Authenticating PAC-ID...</span>`;
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = `<span class="material-symbols-outlined text-body-lg">check</span><span>Credentials Verified</span>`;
+      btn.classList.remove('bg-primary-container');
+      btn.classList.add('bg-secondary');
+
+      const toast = document.getElementById('toast-banner');
+      const toastTitle = document.getElementById('toast-title');
+      const toastMsg = document.getElementById('toast-msg');
+      
+      toastTitle.textContent = "Session Initialized";
+      toastMsg.textContent = "HIPAA audit entry logged. Loading thoracic CADe radiologic priority queue...";
+      toast.className = "my-space-md p-space-md rounded-xl bg-priority-low-soft text-on-surface flex items-center justify-between";
+      toast.classList.remove('hidden');
+    }, 900);
+  }
+
+  function simulateClinicalRegister() {
+    const toast = document.getElementById('toast-banner');
+    const toastTitle = document.getElementById('toast-title');
+    const toastMsg = document.getElementById('toast-msg');
+    
+    toastTitle.textContent = "Credential Application Received";
+    toastMsg.textContent = "NPI #1948301948 submitted to National Provider Registry check. Confirmation dispatched.";
+    toast.className = "my-space-md p-space-md rounded-xl bg-priority-moderate-soft text-on-surface flex items-center justify-between";
+    toast.classList.remove('hidden');
+  }
+
+  function evaluatePasswordStrength(val) {
+    const bar = document.getElementById('strength-bar');
+    const label = document.getElementById('strength-label');
+    if (val.length < 6) {
+      bar.style.width = '20%';
+      bar.className = 'h-full bg-priority-critical transition-all';
+      label.textContent = 'Password Complexity: Weak';
+    } else if (val.length < 10) {
+      bar.style.width = '55%';
+      bar.className = 'h-full bg-priority-high transition-all';
+      label.textContent = 'Password Complexity: Moderate';
+    } else {
+      bar.style.width = '100%';
+      bar.className = 'h-full bg-priority-low transition-all';
+      label.textContent = 'Password Complexity: Robust (HIPAA Compliant)';
+    }
+  }
+
+  function toggleForgotPasswordModal(open) {
+    const modal = document.getElementById('forgot-modal');
+    if (open) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    } else {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function sendPasswordReset() {
+    const email = document.getElementById('recovery-email').value || "practitioner@hospital.org";
+    toggleForgotPasswordModal(false);
+    
+    const toast = document.getElementById('toast-banner');
+    const toastTitle = document.getElementById('toast-title');
+    const toastMsg = document.getElementById('toast-msg');
+    
+    toastTitle.textContent = "Security Challenge Dispatched";
+    toastMsg.textContent = "An encrypted reset ticket was generated for " + email + " and hospital security officer alerted.";
+    toast.className = "my-space-md p-space-md rounded-xl bg-surface-container-high text-on-surface flex items-center justify-between";
+    toast.classList.remove('hidden');
+  }
+</script></main><footer class="w-full py-space-md px-gutter bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-body-lg">local_hospital</span><span class="font-body-bold text-on-surface">MediScan AI</span><span>• Clinical Diagnostic Suite v2.4</span></div><div class="flex items-center gap-space-lg"><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">HIPAA • SOC2 Type II Certified</span><span>© 2024 MediScan Systems Inc. All rights reserved.</span></div></div></footer><script src="../mediscan-router.js"></script></body></html>

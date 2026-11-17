@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="tablet_dashboard" name="shell-type"/>
+<title>MediScan AI - Diagnostic Analysis (Tablet View)</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    
+    /* Smooth transitions for theme switching */
+    body, header, aside, .theme-transition {
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#7bf3ed",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#c1e8fd",
+            "tertiary-container": "#053444",
+            "on-surface": "#0b1c30",
+            "viewer-surface": "#121E2A",
+            "on-background": "#0b1c30",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#213145",
+            "tertiary": "#001e29",
+            "surface": "#f8f9ff",
+            "priority-high": "#F39A38",
+            "tertiary-fixed-dim": "#a5cce0",
+            "viewer-dark": "#0B131B",
+            "background": "#f8f9ff",
+            "secondary-fixed": "#7ef5ef",
+            "surface-container": "#e5eeff",
+            "on-primary-container": "#7f9ab8",
+            "on-secondary-fixed": "#00201f",
+            "priority-critical": "#DC4444",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#46617c",
+            "surface-variant": "#d3e4fe",
+            "on-tertiary-fixed-variant": "#244b5c",
+            "priority-low": "#36A477",
+            "primary-fixed-dim": "#aec9e9",
+            "outline": "#73777e",
+            "on-primary-fixed-variant": "#2e4963",
+            "priority-critical-soft": "#FEE2E2",
+            "on-primary-fixed": "#001d33",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-container": "#769db0",
+            "border-focus": "#16A6A1",
+            "primary": "#001d33",
+            "priority-moderate-soft": "#FEF9C3",
+            "canvas-bg": "#F5F8FA",
+            "surface-bright": "#f8f9ff",
+            "priority-low-soft": "#DCFCE7",
+            "border-subtle": "#E2E8F0",
+            "primary-container": "#15324b",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#00504d",
+            "secondary-fixed-dim": "#60d9d3",
+            "priority-high-soft": "#FFEDD5",
+            "on-surface-variant": "#43474d",
+            "priority-moderate": "#E8BD45",
+            "on-tertiary-fixed": "#001f2a",
+            "error": "#ba1a1a",
+            "primary-fixed": "#cfe5ff",
+            "surface-card": "#FFFFFF",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#006f6b",
+            "on-error": "#ffffff",
+            "surface-dim": "#cbdbf5",
+            "secondary": "#006a66",
+            "surface-container-highest": "#d3e4fe",
+            "surface-container-low": "#eff4ff",
+            "inverse-primary": "#aec9e9",
+            "outline-variant": "#c3c7ce"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-2xl": "3rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "label-code-sm": ["JetBrains Mono"],
+            "label-code": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "badge-label": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-canvas-bg dark:bg-[#0d1520] font-body-md text-on-surface dark:text-[#e2e8f0] antialiased min-w-[768px]">
+<!-- Top Global Clinical Safety Advisory Banner -->
+<div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft dark:bg-[#2a1e12] border-b border-priority-high/30 dark:border-priority-high/40 px-space-md flex items-center justify-between text-xs shadow-[0_1px_4px_rgba(0,0,0,0.03)] theme-transition">
+<div class="flex items-center gap-space-xs overflow-hidden">
+<span class="material-symbols-outlined text-priority-high text-sm flex-shrink-0">verified_user</span>
+<span class="font-label-code-sm text-on-surface dark:text-[#f39a38] font-semibold uppercase tracking-wide flex-shrink-0">Clinical Advisory:</span>
+<span class="font-body-sm text-on-surface-variant dark:text-gray-300 font-medium truncate">AI-assisted decision support. Not a medical diagnosis. Mandatory qualified physician sign-off.</span>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0 ml-2">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+<span class="font-label-code-sm text-priority-high font-bold">PROTO-21 CFR</span>
+</div>
+</div>
+<!-- Tablet Header (Compact height 56px, optimized for tablet 768px touch real estate) -->
+<header class="fixed top-7 left-0 right-0 z-40 h-14 bg-surface-card/95 dark:bg-[#121c2b]/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle dark:border-[#223348] flex items-center justify-between px-3 md:px-space-md theme-transition">
+<div class="flex items-center gap-2 md:gap-3">
+<div class="flex items-center gap-2">
+<img alt="MediScan AI Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/>
+<div class="flex items-center">
+<span class="font-headline-sm text-primary dark:text-[#f8f9ff] tracking-tight font-bold text-base md:text-lg">MediScan</span>
+<span class="font-headline-sm text-secondary dark:text-secondary-fixed-dim tracking-tight font-bold text-base md:text-lg">AI</span>
+</div>
+</div>
+<div class="h-5 w-px bg-border-subtle dark:bg-[#223348]"></div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-moderate-soft dark:bg-amber-950/40 border border-priority-moderate text-priority-high font-label-code-sm text-[10px] md:text-xs font-bold tracking-wider">
+        DEMO / SIMULATED
+      </span>
+</div>
+<!-- Tablet Header Actions & Profile -->
+<div class="flex items-center gap-2 md:gap-3">
+<!-- Interactive Dark / Light Mode Pill Toggle -->
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 min-h-[38px] rounded-lg bg-surface-container-low dark:bg-[#1a293d] border border-border-subtle dark:border-[#2b415e] text-on-surface dark:text-[#e2e8f0] hover:bg-surface-container dark:hover:bg-[#223650] transition-all shadow-sm focus:outline-none" id="theme-toggle-btn" title="Toggle Reading Room (Dark) / Clinical Ward (Light) Mode">
+<span class="material-symbols-outlined text-base text-secondary dark:text-secondary-fixed-dim" id="theme-icon">bedtime</span>
+<span class="font-label-code-sm text-[11px] font-semibold tracking-tight text-on-surface dark:text-[#cfe5ff]" id="theme-label">Clinical Ward (Light)</span>
+</button>
+<div class="h-5 w-px bg-border-subtle dark:bg-[#223348]"></div>
+<!-- Search Trigger Icon for Tablet -->
+<button class="w-10 h-10 min-h-[44px] min-w-[44px] rounded-lg text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white hover:bg-surface-container-low dark:hover:bg-[#1a293d] flex items-center justify-center transition-colors" title="Search Studies">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<!-- Notifications -->
+<button class="relative w-10 h-10 min-h-[44px] min-w-[44px] rounded-lg text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white hover:bg-surface-container-low dark:hover:bg-[#1a293d] flex items-center justify-center transition-colors" title="Alerts">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-[10px] text-on-error font-bold">4</span>
+</button>
+<div class="h-5 w-px bg-border-subtle dark:bg-[#223348]"></div>
+<!-- Compact Doctor Badge -->
+<div class="flex items-center gap-2 pl-1">
+<div class="flex flex-col items-end leading-none">
+<span class="font-body-bold text-xs text-on-surface dark:text-[#f8f9ff]">Dr. A. Mehta</span>
+<span class="font-label-code-sm text-[10px] text-on-surface-variant dark:text-gray-400">Attending Rad</span>
+</div>
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/>
+</div>
+</div>
+</header>
+<!-- Collapsed Icon-Only Tablet Sidebar (Width: 64px, Touch Targets min 44px) -->
+<aside class="fixed left-0 top-[5.25rem] bottom-0 w-16 bg-surface-card dark:bg-[#121c2b] border-r border-border-subtle dark:border-[#223348] z-30 flex flex-col justify-between items-center py-2 shadow-sm theme-transition">
+<!-- Icon Navigation Stack -->
+<nav class="flex flex-col items-center gap-1.5 w-full px-2" data-purpose="tablet-icon-nav">
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="dashboard" href="#" title="Dashboard">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="upload-scan" href="#" title="Upload Scan">
+<span class="material-symbols-outlined text-xl">upload_file</span>
+</a>
+<a aria-current="page" class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg bg-primary-container text-on-primary font-bold shadow-sm" data-path="ai-analysis" href="#" title="AI Analysis (Active)">
+<span class="material-symbols-outlined text-xl">neurology</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="clinical-datasets" href="#" title="Clinical Datasets">
+<span class="material-symbols-outlined text-xl">database</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="patients" href="#" title="Patients">
+<span class="material-symbols-outlined text-xl">personal_injury</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="risk-prioritization" href="#" title="Risk Prioritization">
+<span class="material-symbols-outlined text-xl">acute</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="reports" href="#" title="Reports">
+<span class="material-symbols-outlined text-xl">description</span>
+</a>
+<div class="w-8 border-t border-border-subtle dark:border-[#223348] my-1"></div>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="settings-profile" href="#" title="Settings">
+<span class="material-symbols-outlined text-xl">manage_accounts</span>
+</a>
+<a class="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-on-surface-variant dark:text-gray-300 hover:bg-surface-container-low dark:hover:bg-[#1a293d] hover:text-on-surface dark:hover:text-white transition-colors" data-path="admin" href="#" title="Audit / Governance">
+<span class="material-symbols-outlined text-xl">admin_panel_settings</span>
+</a>
+</nav>
+<!-- Bottom Status Node -->
+<div class="flex flex-col items-center gap-2 pb-2">
+<div class="relative group cursor-pointer" title="All Systems Operational • HIPAA Active">
+<span class="w-3.5 h-3.5 rounded-full bg-priority-low inline-block border-2 border-white dark:border-[#121c2b] shadow"></span>
+</div>
+<span class="material-symbols-outlined text-xs text-secondary dark:text-secondary-fixed-dim" title="Audit Logging Active">lock</span>
+</div>
+</aside>
+<!-- Main Tablet Body Container (pl-16 compensates for collapsed 64px sidebar) -->
+<div class="pl-16">
+<main class="min-h-screen pt-[5.25rem] w-full px-space-md pb-space-lg bg-canvas-bg dark:bg-[#0d1520] pb-12 theme-transition">
+<div class="flex flex-col w-full max-w-[1024px] mx-auto gap-space-md">
+<!-- Top Tablet Patient Context Header & Quick Status Strip -->
+<div class="w-full bg-surface-card dark:bg-[#152233] rounded-xl p-3 md:p-4 shadow-sm border border-border-subtle/70 dark:border-[#223650] theme-transition">
+<div class="flex flex-wrap items-center justify-between gap-2.5">
+<!-- Patient Metadata -->
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center gap-2 bg-surface-container-low dark:bg-[#1b2b40] px-2.5 py-1.5 rounded-lg border border-border-subtle/50 dark:border-[#2c4363]">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim text-lg">folder_shared</span>
+<div class="flex flex-col">
+<span class="font-label-code-sm text-[10px] text-on-surface-variant dark:text-gray-400 uppercase leading-none">Patient ID</span>
+<span class="font-label-code text-sm text-primary dark:text-[#cfe5ff] font-bold tracking-tight">PT-20481</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs md:text-sm">
+<span class="font-body-bold text-on-surface dark:text-[#f8f9ff]">61y, Male</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant dark:bg-gray-600"></span>
+<span class="text-on-surface-variant dark:text-gray-300 font-medium">Chest X-ray (PA View)</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant dark:bg-gray-600"></span>
+<span class="font-label-code-sm text-on-surface-variant dark:text-gray-400 text-[11px]">17 Nov 2026, 08:42</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container dark:bg-[#20334c] text-tertiary dark:text-[#aec9e9] text-xs">
+<span class="material-symbols-outlined text-xs">stethoscope</span>
+<span class="font-medium">Ref: Dr. S. Rao</span>
+</div>
+</div>
+<!-- Triage Priority Chips -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-priority-critical-soft dark:bg-red-950/50 text-priority-critical shadow-sm">
+<span class="material-symbols-outlined text-sm">emergency</span>
+<span class="font-body-bold text-xs tracking-tight">Critical Triage (&lt; 1 hr)</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-priority-moderate-soft dark:bg-amber-950/40 text-priority-high">
+<span class="w-2 h-2 rounded-full bg-priority-high animate-ping"></span>
+<span class="font-badge-label text-xs">Awaiting Sign-off</span>
+</div>
+</div>
+</div>
+<!-- Compact Regulatory Alert -->
+<div class="mt-2.5 bg-priority-high-soft/70 dark:bg-amber-950/30 px-3 py-1.5 rounded-lg flex items-center justify-between gap-2 border border-priority-high/20 dark:border-priority-high/40 theme-transition">
+<div class="flex items-center gap-1.5 overflow-hidden">
+<span class="material-symbols-outlined text-priority-high text-base flex-shrink-0">warning</span>
+<p class="font-body-sm text-xs text-on-surface dark:text-gray-200 font-medium truncate">
+<span class="font-bold text-priority-high uppercase font-label-code-sm text-[10px]">SIMULATED AI INFERENCE:</span>
+                Assistive clinical intelligence. Requires attending clinician verification prior to EHR submission.
+              </p>
+</div>
+<span class="hidden sm:inline-flex font-label-code-sm text-[10px] px-2 py-0.5 rounded bg-surface-card dark:bg-[#1a293d] text-priority-high font-bold shadow-xs flex-shrink-0">
+              NON-DIAGNOSTIC PROTOCOL
+            </span>
+</div>
+</div>
+<!-- STACKED LAYOUT (TABLET 768px REQUIREMENT): 
+             1. Viewer Stacks on TOP across full horizontal span 
+             2. 2-Column Findings & Radiologist Impression below -->
+<!-- FULL-WIDTH MEDICAL DICOM WORKSTATION VIEWER (Prominent Top Position) -->
+<section aria-label="Radiographic Viewer" class="w-full flex flex-col bg-viewer-dark rounded-xl overflow-hidden shadow-xl border border-white/10">
+<!-- Viewport HUD & Tool Header (Touch Friendly: min 44px target sizes) -->
+<div class="bg-viewer-surface px-3 py-2 flex flex-wrap items-center justify-between gap-2 border-b border-white/10 shadow-sm">
+<!-- Inspection Tools -->
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-surface hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors" id="tool-zoom-in" title="Zoom In">
+<span class="material-symbols-outlined text-xl">zoom_in</span>
+</button>
+<button class="w-9 h-9 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-surface hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors" id="tool-zoom-out" title="Zoom Out">
+<span class="material-symbols-outlined text-xl">zoom_out</span>
+</button>
+<button class="w-9 h-9 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-surface hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors" id="tool-pan" title="Pan Mode">
+<span class="material-symbols-outlined text-xl">drag_pan</span>
+</button>
+<div class="w-px h-5 bg-white/20 mx-1"></div>
+<!-- Window / Level Presets for Tablet Taps -->
+<div class="flex items-center bg-white/10 rounded-lg p-0.5">
+<button class="px-2.5 py-1 min-h-[36px] rounded text-white bg-white/20 font-label-code-sm text-xs font-semibold">Lung</button>
+<button class="px-2.5 py-1 min-h-[36px] rounded text-surface-dim hover:text-white font-label-code-sm text-xs">Mediast</button>
+<button class="px-2.5 py-1 min-h-[36px] rounded text-surface-dim hover:text-white font-label-code-sm text-xs">Bone</button>
+</div>
+<button class="w-9 h-9 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-surface hover:text-white hover:bg-white/10 ml-1" id="tool-invert" title="Invert Grayscale">
+<span class="material-symbols-outlined text-xl">invert_colors</span>
+</button>
+<button class="w-9 h-9 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-surface hover:text-white hover:bg-white/10" id="tool-ruler" title="Calibrated Ruler">
+<span class="material-symbols-outlined text-xl">straighten</span>
+</button>
+</div>
+<!-- AI Overlay Quick Toggles -->
+<div class="flex items-center gap-1.5 bg-viewer-dark/90 px-2 py-1 rounded-lg">
+<button class="flex items-center gap-1.5 px-3 py-1.5 min-h-[38px] rounded-md text-white bg-secondary/90 hover:bg-secondary text-xs font-semibold transition-all shadow-sm" id="toggle-heatmap">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+<span class="font-label-code-sm text-xs">Grad-CAM</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 min-h-[38px] rounded-md text-secondary-fixed bg-white/10 hover:bg-white/20 text-xs font-semibold transition-all" id="toggle-bbox">
+<span class="material-symbols-outlined text-sm">select</span>
+<span class="font-label-code-sm text-xs">Lesion ROI</span>
+</button>
+<button class="w-9 h-9 min-h-[38px] min-w-[38px] flex items-center justify-center rounded-md text-outline-variant hover:text-white transition-colors" id="tool-reset" title="Reset Viewer">
+<span class="material-symbols-outlined text-base">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Main Radiograph Canvas Frame (Expanded Aspect Ratio for Tablet Viewing) -->
+<div class="relative w-full aspect-[16/10] bg-black flex items-center justify-center overflow-hidden select-none">
+<!-- Digital Chest Radiograph -->
+<img class="w-full h-full object-contain filter contrast-125 brightness-95 transition-all duration-300" data-alt="Monochrome clinical standard digital chest radiograph displaying thoracic rib cage, cardiac silhouette, and basilar pulmonary opacity." id="dicom-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpbgDCnCnaiCJibJiWK-dPCwlOgwpbA4-ntLLexqhHi854YOIvodDSOTm6uaKCad0981xi5STNgPQvVoDJ9p6uB41R4GrU3P_Am0xCIsOJCmExmN9a9j-vxlq3g-C6XDLIO3sLGH1HaQLcgK3JaNLQcS026X3STGs0DZ-hzgUam6IbGY46vhCOt-6rGGkh8tNHJaAAR3ZPJgLnQeOkZQrbEM3TF5rWL7fKGbARUhk"/>
+<!-- Grad-CAM Heatmap Simulation Overlay -->
+<div class="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-85 mix-blend-screen" id="heatmap-layer">
+<svg class="w-full h-full" fill="none" viewbox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="0" cy="0" gradienttransform="translate(325, 360) rotate(25) scale(140 100)" gradientunits="userSpaceOnUse" id="gradcam-right-effusion-tab" r="1">
+<stop offset="0%" stop-color="#DC4444" stop-opacity="0.9"></stop>
+<stop offset="35%" stop-color="#F39A38" stop-opacity="0.75"></stop>
+<stop offset="70%" stop-color="#E8BD45" stop-opacity="0.4"></stop>
+<stop offset="95%" stop-color="#16A6A1" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#000000" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient cx="0" cy="0" gradienttransform="translate(440, 310) scale(110 90)" gradientunits="userSpaceOnUse" id="gradcam-cardiomegaly-tab" r="1">
+<stop offset="0%" stop-color="#F39A38" stop-opacity="0.55"></stop>
+<stop offset="50%" stop-color="#E8BD45" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#000000" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="325" cy="360" fill="url(#gradcam-right-effusion-tab)" rx="140" ry="100"></ellipse>
+<ellipse cx="440" cy="310" fill="url(#gradcam-cardiomegaly-tab)" rx="110" ry="90"></ellipse>
+</svg>
+</div>
+<!-- Bounding Box Annotation (Lesion Target) -->
+<div class="absolute inset-0 pointer-events-none" id="bbox-layer">
+<div class="absolute left-[28%] top-[54%] w-[26%] h-[28%] rounded-lg border-2 border-dashed border-secondary shadow-[0_0_15px_rgba(22,166,161,0.6)] flex flex-col justify-between p-1.5 transition-all">
+<div class="flex items-center justify-between">
+<span class="bg-secondary text-primary font-label-code-sm text-[11px] font-bold px-1.5 py-0.5 rounded shadow">
+                    ROI #01 • Conf: 88.4%
+                  </span>
+<span class="text-secondary-fixed text-[10px] font-bold bg-viewer-dark/80 px-1 rounded">R. Basilar</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-white/90 font-label-code-sm text-[10px]">ΔArea: 48.2 cm²</span>
+<div class="w-2.5 h-2.5 bg-secondary rounded-full animate-ping"></div>
+</div>
+</div>
+</div>
+<!-- HUD Corner Telemetry Overlays -->
+<div class="absolute top-2.5 left-2.5 pointer-events-none text-left font-label-code-sm text-[10px] text-white/70 space-y-0.5 bg-viewer-dark/70 p-1.5 rounded backdrop-blur-sm">
+<p class="text-white font-bold">PT-20481 (M, 61)</p>
+<p>ST: CHEST_PA_HR • FOV: 35cm</p>
+<p>MATRIX: 2048 x 2048</p>
+</div>
+<div class="absolute top-2.5 right-2.5 pointer-events-none text-right font-label-code-sm text-[10px] text-white/70 space-y-0.5 bg-viewer-dark/70 p-1.5 rounded backdrop-blur-sm">
+<p class="text-secondary-fixed font-bold">ThoraxNet v2.4</p>
+<p>kVp: 120.0 | mA: 250</p>
+<p>DOSE: 5.0 mAs</p>
+</div>
+<div class="absolute bottom-2.5 left-2.5 pointer-events-none font-label-code-sm text-[10px] text-white/70 bg-viewer-dark/70 px-2 py-1 rounded backdrop-blur-sm flex items-center gap-1.5">
+<span>ZOOM: <span id="zoom-level">100%</span></span>
+<span>•</span>
+<span>W: 1500 L: -600</span>
+</div>
+<div class="absolute bottom-2.5 right-2.5 pointer-events-none">
+<span class="inline-flex items-center gap-1 font-label-code-sm text-[10px] px-2 py-0.5 rounded bg-priority-high/90 text-primary font-bold shadow-md">
+                GRAD-CAM PEAK: 0.91
+              </span>
+</div>
+</div>
+<!-- Multi-Series Thumbnail Rail (Touch horizontal scroll friendly) -->
+<div class="bg-viewer-surface p-2.5 border-t border-white/10 flex items-center gap-2.5 overflow-x-auto">
+<button class="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden ring-2 ring-border-focus group focus:outline-none">
+<img class="w-full h-full object-cover" data-alt="Chest Radiograph PA View thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbVZupRZGQWhu2iZEhkEbNH2kxt17ElqYsT4uNLGYo5XtlL_YHwhfPcxoijfEXu5uMmPCXvnfDM_JpH8pdOlM50eBiyD0YJIFToOW2q_f-Q3tUh5z-0iDgnhK7WeCZS1nxkCWuD13ZZUSkIS2isfeweRHCxvxrzr17i3yi-8VvFikUyR91K7NWtk2aEeuDtOmDR9--sceEKSGPweysr7f3bNLxW5CH-ddHvUx56is"/>
+<span class="absolute bottom-0 inset-x-0 bg-viewer-dark/85 text-white font-label-code-sm text-[10px] py-0.5 text-center font-bold">PA Curr</span>
+</button>
+<button class="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-viewer-dark/60 hover:opacity-100 opacity-60 transition-opacity focus:outline-none">
+<img class="w-full h-full object-cover" data-alt="Chest Radiograph lateral projection thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYFJiZ6yJD2m-pq9d6Gu8l2OdZtbuy6C23eoX6kumdfSMQKxVrIEkhAhPsWzXreCymTYCVHcf5-EMYLp4CIAar7UuA0LKbsYihBW-1tTM22dRwRSdjgbqzDHQM-fL3gMFh9NYyswyB_dcWlh-ZfQxvgbvrqbGda0UD0J5h6hWzOSZWul9aA-8GiFBrZqf3LbY2svqEXGJToTC_lUQPB2_FgS0E0HpDNb8k3QSDZ_I"/>
+<span class="absolute bottom-0 inset-x-0 bg-viewer-dark/85 text-white font-label-code-sm text-[10px] py-0.5 text-center">Lateral</span>
+</button>
+<button class="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-viewer-dark/60 hover:opacity-100 opacity-60 transition-opacity focus:outline-none">
+<img class="w-full h-full object-cover" data-alt="Prior chest radiograph from 2024." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRDtXZJO_5sNYp4c73zY1SBbeix7BPmdRgMlXRzkDXlws_KQ9fGNVsioGu0tB7rUHE6QYeX3Maw-pTHQW755llbbTe6_PjaPxJVHkKXNXbrXB19g2ixeaJZ1ac4EB9A917TCkQdBQ9W1EZ49Sw0EzcB2YYZ5vkxYkfl603pV_UuteUwww6nJl7r4QA-Sm8Zr4Ja5jCvhw9RFo7qrqCweQGf0GZBEpYQSgt8rzDYOo"/>
+<span class="absolute bottom-0 inset-x-0 bg-viewer-dark/85 text-white font-label-code-sm text-[10px] py-0.5 text-center">2024 Prior</span>
+</button>
+<button class="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-viewer-dark/60 hover:opacity-100 opacity-60 transition-opacity focus:outline-none">
+<img class="w-full h-full object-cover" data-alt="Inverted black-bone processed radiograph view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoFqSdQ7gTFBpHCDIiUoNV62pPO5W4ilFaQxMYjCYbO8kCfY8KdvdtVCj5guvKChEQVrLp746wIgaf0D0_dW3nSkQMJIdqYqY_oq0Yq1V4PF710Ke9PObOiKhQ1UIhsxmkKPr-IvSZDn4BVBAVTzQz_ppvRRb7KSduvjMlR_b9k3jwkN0PrvJIoNYbAWlEQEoFJIuj4VbN0g98q8VyPI_2ElQxO6OZJJGlZGZ2JMk"/>
+<span class="absolute bottom-0 inset-x-0 bg-viewer-dark/85 text-white font-label-code-sm text-[10px] py-0.5 text-center">Inv Filter</span>
+</button>
+<div class="ml-auto pr-2 flex flex-col items-end text-white/60 font-label-code-sm text-[10px]">
+<span>SERIES 1 OF 4</span>
+<span class="text-secondary-fixed">DICOM LOSSLESS</span>
+</div>
+</div>
+</section>
+<!-- 2-COLUMN TABLET CARD GRID DIRECTLY BELOW THE VIEWER (768px Tablet Design Standard) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-start">
+<!-- LEFT CARD: Algorithmic Observations & Explainable Metrics -->
+<div class="bg-surface-card dark:bg-[#152233] rounded-xl p-space-md shadow-sm border border-border-subtle/80 dark:border-[#223650] flex flex-col gap-space-md theme-transition">
+<!-- Pipeline Stepper Header -->
+<div class="bg-surface-container-low dark:bg-[#1a293d] p-3 rounded-lg border border-border-subtle/60 dark:border-[#2b415e] theme-transition">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-code-sm text-[11px] uppercase tracking-wider text-outline dark:text-gray-400 font-bold">Inference Pipeline</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high dark:bg-[#253952] text-on-surface-variant dark:text-gray-200 font-label-code-sm text-[10px] font-semibold">
+                  ThoraxNet-v0.3b [SIMULATED]
+                </span>
+</div>
+<!-- 5-Stage Stepper for Tablet -->
+<div class="flex items-center justify-between relative mt-1">
+<div class="flex flex-col items-center z-10">
+<span class="w-5 h-5 rounded-full bg-secondary dark:bg-[#008984] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+<span class="font-label-code-sm text-[9px] text-on-surface-variant dark:text-gray-400 mt-0.5">Queued</span>
+</div>
+<div class="flex-1 h-0.5 bg-secondary dark:bg-[#008984] -mx-1"></div>
+<div class="flex flex-col items-center z-10">
+<span class="w-5 h-5 rounded-full bg-secondary dark:bg-[#008984] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+<span class="font-label-code-sm text-[9px] text-on-surface-variant dark:text-gray-400 mt-0.5">Preproc</span>
+</div>
+<div class="flex-1 h-0.5 bg-secondary dark:bg-[#008984] -mx-1"></div>
+<div class="flex flex-col items-center z-10">
+<span class="w-5 h-5 rounded-full bg-secondary dark:bg-[#008984] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+<span class="font-label-code-sm text-[9px] text-on-surface-variant dark:text-gray-400 mt-0.5">Infer</span>
+</div>
+<div class="flex-1 h-0.5 bg-secondary dark:bg-[#008984] -mx-1"></div>
+<div class="flex flex-col items-center z-10">
+<span class="w-5 h-5 rounded-full bg-secondary dark:bg-[#008984] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px]">check</span>
+</span>
+<span class="font-label-code-sm text-[9px] text-on-surface-variant dark:text-gray-400 mt-0.5">CAM</span>
+</div>
+<div class="flex-1 h-0.5 bg-priority-high -mx-1"></div>
+<div class="flex flex-col items-center z-10">
+<span class="w-5 h-5 rounded-full bg-priority-high text-white flex items-center justify-center shadow animate-pulse">
+<span class="material-symbols-outlined text-[10px]">clinical_notes</span>
+</span>
+<span class="font-label-code-sm text-[9px] text-priority-high font-bold mt-0.5">Review</span>
+</div>
+</div>
+</div>
+<!-- Algorithmic Observations Section Title -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim">neurology</span>
+<h2 class="font-headline-sm text-base md:text-lg text-primary dark:text-[#f8f9ff] font-bold">Algorithmic Observations</h2>
+</div>
+<span class="font-label-code-sm text-xs text-on-surface-variant dark:text-gray-400 font-medium">3 Detected</span>
+</div>
+<!-- Finding 1: Critical / High Concern -->
+<div class="bg-surface-container-low dark:bg-[#1a293d] rounded-xl p-3 border border-border-subtle/70 dark:border-[#2b415e] transition-all hover:bg-surface-container dark:hover:bg-[#20334c] theme-transition">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded bg-priority-critical-soft dark:bg-red-950/60 text-priority-critical font-badge-label text-[10px] font-bold">
+                      HIGH CONCERN
+                    </span>
+<span class="font-label-code-sm text-[10px] text-on-surface-variant dark:text-gray-400">ROI #01 • Basilar</span>
+</div>
+<h3 class="font-body-bold text-xs md:text-sm text-on-surface dark:text-[#f8f9ff] leading-snug">
+                    Possible Right Pleural Effusion with adjacent consolidation
+                  </h3>
+</div>
+<span class="font-headline-sm text-lg font-bold text-primary dark:text-[#cfe5ff]">88.4%</span>
+</div>
+<!-- Confidence Bar with CI Indicator -->
+<div class="w-full bg-border-subtle dark:bg-[#253952] h-2 rounded-full overflow-hidden mb-1.5 relative">
+<div class="bg-priority-high h-full rounded-full" style="width: 88.4%;"></div>
+<div class="absolute top-0 bottom-0 bg-primary/25 dark:bg-white/20" style="left: 84.1%; width: 8.6%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-code-sm text-[11px] text-on-surface-variant dark:text-gray-400">
+<span>Range: [84.1% – 92.7%] 95% CI</span>
+<span class="font-semibold text-secondary dark:text-secondary-fixed-dim">Grad-CAM r = 0.91</span>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-card/80 dark:bg-[#152233]/80 px-2.5 py-1.5 rounded-lg border border-border-subtle/50 dark:border-[#2c4363]">
+<span class="font-body-sm text-xs text-on-surface dark:text-gray-200 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-priority-high">hourglass_top</span>
+                  Awaiting Clinician Agreement
+                </span>
+<button class="text-secondary dark:text-secondary-fixed-dim font-label-code-sm text-xs font-bold hover:underline min-h-[36px] flex items-center">
+                  Focus Region
+                </button>
+</div>
+</div>
+<!-- Finding 2: Moderate / Cardiomegaly -->
+<div class="bg-surface-container-low dark:bg-[#1a293d] rounded-xl p-3 border border-border-subtle/70 dark:border-[#2b415e] transition-all hover:bg-surface-container dark:hover:bg-[#20334c] theme-transition">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded bg-priority-moderate-soft dark:bg-amber-950/50 text-priority-high font-badge-label text-[10px] font-bold">
+                      MODERATE
+                    </span>
+<span class="font-label-code-sm text-[10px] text-on-surface-variant dark:text-gray-400">Cardiac Index</span>
+</div>
+<h3 class="font-body-bold text-xs md:text-sm text-on-surface dark:text-[#f8f9ff] leading-snug">
+                    Possible Cardiomegaly (CTR ~0.53 borderline)
+                  </h3>
+</div>
+<span class="font-headline-sm text-base font-bold text-on-surface-variant dark:text-gray-300">64.2%</span>
+</div>
+<div class="w-full bg-border-subtle dark:bg-[#253952] h-2 rounded-full overflow-hidden mb-1.5 relative">
+<div class="bg-priority-moderate h-full rounded-full" style="width: 64.2%;"></div>
+<div class="absolute top-0 bottom-0 bg-primary/25 dark:bg-white/20" style="left: 57.0%; width: 14.4%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-code-sm text-[11px] text-on-surface-variant dark:text-gray-400">
+<span>Range: [57.0% – 71.4%]</span>
+<span class="text-priority-high font-semibold">Flagged for Correlation</span>
+</div>
+</div>
+<!-- Finding 3: Negative Rule-Out -->
+<div class="bg-surface-container-low dark:bg-[#1a293d] rounded-xl p-2.5 border border-border-subtle/70 dark:border-[#2b415e] flex items-center justify-between theme-transition">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-priority-low text-lg">check_circle</span>
+<span class="font-body-md text-xs md:text-sm text-on-surface dark:text-gray-200 font-medium">No acute pneumothorax observed</span>
+</div>
+<span class="font-label-code-sm text-[10px] font-bold text-priority-low px-2 py-0.5 rounded bg-priority-low-soft dark:bg-emerald-950/50">
+                96.8% (Rule-Out)
+              </span>
+</div>
+</div>
+<!-- RIGHT CARD: Attending Radiologist Impression & Touch Execution Actions -->
+<div class="bg-surface-card dark:bg-[#152233] rounded-xl p-space-md shadow-sm border border-border-subtle/80 dark:border-[#223650] flex flex-col gap-space-md theme-transition">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-[#cfe5ff]">rate_review</span>
+<h2 class="font-headline-sm text-base md:text-lg text-primary dark:text-[#f8f9ff] font-bold">Attending Radiologist Impression</h2>
+</div>
+<span class="font-label-code-sm text-xs text-secondary dark:text-secondary-fixed-dim font-bold">Dr. A. Mehta (MD)</span>
+</div>
+<!-- Quick Insert Clinical Chips (Touch Friendly min 40px height targets) -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-code-sm text-xs text-outline dark:text-gray-400 font-semibold">Quick Add Diagnostic Syntax:</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1.5 min-h-[40px] rounded-lg bg-surface-container dark:bg-[#1e2f47] text-on-surface dark:text-gray-200 font-label-code-sm text-xs hover:bg-surface-container-high dark:hover:bg-[#283e5c] active:scale-95 transition-all flex items-center border border-transparent dark:border-[#2c4363]" onclick="insertPrompt('Agree with right effusion finding. ')">
+                  + Agree Effusion
+                </button>
+<button class="px-2.5 py-1.5 min-h-[40px] rounded-lg bg-surface-container dark:bg-[#1e2f47] text-on-surface dark:text-gray-200 font-label-code-sm text-xs hover:bg-surface-container-high dark:hover:bg-[#283e5c] active:scale-95 transition-all flex items-center border border-transparent dark:border-[#2c4363]" onclick="insertPrompt('Findings inconclusive on AP/PA view alone. ')">
+                  + Inconclusive
+                </button>
+<button class="px-2.5 py-1.5 min-h-[40px] rounded-lg bg-surface-container dark:bg-[#1e2f47] text-on-surface dark:text-gray-200 font-label-code-sm text-xs hover:bg-surface-container-high dark:hover:bg-[#283e5c] active:scale-95 transition-all flex items-center border border-transparent dark:border-[#2c4363]" onclick="insertPrompt('Recommend high-resolution thoracic CT. ')">
+                  + Req CT Study
+                </button>
+</div>
+</div>
+<!-- Textarea Form Control (Touch-accessible) -->
+<div class="relative">
+<textarea class="w-full p-3 rounded-lg bg-surface-container-low dark:bg-[#182638] text-on-surface dark:text-gray-100 font-body-md text-xs md:text-sm focus:bg-surface-card dark:focus:bg-[#1b2b40] focus:outline-none focus:ring-2 focus:ring-border-focus transition-all resize-none border border-border-subtle dark:border-[#2c4363]" id="clinical-impression-field" placeholder="Type clinical synthesis or edit assistive notes..." rows="4">Right basilar opacity noted correlating with patient dyspnea. Agree with AI suspected effusion. Recommend ultrasound confirmation and clinical follow-up.</textarea>
+</div>
+<!-- Prominent Touch Doctor Action Buttons (Min 44px Tap Height for Tablets) -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<!-- Primary Teal Approve & Sign Off (44px+) -->
+<button class="flex items-center justify-center gap-1.5 px-3 py-3 min-h-[48px] rounded-lg bg-secondary dark:bg-[#007f7a] text-white hover:bg-on-secondary-container dark:hover:bg-[#009b95] active:scale-[0.98] font-body-bold text-xs md:text-sm shadow-md transition-all">
+<span class="material-symbols-outlined text-lg">verified</span>
+<span>Approve &amp; Sign Off</span>
+</button>
+<!-- Navy Generate Report (44px+) -->
+<button class="flex items-center justify-center gap-1.5 px-3 py-3 min-h-[48px] rounded-lg bg-primary-container dark:bg-[#1c3a57] text-white hover:bg-primary dark:hover:bg-[#23486c] active:scale-[0.98] font-body-bold text-xs md:text-sm shadow-sm transition-all">
+<span class="material-symbols-outlined text-lg">assignment_add</span>
+<span>Generate Report</span>
+</button>
+<!-- Secondary Action Order CT Scan (44px+) -->
+<button class="flex items-center justify-center gap-1 px-2.5 py-2.5 min-h-[44px] rounded-lg bg-priority-high-soft dark:bg-amber-950/40 text-on-surface dark:text-[#ffedd5] hover:bg-priority-high/20 active:scale-[0.98] font-body-bold text-xs font-semibold transition-all border border-priority-high/30 dark:border-priority-high/40">
+<span class="material-symbols-outlined text-base text-priority-high">biotech</span>
+<span>Order Chest CT Scan</span>
+</button>
+<!-- Reject / Override Finding (44px+) -->
+<button class="flex items-center justify-center gap-1 px-2.5 py-2.5 min-h-[44px] rounded-lg bg-priority-critical-soft dark:bg-red-950/40 text-priority-critical dark:text-[#ffdad6] hover:bg-priority-critical/20 active:scale-[0.98] font-body-bold text-xs font-semibold transition-all border border-priority-critical/30 dark:border-priority-critical/40">
+<span class="material-symbols-outlined text-base">rule_folder</span>
+<span>Reject AI Finding</span>
+</button>
+</div>
+<!-- Audit Trail & Session Telemetry Footer -->
+<div class="pt-2 border-t border-border-subtle dark:border-[#223650] flex flex-wrap items-center justify-between text-on-surface-variant dark:text-gray-400 font-label-code-sm text-[11px] gap-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary dark:text-secondary-fixed-dim">fingerprint</span>
+<span>RUN: #INF-88429-NOV26</span>
+</div>
+<span>Latency: 1.42s</span>
+<span class="text-outline dark:text-gray-500">Dataset #ST-88</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    // Tablet viewer interaction handling & Dark/Light theme mode controller
+    (function() {
+      // Theme switching logic
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+      const rootHtml = document.documentElement;
+
+      function updateThemeUI(isDark) {
+        if (isDark) {
+          rootHtml.classList.add('dark');
+          if (themeIcon) themeIcon.textContent = 'light_mode';
+          if (themeLabel) themeLabel.textContent = 'Reading Room (Dark)';
+          if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('title', 'Switch to Clinical Ward (Light Mode)');
+          }
+        } else {
+          rootHtml.classList.remove('dark');
+          if (themeIcon) themeIcon.textContent = 'bedtime';
+          if (themeLabel) themeLabel.textContent = 'Clinical Ward (Light)';
+          if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('title', 'Switch to Reading Room (Dark Mode)');
+          }
+        }
+      }
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const isCurrentlyDark = rootHtml.classList.contains('dark');
+          updateThemeUI(!isCurrentlyDark);
+        });
+      }
+
+      // Viewer Controls
+      const heatmapToggle = document.getElementById('toggle-heatmap');
+      const heatmapLayer = document.getElementById('heatmap-layer');
+      const bboxToggle = document.getElementById('toggle-bbox');
+      const bboxLayer = document.getElementById('bbox-layer');
+      const invertBtn = document.getElementById('tool-invert');
+      const dicomImage = document.getElementById('dicom-image');
+      const zoomIn = document.getElementById('tool-zoom-in');
+      const zoomOut = document.getElementById('tool-zoom-out');
+      const resetBtn = document.getElementById('tool-reset');
+      const zoomLabel = document.getElementById('zoom-level');
+
+      let currentZoom = 100;
+      let isInverted = false;
+
+      if (heatmapToggle && heatmapLayer) {
+        heatmapToggle.addEventListener('click', () => {
+          const isHidden = heatmapLayer.classList.toggle('opacity-0');
+          heatmapToggle.classList.toggle('bg-secondary/90', !isHidden);
+          heatmapToggle.classList.toggle('bg-white/10', isHidden);
+        });
+      }
+
+      if (bboxToggle && bboxLayer) {
+        bboxToggle.addEventListener('click', () => {
+          const isHidden = bboxLayer.classList.toggle('hidden');
+          bboxToggle.classList.toggle('bg-secondary/90', !isHidden);
+          bboxToggle.classList.toggle('bg-white/10', isHidden);
+        });
+      }
+
+      if (invertBtn && dicomImage) {
+        invertBtn.addEventListener('click', () => {
+          isInverted = !isInverted;
+          dicomImage.style.filter = isInverted ? 'invert(1) contrast(130%) brightness(105%)' : 'contrast(125%) brightness(95%)';
+          invertBtn.classList.toggle('bg-white/20', isInverted);
+        });
+      }
+
+      if (zoomIn && dicomImage && zoomLabel) {
+        zoomIn.addEventListener('click', () => {
+          if (currentZoom < 200) {
+            currentZoom += 25;
+            applyZoom();
+          }
+        });
+      }
+
+      if (zoomOut && dicomImage && zoomLabel) {
+        zoomOut.addEventListener('click', () => {
+          if (currentZoom > 75) {
+            currentZoom -= 25;
+            applyZoom();
+          }
+        });
+      }
+
+      if (resetBtn && dicomImage && zoomLabel) {
+        resetBtn.addEventListener('click', () => {
+          currentZoom = 100;
+          isInverted = false;
+          dicomImage.style.filter = 'contrast(125%) brightness(95%)';
+          if (invertBtn) invertBtn.classList.remove('bg-white/20');
+          if (heatmapLayer) heatmapLayer.classList.remove('opacity-0');
+          if (bboxLayer) bboxLayer.classList.remove('hidden');
+          applyZoom();
+        });
+      }
+
+      function applyZoom() {
+        dicomImage.style.transform = `scale(${currentZoom / 100})`;
+        zoomLabel.textContent = `${currentZoom}%`;
+      }
+
+      window.insertPrompt = function(text) {
+        const area = document.getElementById('clinical-impression-field');
+        if (area) {
+          area.value = area.value.trim() + ' ' + text;
+          area.focus();
+        }
+      };
+    })();
+  </script>
+<script src="../mediscan-router.js"></script></body></html>

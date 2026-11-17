@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#e5eeff", "tertiary-container": "#053444", "tertiary": "#001e29", "on-surface-variant": "#43474d", "border-focus": "#16A6A1", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#006f6b", "primary-fixed": "#cfe5ff", "tertiary-fixed": "#c1e8fd", "secondary-fixed": "#7ef5ef", "surface": "#f8f9ff", "on-tertiary-fixed-variant": "#244b5c", "on-secondary-fixed": "#00201f", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#7f9ab8", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#0b1c30", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#2e4963", "surface-container-low": "#eff4ff", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504d", "tertiary-fixed-dim": "#a5cce0", "primary": "#001d33", "surface-container-high": "#dce9ff", "surface-variant": "#d3e4fe", "on-tertiary-container": "#769db0", "primary-container": "#15324b", "on-surface": "#0b1c30", "canvas-bg": "#F5F8FA", "inverse-on-surface": "#eaf1ff", "background": "#f8f9ff", "primary-fixed-dim": "#aec9e9", "surface-dim": "#cbdbf5", "inverse-primary": "#aec9e9", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#001f2a", "on-primary-fixed": "#001d33", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#213145", "border-subtle": "#E2E8F0", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#DCFCE7", "surface-tint": "#46617c", "surface-container-highest": "#d3e4fe", "secondary-container": "#7bf3ed", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#f8f9ff", "secondary": "#006a66", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#60d9d3", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-bg font-body-md text-on-surface antialiased"><div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">Clinical Safety Advisory:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div></div><header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle"><div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="MediScan AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical Decision Support</span></div></div><div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO / SIMULATED</span></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, ID, DICOM studies, MRN..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></button><div class="h-6 w-px bg-border-subtle"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end hidden lg:flex"><span class="font-body-bold text-body-bold text-on-surface leading-tight">Dr. A. Mehta</span><span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief Radiologist</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/></div></div></div></header><aside class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(21,50,75,0.03)]"><div class="flex-1 overflow-y-auto py-space-md px-space-sm"><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical Workflows</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="upload-scan" href="#"><span class="material-symbols-outlined text-lg">upload_file</span><span>Upload Scan</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="ai-analysis" href="#"><span class="material-symbols-outlined text-lg">neurology</span><span>AI Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="clinical-datasets" href="#"><span class="material-symbols-outlined text-lg">database</span><span>Clinical Datasets</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="patients" href="#"><span class="material-symbols-outlined text-lg">personal_injury</span><span>Patients</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="risk-prioritization" href="#"><span class="material-symbols-outlined text-lg">acute</span><span>Risk Prioritization</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span class="material-symbols-outlined text-lg">description</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="notifications" href="#"><span class="material-symbols-outlined text-lg">notifications_active</span><span>Notifications</span></a><div class="my-space-xs border-t border-border-subtle"></div><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span></div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-profile" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Settings / Profile</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="admin" href="#"><span class="material-symbols-outlined text-lg">admin_panel_settings</span><span>Admin</span></a></nav></div><div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span></div><button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-sm">keyboard_arrow_down</span></button></div><div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging Active</span></div></div></div></aside><div class="pl-64"><main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg"><div class="flex flex-col w-full">
+<!-- Top Command & Action Bar -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-sm mb-1">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Risk Prioritization &amp; Triage Board</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-ping"></span>
+            LIVE AUTO-TRIAGE ACTIVE
+          </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-medium">
+            Pending Clinical Validation: 3 Cases
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Dynamic automated triage queue. Prioritization assists case review sequence only and does not establish diagnosis, determine definitive therapy, or override statutory emergency protocols.
+        </p>
+</div>
+<!-- Action Utilities -->
+<div class="flex items-center gap-space-sm flex-wrap self-start lg:self-center">
+<!-- View Toggle -->
+<div class="bg-surface-container-low p-1 rounded-lg flex items-center shadow-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-card text-primary font-body-bold text-body-bold shadow-sm transition-all" id="viewKanbanBtn">
+<span class="material-symbols-outlined text-base">view_kanban</span>
+<span>Board</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-all" id="viewListBtn">
+<span class="material-symbols-outlined text-base">format_list_bulleted</span>
+<span>List</span>
+</button>
+</div>
+<!-- Rules Config Toggle -->
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-card text-on-surface hover:bg-surface-container-low shadow-sm font-body-bold text-body-bold transition-all" id="openConfigDrawerBtn">
+<span class="material-symbols-outlined text-secondary text-lg">tune</span>
+<span>Configurable Triage Rules</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-all">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span>Run Batch Re-triage</span>
+</button>
+</div>
+</div>
+<!-- Filter & Query Control Strip -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md">
+<div class="flex flex-1 flex-wrap items-center gap-space-sm">
+<!-- Search Input -->
+<div class="relative min-w-[260px] flex-1 sm:flex-initial">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg pointer-events-none">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:bg-surface-card focus:outline-none transition-colors" placeholder="Search patient ID, MRN, pathology..." type="text"/>
+</div>
+<!-- Modality Filter -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm appearance-none focus:outline-none cursor-pointer">
+<option>Modality: All Studies</option>
+<option>Chest X-ray (CXR)</option>
+<option>Brain MRI / Neuro</option>
+<option>Abdominal CT</option>
+<option>Musculoskeletal Trauma</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+<!-- Clinician Filter -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm appearance-none focus:outline-none cursor-pointer">
+<option>Assignee: All Assigned</option>
+<option>Dr. A. Mehta (Chief)</option>
+<option>Dr. K. Vance</option>
+<option>Unassigned (Triage Pool)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+<!-- Time Range Filter -->
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm appearance-none focus:outline-none cursor-pointer">
+<option>Acquisition: Last 24 Hours</option>
+<option>Last 6 Hours</option>
+<option>Last 12 Hours</option>
+<option>Active Shift Only</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Quick Triage Stats -->
+<div class="flex items-center gap-space-md self-end xl:self-center">
+<div class="flex items-center gap-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-priority-critical"></span>
+<span>SLA Breach Risk: <strong class="text-priority-critical font-bold">1 study</strong></span>
+</div>
+<div class="h-4 w-px bg-surface-container-high hidden sm:block"></div>
+<div class="flex items-center gap-space-xs font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">update</span>
+<span>Updated 42s ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Kanban Grid: 4 Clinical Tiers -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md items-start w-full relative">
+<!-- ================== COLUMN 1: CRITICAL ================== -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-sm shadow-sm">
+<!-- Column Header -->
+<div class="bg-surface-card rounded-lg p-space-sm mb-space-sm shadow-sm flex items-center justify-between border-l-4 border-l-priority-critical">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-priority-critical text-xl font-bold">emergency</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Critical</span>
+<span class="px-2 py-0.2 rounded-full bg-priority-critical-soft text-priority-critical font-label-code-sm text-label-code-sm font-bold">4 Cases</span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-priority-critical font-semibold uppercase tracking-wider">Review SLA: &lt; 1 hr</p>
+</div>
+</div>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+<!-- Critical Cards Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Case PT-20481 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-critical"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20481</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">61y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Chest X-ray</span>
+</div>
+<!-- Micro Image Visual Thumbnail -->
+<div class="flex items-center gap-space-sm mb-space-sm bg-viewer-dark rounded-md p-1.5 text-on-secondary">
+<div class="w-12 h-12 rounded bg-viewer-surface flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="High contrast medical chest radiography grayscale DICOM study showing massive right-sided pleural fluid collection with lung collapse, clinical hospital digital viewer aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD65jI7cjvjMFq8GaTNUV_VJQ4vbKrdk3D1KB4jK5T3ir9yjLk1V9JLL3yQMZnzh-4zqPz-AkczWye0c_3s6GOHKP8AccrhaHTCapVo8mJawH1zooj_hNzBFqnCOEeDhCC53VwGTZl6od7wJlpnl-cPSN8jdXKTl68YMMvE0TZ9Xrbqr7uCgnC0lxA-qh-zkS3Me2U8HuEPesIa1zheO0Q1RyTF7nj_SD0lFt2SVh4"/>
+<span class="absolute bottom-0.5 right-0.5 w-2 h-2 rounded-full bg-priority-critical"></span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-priority-critical font-bold">URGENCY: 94 / 100</span>
+<span class="font-label-code-sm text-label-code-sm text-outline-variant">T-18m left</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-container-highest truncate font-medium">Rt. Hemithorax Tension</p>
+</div>
+</div>
+<!-- Flagged Indicators -->
+<div class="bg-priority-critical-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+<span>Suspected tension pleural effusion</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Severe hypoxia + acute radiological opacity with mediastinal shift.</p>
+</div>
+<!-- Meta & Assigned Clinician -->
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<img alt="Dr. Mehta" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/>
+<span class="font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</span>
+</div>
+<button class="px-2.5 py-1 rounded bg-priority-critical text-on-primary hover:opacity-90 font-label-code-sm text-label-code-sm font-bold transition-all flex items-center gap-1">
+<span>Review Now</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Case PT-20489 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-critical"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20489</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">44y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Brain MRI</span>
+</div>
+<div class="bg-priority-critical-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">report_problem</span>
+<span>Acute hyperdense MCA sign (91/100)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Onset 50 min ago; suspected thromboembolic stroke core.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-xs text-priority-critical">timer</span>
+<span>SLA Critical: 12m</span>
+</span>
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary hover:bg-primary font-label-code-sm text-label-code-sm font-bold transition-all">
+              Triage Stat
+            </button>
+</div>
+</div>
+<!-- Case PT-20502 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-critical"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20502</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">72y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Trauma CT</span>
+</div>
+<div class="bg-priority-critical-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">acute</span>
+<span>Active contrast extravasation (89/100)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pelvic fracture with suspected retroperitoneal bleed.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant font-medium">ER Trauma Bay 1</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-bold hover:bg-surface-container transition-all">
+              Claim
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================== COLUMN 2: HIGH ================== -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-sm shadow-sm">
+<!-- Column Header -->
+<div class="bg-surface-card rounded-lg p-space-sm mb-space-sm shadow-sm flex items-center justify-between border-l-4 border-l-priority-high">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-priority-high text-xl font-bold">warning</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">High</span>
+<span class="px-2 py-0.2 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">8 Cases</span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-priority-high font-semibold uppercase tracking-wider">Review SLA: &lt; 4 hrs</p>
+</div>
+</div>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+<!-- High Cards Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Case PT-20495 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-high"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20495</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">53y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Brain MRI</span>
+</div>
+<div class="bg-priority-high-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-high font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">speed</span>
+<span>Subdural collection suspicion (74%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mild sulcal effacement, no gross midline displacement noted.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 1h 14m</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-code-sm text-label-code-sm font-semibold transition-all">
+                Assign Reviewer
+              </button>
+<button class="px-2 py-1 rounded bg-primary-container text-on-primary hover:bg-primary font-label-code-sm text-label-code-sm font-semibold transition-all">
+                Open
+              </button>
+</div>
+</div>
+</div>
+<!-- Case PT-20504 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-high"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20504</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">38y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Abdominal CT</span>
+</div>
+<div class="bg-priority-high-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-high font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">adjust</span>
+<span>Bowel wall thickening + mesenteric fat stranding</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Suspected acute diverticulitis with local peritonitis.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 1h 48m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-primary font-label-code-sm text-label-code-sm font-bold transition-all">
+              Open Case
+            </button>
+</div>
+</div>
+<!-- Case PT-20511 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-priority-high"></div>
+<div class="flex items-start justify-between gap-space-xs mb-space-xs pt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20511</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">69y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Chest CT</span>
+</div>
+<div class="bg-priority-high-soft/60 rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-high font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">error_outline</span>
+<span>Segmental pulmonary embolism (71%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Filling defect right lower lobe segmental artery.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant font-medium">Assigned: Dr. Vance</span>
+<button class="px-2 py-1 rounded bg-secondary/10 text-secondary hover:bg-secondary/20 font-label-code-sm text-label-code-sm font-bold transition-all">
+              Review
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================== COLUMN 3: MODERATE ================== -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-sm shadow-sm">
+<!-- Column Header -->
+<div class="bg-surface-card rounded-lg p-space-sm mb-space-sm shadow-sm flex items-center justify-between border-l-4 border-l-priority-moderate">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-priority-moderate text-xl font-bold">info</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Moderate</span>
+<span class="px-2 py-0.2 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">15 Cases</span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold uppercase tracking-wider">Review SLA: &lt; 12 hrs</p>
+</div>
+</div>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+<!-- Moderate Cards Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Case PT-20488 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20488</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">58y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Chest X-ray</span>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-on-surface font-label-code-sm text-label-code-sm font-semibold">
+<span class="material-symbols-outlined text-xs text-priority-moderate">search_check_2</span>
+<span>Mild degenerative thoracic spondylosis</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No consolidation, effusion, or pneumothorax visible.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 4h 22m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Inspect
+            </button>
+</div>
+</div>
+<!-- Case PT-20515 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20515</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">49y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">CT Chest</span>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-on-surface font-label-code-sm text-label-code-sm font-semibold">
+<span class="material-symbols-outlined text-xs text-priority-moderate">radio_button_checked</span>
+<span>Follow-up nodule 4.2mm (Stability check)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unchanged since study 6 months prior. Fleishner criterion non-urgent.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 5h 10m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Inspect
+            </button>
+</div>
+</div>
+<!-- Case PT-20519 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20519</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">65y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Lumbar MRI</span>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-on-surface font-label-code-sm text-label-code-sm font-semibold">
+<span class="material-symbols-outlined text-xs text-priority-moderate">reorder</span>
+<span>L4-L5 Disk bulge without canal stenosis</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Neural foramina patent. Chronic presentation.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 6h 30m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Inspect
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================== COLUMN 4: LOW (ROUTINE) ================== -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-sm shadow-sm">
+<!-- Column Header -->
+<div class="bg-surface-card rounded-lg p-space-sm mb-space-sm shadow-sm flex items-center justify-between border-l-4 border-l-priority-low">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-priority-low text-xl font-bold">check_circle</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Low / Routine</span>
+<span class="px-2 py-0.2 rounded-full bg-priority-low-soft text-priority-low font-label-code-sm text-label-code-sm font-bold">21 Cases</span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-priority-low font-semibold uppercase tracking-wider">Review SLA: &lt; 24 hrs</p>
+</div>
+</div>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+<!-- Low Cards Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Case PT-20490 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20490</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">29y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Screening CXR</span>
+</div>
+<!-- Micro Visual -->
+<div class="flex items-center gap-space-sm mb-space-sm bg-viewer-dark rounded-md p-1.5 text-on-secondary">
+<div class="w-10 h-10 rounded bg-viewer-surface flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Clear normal digital PA chest radiograph on dark clinical diagnostic monitor screen, symmetrical lung fields, crisp cardiac silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeNMzEcP8e20VsMgRZmDHGqrqU3dL5_CNBWcn189Hqa4i_oKA6TbNcfJUXATUYeaciHVRrSJaTfMn_xIVjpmfq6DgO6jjS4Ula1PKbZ0zIpUKS4kv9a5Hm1FwOEkwIX18uNLx1fIcoS6WG91KbEMU1t_CxUzbhWjwJ-LZuZOAON0g-fYiYKEyY5xZC3V2zMyRhN561leV8UFZyAqAPfsIOGUQCzcM-swESHGecRR8"/>
+<span class="absolute bottom-0.5 right-0.5 w-2 h-2 rounded-full bg-priority-low"></span>
+</div>
+<div class="min-w-0 flex-1">
+<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">CLEARED BY AI TRIAGE</span>
+<p class="font-body-sm text-body-sm text-surface-container-highest truncate">Annual Employment Screen</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-low font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">done_all</span>
+<span>No acute cardiopulmonary abnormality</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clear lung fields, normal cardiothoracic ratio (&lt;0.5).</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 7h 12m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Sign Off
+            </button>
+</div>
+</div>
+<!-- Case PT-20501 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20501</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">34y • M</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Post-Op Knee XR</span>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-low font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">check</span>
+<span>Hardware intact; anatomic alignment maintained</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Post ACL repair week 6. No hardware loosening or lucency.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 9h 05m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Sign Off
+            </button>
+</div>
+</div>
+<!-- Case PT-20520 -->
+<div class="group bg-surface-card rounded-lg p-space-md shadow-sm hover:shadow-md transition-all relative">
+<div class="flex items-start justify-between gap-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base cursor-grab active:cursor-grabbing hover:text-on-surface">drag_indicator</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">PT-20520</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">51y • F</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Sinus CT</span>
+</div>
+<div class="bg-surface-container-low rounded p-space-xs mb-space-xs flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-priority-low font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">check</span>
+<span>Mild mucosal thickening, clear ostiomeatal units</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Chronic rhinosinusitis follow-up. No acute fluid levels.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm">
+<span class="font-label-code-sm text-label-code-sm text-outline">Queue: 11h 40m</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-medium transition-all">
+              Sign Off
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Metric & SLA Strip -->
+<div class="mt-space-lg bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-priority-critical-soft flex items-center justify-center text-priority-critical">
+<span class="material-symbols-outlined text-xl">avg_pace</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Critical Mean TAT</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">22.4 mins <span class="font-body-sm text-body-sm text-priority-low font-normal">(-14% vs target)</span></p>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-high hidden md:block"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">schema</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Model Confidence Index</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">98.2% <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(v4.2.1-prod)</span></p>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-high hidden md:block"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-priority-high-soft flex items-center justify-center text-priority-high">
+<span class="material-symbols-outlined text-xl">swap_calls</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Manual Overrides (24h)</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">3 Cases <span class="font-body-sm text-body-sm text-outline font-normal">(1.2% rate)</span></p>
+</div>
+</div>
+</div>
+<!-- Drag & Drop protocol hint -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-sm text-secondary">touch_app</span>
+<span>Drag card between columns to initiate clinician priority override protocol.</span>
+</div>
+</div>
+<!-- Safety & Governance Footnote Banner -->
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">gavel</span>
+<span class="font-body-sm text-body-sm">
+<strong>Mandatory Safety Footnote:</strong> AI prioritization order is assistive. Clinicians retain full statutory discretion over emergency triage protocol, case sequencing, and clinical escalation.
+      </span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-outline whitespace-nowrap">Audit Ref: TRIAGE-QUEUE-LOG-9021</span>
+</div>
+<!-- ======================================================== -->
+<!-- COLLAPSIBLE SLIDE-OVER DRAWER: Configurable AI Triage Rules -->
+<!-- ======================================================== -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-50 hidden transition-opacity opacity-0" id="drawerOverlay"></div>
+<div class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-surface-card z-50 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out" id="configDrawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-2xl">tune</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Configurable AI Triage Rules</h2>
+<p class="font-label-code-sm text-label-code-sm text-outline font-medium">Model Engine: v4.2.1 NeuralTriage</p>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-card transition-colors" id="closeDrawerBtn">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Drawer Body -->
+<div class="p-space-lg flex-1 overflow-y-auto flex flex-col gap-space-lg">
+<!-- Warning Note -->
+<div class="p-space-sm rounded-lg bg-priority-high-soft text-priority-high flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-lg flex-shrink-0 mt-0.5">policy</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">
+          Threshold adjustments apply to assistive triage queue sorting only. All rule changes trigger immediate audit logging and require Department Chair counter-signature.
+        </p>
+</div>
+<!-- Slider 1: Critical Confidence Cutoff -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-bold text-body-bold text-on-surface">Critical Confidence Cutoff</label>
+<span class="font-label-code text-label-code text-priority-critical font-bold" id="cutoffVal">85%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Findings with algorithmic confidence above this threshold will immediately trigger Tier 1 Critical placement.</p>
+<input class="w-full accent-secondary h-2 bg-surface-container-high rounded-lg cursor-pointer" id="cutoffSlider" max="98" min="60" type="range" value="85"/>
+<div class="flex justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>60% (High Sensitivity)</span>
+<span>98% (High Specificity)</span>
+</div>
+</div>
+<!-- Slider 2: Escalation SLA Alert Threshold -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-bold text-body-bold text-on-surface">Escalation SLA Alert Threshold</label>
+<span class="font-label-code text-label-code text-priority-high font-bold" id="slaVal">30 mins remaining</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lead radiologist receives pager ping when any unread critical scan nears SLA expiration.</p>
+<input class="w-full accent-secondary h-2 bg-surface-container-high rounded-lg cursor-pointer" id="slaSlider" max="60" min="10" step="5" type="range" value="30"/>
+<div class="flex justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>10 mins</span>
+<span>60 mins</span>
+</div>
+</div>
+<!-- Slider 3: Modality Weighting -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-bold text-body-bold text-on-surface">Neuro Trauma Weighting</label>
+<span class="font-label-code text-label-code text-secondary font-bold" id="weightVal">1.5x Multiplier</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Elevates priority score weight for emergency neurovascular and poly-trauma imaging series.</p>
+<input class="w-full accent-secondary h-2 bg-surface-container-high rounded-lg cursor-pointer" id="weightSlider" max="3.0" min="1.0" step="0.1" type="range" value="1.5"/>
+<div class="flex justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>1.0x (Standard)</span>
+<span>3.0x (Aggressive)</span>
+</div>
+</div>
+<!-- Triage Override Explanation & Preview -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary">security</span>
+<span class="font-body-bold text-body-bold">Triage Override Protocol</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          When reordering or dragging cases between columns, you will be prompted to submit a clinician rationale note. This creates an unmodifiable immutable entry in PACS compliance logs.
+        </p>
+<div class="mt-space-xs p-2 rounded bg-surface-card flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>Protocol: MEDISCAN-REV-8A</span>
+<span class="text-priority-low font-bold">ENABLED</span>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-lg bg-surface-container-lowest flex items-center gap-space-sm shadow-md">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-body-bold text-body-bold transition-all" id="cancelDrawerBtn">
+        Discard
+      </button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-all" id="applyRulesBtn">
+        Apply &amp; Re-sort
+      </button>
+</div>
+</div>
+<!-- Override Justification Modal (Simulation Prompt) -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="overrideModal">
+<div class="bg-surface-card rounded-xl max-w-lg w-full p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-priority-high">
+<span class="material-symbols-outlined text-2xl">edit_note</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Manual Triage Priority Override</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        You are manually reclassifying <strong>Case PT-20495</strong> to <strong>Critical (&lt; 1 hr)</strong>. Clinical audit protocol requires a brief justification statement before updating the PACS priority queue.
+      </p>
+<div class="flex flex-col gap-1.5">
+<label class="font-body-bold text-body-bold text-on-surface">Clinical Justification Rationale</label>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:bg-surface-card focus:outline-none resize-none" placeholder="e.g., Attending bedside report indicates deteriorating GCS; immediate surgical decompression consult requested." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-4 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-body-bold text-body-bold transition-all" id="cancelOverrideBtn">
+          Cancel
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-all" id="confirmOverrideBtn">
+          Authorize &amp; Promote Case
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Drawer and Micro-interactions
+  const openConfigDrawerBtn = document.getElementById('openConfigDrawerBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const cancelDrawerBtn = document.getElementById('cancelDrawerBtn');
+  const applyRulesBtn = document.getElementById('applyRulesBtn');
+  const configDrawer = document.getElementById('configDrawer');
+  const drawerOverlay = document.getElementById('drawerOverlay');
+
+  function openDrawer() {
+    drawerOverlay.classList.remove('hidden');
+    setTimeout(() => {
+      drawerOverlay.classList.remove('opacity-0');
+      configDrawer.classList.remove('translate-x-full');
+    }, 10);
+  }
+
+  function closeDrawer() {
+    configDrawer.classList.add('translate-x-full');
+    drawerOverlay.classList.add('opacity-0');
+    setTimeout(() => {
+      drawerOverlay.classList.add('hidden');
+    }, 300);
+  }
+
+  if (openConfigDrawerBtn) openConfigDrawerBtn.addEventListener('click', openDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+  if (cancelDrawerBtn) cancelDrawerBtn.addEventListener('click', closeDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+  if (applyRulesBtn) {
+    applyRulesBtn.addEventListener('click', () => {
+      closeDrawer();
+    });
+  }
+
+  // Live Slider Value Feedback
+  const cutoffSlider = document.getElementById('cutoffSlider');
+  const cutoffVal = document.getElementById('cutoffVal');
+  if (cutoffSlider && cutoffVal) {
+    cutoffSlider.addEventListener('input', (e) => {
+      cutoffVal.textContent = e.target.value + '%';
+    });
+  }
+
+  const slaSlider = document.getElementById('slaSlider');
+  const slaVal = document.getElementById('slaVal');
+  if (slaSlider && slaVal) {
+    slaSlider.addEventListener('input', (e) => {
+      slaVal.textContent = e.target.value + ' mins remaining';
+    });
+  }
+
+  const weightSlider = document.getElementById('weightSlider');
+  const weightVal = document.getElementById('weightVal');
+  if (weightSlider && weightVal) {
+    weightSlider.addEventListener('input', (e) => {
+      weightVal.textContent = Number(e.target.value).toFixed(1) + 'x Multiplier';
+    });
+  }
+
+  // View switch mock
+  const viewKanbanBtn = document.getElementById('viewKanbanBtn');
+  const viewListBtn = document.getElementById('viewListBtn');
+  if (viewKanbanBtn && viewListBtn) {
+    viewListBtn.addEventListener('click', () => {
+      viewListBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-card text-primary font-body-bold text-body-bold shadow-sm transition-all";
+      viewKanbanBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-all";
+    });
+    viewKanbanBtn.addEventListener('click', () => {
+      viewKanbanBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-card text-primary font-body-bold text-body-bold shadow-sm transition-all";
+      viewListBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-all";
+    });
+  }
+</script></main></div><script src="../mediscan-router.js"></script></body></html>

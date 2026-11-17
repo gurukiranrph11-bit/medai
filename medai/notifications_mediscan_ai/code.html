@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#e5eeff", "tertiary-container": "#053444", "tertiary": "#001e29", "on-surface-variant": "#43474d", "border-focus": "#16A6A1", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#006f6b", "primary-fixed": "#cfe5ff", "tertiary-fixed": "#c1e8fd", "secondary-fixed": "#7ef5ef", "surface": "#f8f9ff", "on-tertiary-fixed-variant": "#244b5c", "on-secondary-fixed": "#00201f", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#7f9ab8", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#0b1c30", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#2e4963", "surface-container-low": "#eff4ff", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504d", "tertiary-fixed-dim": "#a5cce0", "primary": "#001d33", "surface-container-high": "#dce9ff", "surface-variant": "#d3e4fe", "on-tertiary-container": "#769db0", "primary-container": "#15324b", "on-surface": "#0b1c30", "canvas-bg": "#F5F8FA", "inverse-on-surface": "#eaf1ff", "background": "#f8f9ff", "primary-fixed-dim": "#aec9e9", "surface-dim": "#cbdbf5", "inverse-primary": "#aec9e9", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#001f2a", "on-primary-fixed": "#001d33", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#213145", "border-subtle": "#E2E8F0", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#DCFCE7", "surface-tint": "#46617c", "surface-container-highest": "#d3e4fe", "secondary-container": "#7bf3ed", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#f8f9ff", "secondary": "#006a66", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#60d9d3", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-bg font-body-md text-on-surface antialiased"><div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">CLINICAL SAFETY ADVISORY:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div></div><header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle"><div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="MediScan AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical Decision Support</span></div></div><div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO / SIMULATED</span></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, ID, DICOM studies, MRN..." type="text"/></div></div><div class="flex items-center gap-space-md"><a class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors inline-flex items-center justify-center" data-path="notifications" href="#"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></a><div class="h-6 w-px bg-border-subtle"></div><a class="flex items-center gap-space-sm pl-space-xs group" data-path="settings-profile" href="#"><div class="flex flex-col items-end hidden lg:flex"><span class="font-body-bold text-body-bold text-on-surface group-hover:text-primary transition-colors leading-tight">Dr. A. Mehta</span><span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief Radiologist</span></div><img alt="Dr. A. Mehta profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30 group-hover:ring-border-focus transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/></a></div></div></header><aside class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(21,50,75,0.03)]"><div class="flex-1 overflow-y-auto py-space-md px-space-sm"><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical Workflows</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span>Dashboard</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="upload-scan" href="#"><span>Upload Scan</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="ai-analysis" href="#"><span>AI Analysis</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="clinical-datasets" href="#"><span>Clinical Datasets</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="patients" href="#"><span>Patients</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="risk-prioritization" href="#"><span>Risk Prioritization</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span>Reports</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="notifications" href="#"><span>Notifications</span><span class="px-1.5 py-0.5 rounded-full bg-priority-critical text-on-error font-label-code-sm text-label-code-sm font-bold">4</span></a><div class="my-space-xs border-t border-border-subtle"></div><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span></div><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-profile" href="#"><span>Settings / Profile</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="admin" href="#"><span>Admin</span></a></nav></div><div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span></div><span class="material-symbols-outlined text-sm text-on-surface-variant">keyboard_arrow_down</span></div><div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging Active</span></div></div></div></aside><div class="pl-64"><main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg"><div class="flex flex-col w-full">
+<!-- Page Context & Real-Time Monitor Banner -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-widest font-semibold">Triage &amp; Ingestion Stream</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-priority-low animate-ping"></span>
+<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">LIVE TELEMETRY</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Clinical Notification Center &amp; Triage Alerts</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-0.5">Real-time automated critical alerts, AI inference completions, and clinical sign-off requests.</p>
+</div>
+<!-- Top Right Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative">
+<select class="h-10 pl-3 pr-9 bg-surface-card rounded-lg font-body-sm text-body-sm text-on-surface border-0 shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer appearance-none" id="urgency-filter">
+<option value="all">Urgency: All Notifications</option>
+<option value="urgent">Urgent &amp; Critical Only</option>
+<option value="routine">Routine Operational</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-base pointer-events-none">expand_more</span>
+</div>
+<a class="h-10 px-3.5 bg-surface-card rounded-lg text-on-surface-variant hover:text-primary shadow-sm hover:shadow transition-all inline-flex items-center gap-1.5 font-body-bold text-body-bold" data-path="settings-profile" href="#">
+<span class="material-symbols-outlined text-lg">tune</span>
+<span>Preferences</span>
+</a>
+<button class="h-10 px-4 bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container hover:shadow-md transition-all inline-flex items-center gap-2 font-body-bold text-body-bold active:scale-[0.98]" id="mark-all-read-btn">
+<span class="material-symbols-outlined text-lg text-secondary-container">done_all</span>
+<span>Mark all as read</span>
+</button>
+</div>
+</div>
+<!-- Operational Filter Ribbon & Segmented Pill Navigation -->
+<div class="w-full bg-surface-card rounded-xl p-space-xs shadow-sm mb-space-lg flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1 overflow-x-auto py-1">
+<button class="filter-tab active-tab px-3.5 py-1.5 rounded-lg font-body-bold text-body-bold bg-primary text-on-primary shadow-sm transition-all flex items-center gap-2">
+<span>All</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-on-primary font-label-code-sm text-label-code-sm">18</span>
+</button>
+<button class="filter-tab px-3.5 py-1.5 rounded-lg font-body-bold text-body-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span>High-Priority / Critical</span>
+<span class="px-1.5 py-0.2 rounded-full bg-priority-critical text-on-error font-label-code-sm text-label-code-sm font-bold">4</span>
+</button>
+<button class="filter-tab px-3.5 py-1.5 rounded-lg font-body-bold text-body-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span>New Cases</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm">6</span>
+</button>
+<button class="filter-tab px-3.5 py-1.5 rounded-lg font-body-bold text-body-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span>Completed Analysis</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm">5</span>
+</button>
+<button class="filter-tab px-3.5 py-1.5 rounded-lg font-body-bold text-body-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-2">
+<span>Pending Reviews</span>
+<span class="px-1.5 py-0.2 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">3</span>
+</button>
+</div>
+<!-- Active Read State Counter -->
+<div class="flex items-center gap-space-sm px-space-sm text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-priority-critical"></span>
+<span class="font-semibold text-on-surface">3 Unread Criticals</span>
+</span>
+<span>•</span>
+<span>Auto-sync 15s</span>
+</div>
+</div>
+<!-- Primary Content Grid: Activity Feed + Right Inspector Deck -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left / Center Column: Notification Timeline List -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Group: Today -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">calendar_today</span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Today — 18 Nov 2026</h2>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">4 Events</span>
+</div>
+<!-- Notification Item 1: Critical Triage Escalation (Unread, Emergency soft tint) -->
+<article class="relative bg-surface-card rounded-xl p-space-md shadow-md border-l-4 border-l-priority-critical hover:shadow-lg transition-all group overflow-hidden">
+<div class="absolute -right-12 -top-12 w-32 h-32 bg-priority-critical-soft/50 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start gap-space-md">
+<!-- Pulsing Alert Badge Icon -->
+<div class="relative shrink-0 mt-0.5">
+<div class="w-10 h-10 rounded-xl bg-priority-critical-soft text-priority-critical flex items-center justify-center ring-2 ring-priority-critical/20">
+<span class="material-symbols-outlined text-2xl animate-pulse">crisis_alert</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-priority-critical rounded-full ring-2 ring-surface-card"></span>
+</div>
+<!-- Content Core -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-critical text-on-error font-badge-label text-badge-label tracking-wide">
+<span class="material-symbols-outlined text-xs">warning</span>
+                  CRITICAL TRIAGE ESCALATION
+                </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-critical-soft text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+<span class="material-symbols-outlined text-xs">timer</span>
+                  SLA: &lt; 28m remaining
+                </span>
+<span class="font-label-code-sm text-label-code-sm text-priority-high font-semibold bg-priority-moderate-soft px-1.5 py-0.5 rounded">SIMULATED INFERENCE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-1">
+                Critical finding detected: Tension Pleural Effusion for Patient <span class="font-label-code text-label-code text-secondary font-bold">PT-20481</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                ThoraxNet AI detected severe hemithorax opacity (<span class="font-bold text-priority-critical">88.4% conf</span>) with right tracheal deviation on Chest X-Ray. Immediate attending radiologist sign-off required.
+              </p>
+<!-- Image & Diagnostic Context Preview -->
+<div class="mb-space-md p-space-sm bg-viewer-dark rounded-xl text-on-primary flex flex-col sm:flex-row items-center gap-space-md">
+<div class="relative w-full sm:w-28 h-20 rounded-lg overflow-hidden bg-viewer-surface shrink-0">
+<img class="w-full h-full object-cover opacity-90" data-alt="High contrast medical chest radiograph demonstrating severe left hemithorax radio-opacity with mediastinal shift and tracheal deviation, radiologic AI heat-map contour in orange overlay, sterile dark mode diagnostic scan view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoAKPlJ0FJGYUZB20ZiFbhD0ahqK0q7eBi3QRID_UP2eO31y2eXp7miYHK8ItuBrde8XI117QYwAAcUj2QRYJSdpszK9c7Py5fNZtCV_KY9D5-eaR4qjnI6c3F1W6naS4F5keP9L7HwosN29giCqolFlJLN-l9-JMpau4KyOv2bMG7HGCBUGeVSKNxG3Nz4SgEeft3dszzM4EowjJV9JLX8Q8VP8LtxjONWf3OHeI"/>
+<span class="absolute bottom-1 right-1 font-label-code-sm text-label-code-sm bg-viewer-dark/80 px-1 rounded text-priority-high">CXR-PA</span>
+</div>
+<div class="flex-1 min-w-0 w-full">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="font-label-code-sm text-label-code-sm text-on-primary-container">HEMITHORAX OPACITY MAPPING</span>
+<span class="font-label-code text-label-code text-priority-critical font-bold">88.4% HIGH RISK</span>
+</div>
+<!-- Confidence progress visualization -->
+<div class="w-full h-1.5 bg-viewer-surface rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-priority-high to-priority-critical rounded-full" style="width: 88.4%;"></div>
+</div>
+<div class="flex items-center gap-space-sm mt-1.5 text-xs text-on-primary-container">
+<span>Tracheal shift: +14.2mm</span>
+<span>•</span>
+<span>Tension volume: Acute</span>
+</div>
+</div>
+</div>
+<!-- Metadata & Quick Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span class="font-semibold text-primary">12m ago</span>
+<span>•</span>
+<span>Modality: CXR PA</span>
+<span>•</span>
+<span>Referring: Dr. S. Rao (ER)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container transition-colors font-body-bold text-body-bold text-xs inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">notifications_paused</span>
+                    Acknowledge Alert
+                  </button>
+<a class="px-3.5 py-1.5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all shadow-sm font-body-bold text-body-bold text-xs inline-flex items-center gap-1" data-path="ai-analysis" href="#">
+<span>Open Case PT-20481</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification Item 2: High-Priority AI Flag (Unread, Amber) -->
+<article class="relative bg-surface-card rounded-xl p-space-md shadow-sm border-l-4 border-l-priority-high hover:shadow-md transition-all group">
+<div class="flex items-start gap-space-md">
+<div class="shrink-0 mt-0.5">
+<div class="w-10 h-10 rounded-xl bg-priority-high-soft text-priority-high flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">neurology</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">priority_high</span>
+                  HIGH PRIORITY
+                </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm">
+                  Sequence: FLAIR-AXIAL
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-1">
+                Suspected Subdural Hematoma: Patient <span class="font-label-code text-label-code text-secondary font-bold">PT-20495</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                Brain MRI FLAIR sequence processed with <span class="font-semibold text-priority-high">74% sulcal effacement correlation</span>. Crescentic hyperintensity flagged along frontoparietal convexities. Added to Priority Queue.
+              </p>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span class="font-semibold text-primary">45m ago</span>
+<span>•</span>
+<span>Brain MRI</span>
+<span>•</span>
+<span>Radiologist: Dr. K. Nair</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-body-bold text-body-bold text-xs inline-flex items-center gap-1" data-path="ai-analysis" href="#">
+<span>Open Case PT-20495</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification Item 3: Completed Analysis (Read) -->
+<article class="bg-surface-card rounded-xl p-space-md shadow-sm hover:shadow transition-all group opacity-90 hover:opacity-100">
+<div class="flex items-start gap-space-md">
+<div class="shrink-0 mt-0.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-surface-container text-on-secondary-container font-badge-label text-badge-label font-bold">
+                  ANALYSIS COMPLETED
+                </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-priority-low-soft text-priority-low font-label-code-sm text-label-code-sm font-bold">
+                  Rule-out Confirmed
+                </span>
+</div>
+<h3 class="font-body-bold text-body-bold text-on-surface mb-1">
+                Routine CXR Screening: <span class="font-label-code text-label-code text-primary">PT-20490</span> normal baseline confirmed
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                CADe pipeline completed. 0 actionable pulmonary nodules or focal consolidations detected (Rule-out confidence 96.8%). Cardiopulmonary silhouette within normal limits.
+              </p>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span>2h ago</span>
+<span>•</span>
+<span>CXR PA/LAT</span>
+<span>•</span>
+<span>Automated Dispatch</span>
+</div>
+<div>
+<a class="px-3 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors font-body-bold text-body-bold text-xs inline-flex items-center gap-1" data-path="reports" href="#">
+<span>View Summary</span>
+<span class="material-symbols-outlined text-xs">description</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Notification Item 4: Pending Clinician Sign-Off (Unread, Blue/Navy) -->
+<article class="bg-surface-card rounded-xl p-space-md shadow-sm border-l-4 border-l-secondary hover:shadow-md transition-all group">
+<div class="flex items-start gap-space-md">
+<div class="shrink-0 mt-0.5">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">draw</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-badge-label text-badge-label font-bold">
+                  SIGN-OFF REQUEST
+                </span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                  Pending Attestation
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-1">
+                Diagnostic Report awaiting signature: Patient <span class="font-label-code text-label-code text-secondary font-bold">PT-20488</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                Dr. S. Rao has prepared the draft impression for Abdominal CT with contrast. Clinician attestation needed before automated EHR export.
+              </p>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span class="font-semibold text-primary">3h ago</span>
+<span>•</span>
+<span>Abdominal CT</span>
+<span>•</span>
+<span class="font-label-code-sm text-label-code-sm">REP-2026-08840</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="px-3.5 py-1.5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all font-body-bold text-body-bold text-xs inline-flex items-center gap-1" data-path="reports" href="#">
+<span>Review &amp; Sign</span>
+<span class="material-symbols-outlined text-sm">edit_document</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Group: Yesterday -->
+<section class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tight">Yesterday — 17 Nov 2026</h2>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">1 Archived Batch</span>
+</div>
+<!-- Notification Item 5: Batch Dataset Notification (Read) -->
+<article class="bg-surface-card rounded-xl p-space-md shadow-sm hover:shadow transition-all group opacity-85 hover:opacity-100">
+<div class="flex items-start gap-space-md">
+<div class="shrink-0 mt-0.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">dataset</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-badge-label text-badge-label font-bold">
+                  DATASET READY
+                </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-semibold">
+                  Batch ID: #9042-EHR
+                </span>
+</div>
+<h3 class="font-body-bold text-body-bold text-on-surface mb-1">
+                EHR Cardiopulmonary Cohort v3 Imputation Finished
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                2,450 records processed. 84 flagged anomaly clusters ready for cohort triage board. Pre-training validation report available for download.
+              </p>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm text-on-surface-variant">
+<span>5h ago</span>
+<span>•</span>
+<span>Dataset #9042-EHR</span>
+<span>•</span>
+<span>Pipeline v2.1.4</span>
+</div>
+<div>
+<a class="px-3 py-1 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container transition-colors font-body-bold text-body-bold text-xs inline-flex items-center gap-1" data-path="clinical-datasets" href="#">
+<span>Inspect Cohort</span>
+<span class="material-symbols-outlined text-xs">dataset_linked</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Bottom Load / Pagination Anchor -->
+<div class="flex items-center justify-center py-space-sm">
+<button class="px-4 py-2 bg-surface-card rounded-lg text-on-surface-variant hover:text-primary font-body-bold text-body-bold text-xs shadow-sm hover:shadow transition-all inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+<span>Load Prior Activity (32 more entries)</span>
+</button>
+</div>
+</div>
+<!-- Right Side Column: Triage Telemetry, Escalation Pagers & Clinical Focus Controls -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Card: Alert Urgency Breakdown Visualizer -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight">Urgency Distribution</h3>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Past 24h</span>
+</div>
+<!-- SVG Donut Chart + Central Metric -->
+<div class="flex items-center gap-space-md mb-space-md">
+<div class="relative w-28 h-28 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Background ring -->
+<circle class="text-surface-container" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-width="12"></circle>
+<!-- Critical: 4/18 ≈ 22.2% -> perimeter 238.76 -> stroke-dasharray 53 186 -->
+<circle class="text-priority-critical transition-all duration-700" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-dasharray="53 186" stroke-dashoffset="0" stroke-width="12"></circle>
+<!-- High: 3/18 ≈ 16.6% -> stroke-dasharray 40 199 -> offset -53 -->
+<circle class="text-priority-high transition-all duration-700" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-dasharray="40 199" stroke-dashoffset="-53" stroke-width="12"></circle>
+<!-- Moderate: 6/18 ≈ 33.3% -> stroke-dasharray 79 160 -> offset -93 -->
+<circle class="text-priority-moderate transition-all duration-700" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-dasharray="79 160" stroke-dashoffset="-93" stroke-width="12"></circle>
+<!-- System: 5/18 ≈ 27.7% -> stroke-dasharray 66 173 -> offset -172 -->
+<circle class="text-secondary transition-all duration-700" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-dasharray="66 173" stroke-dashoffset="-172" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-md text-headline-md text-primary font-bold leading-none">18</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase text-[10px]">Triage</span>
+</div>
+</div>
+<!-- Breakdown List -->
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-priority-critical shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface">Critical Triage</span>
+</div>
+<span class="font-label-code text-label-code font-bold text-priority-critical">4</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-priority-high shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface">High Priority</span>
+</div>
+<span class="font-label-code text-label-code font-bold text-priority-high">3</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-priority-moderate shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface">Moderate Routine</span>
+</div>
+<span class="font-label-code text-label-code font-bold text-on-surface">6</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface">System / Data</span>
+</div>
+<span class="font-label-code text-label-code font-bold text-secondary">5</span>
+</div>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-xs text-on-surface-variant">
+<span>Target Triage Resolution</span>
+<span class="font-label-code text-label-code font-bold text-priority-low">94.2% within SLA</span>
+</div>
+</div>
+<!-- Card: Urgent Escalation Pager Channel -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm border-l-4 border-l-secondary">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">cell_tower</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight">Escalation Pager Channel</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-priority-low-soft text-priority-low font-label-code-sm text-label-code-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-priority-low"></span>
+            ACTIVE
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Direct hardware bridge connected to Emergency Department VoIP and hospital-wide paging infrastructure.
+        </p>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5 mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">ASSIGNED PAGER ID</span>
+<span class="font-label-code text-label-code text-primary font-bold">RAD-ONC-04</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">DEVICE LATENCY</span>
+<span class="font-label-code text-label-code text-priority-low font-bold">&lt; 1.48s avg</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant">FALLBACK ROUTE</span>
+<span class="font-label-code text-label-code text-on-surface font-semibold">SMS + Push (Attending Dr. Mehta)</span>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-high hover:bg-surface-container text-primary rounded-lg font-body-bold text-body-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-sm">phonelink_ring</span>
+<span>Send Self Test Ping</span>
+</button>
+</div>
+<!-- Card: Quick Mute / Focus Mode Control -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">do_not_disturb_on</span>
+<h3 class="font-headline-sm text-headline-sm text-primary tracking-tight">Clinical Focus Mode</h3>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Silences non-critical telemetry, routine screening confirmations, and system notifications during diagnostic reading sessions.
+        </p>
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-body-bold text-body-bold text-on-surface">Mute Routine Alerts</span>
+<span class="font-label-code-sm text-label-code-sm text-priority-critical font-medium">Critical alerts will always override</span>
+</div>
+<!-- Interactive Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="focus-mode-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-subtle flex items-center justify-between">
+<button class="text-on-surface-variant hover:text-error transition-colors font-body-bold text-body-bold text-xs inline-flex items-center gap-1" id="clear-logs-btn">
+<span class="material-symbols-outlined text-sm">auto_delete</span>
+<span>Clear Logs &gt; 30 Days</span>
+</button>
+<span class="font-label-code-sm text-label-code-sm text-outline">HIPAA Compliant Purge</span>
+</div>
+</div>
+<!-- Quick Assistance Card with Radiologist Support Visual -->
+<div class="bg-gradient-to-br from-primary-container to-primary rounded-xl p-space-md text-on-primary shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-28 h-28 bg-secondary/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-start justify-between mb-2">
+<span class="font-label-code-sm text-label-code-sm text-secondary-container font-bold uppercase tracking-wider">ON-CALL CONSULTATION</span>
+<span class="material-symbols-outlined text-secondary-container text-lg">medical_services</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-primary mb-1">Radiology Lead Roster</h4>
+<p class="font-body-sm text-body-sm text-on-primary-container mb-space-md">
+          Direct secure transfer to attending neuro-radiologist on shift for concurrent verification.
+        </p>
+<div class="flex items-center gap-space-sm">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full bg-secondary flex items-center justify-center font-label-code-sm text-label-code-sm text-white font-bold ring-2 ring-primary">AR</div>
+<div class="w-7 h-7 rounded-full bg-priority-high flex items-center justify-center font-label-code-sm text-label-code-sm text-white font-bold ring-2 ring-primary">SK</div>
+<div class="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center font-label-code-sm text-label-code-sm text-primary font-bold ring-2 ring-primary">ML</div>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-on-primary-container">3 Attending Clinicians Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandatory FDA Class II Clinical Safety Advisory Notice -->
+<aside class="mt-space-xl p-space-md bg-surface-container-low rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</div>
+<div>
+<p class="font-body-bold text-body-bold text-on-surface">FDA Class II CDS &amp; Proto-21 CFR Regulatory Notice</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          MediScan AI triage signals are algorithmic decision-support notifications and do not constitute independent diagnostic conclusions. Final diagnostic determinations must be performed by certified radiologists.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2.5 py-1 rounded bg-surface-card text-on-surface font-label-code-sm text-label-code-sm font-semibold shadow-xs">AUDIT v2.48-ST</span>
+<span class="px-2.5 py-1 rounded bg-surface-card text-secondary font-label-code-sm text-label-code-sm font-bold shadow-xs">NIST-SP800 VERIFIED</span>
+</div>
+</aside>
+<!-- Interactive JavaScript Micro-interactions -->
+<script>
+    (function initNotificationsApp() {
+      // Filter tabs interactive switching
+      const tabs = document.querySelectorAll('.filter-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            t.classList.add('text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container-low');
+          });
+          this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          this.classList.remove('text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container-low');
+        });
+      });
+
+      // Mark all as read button behavior
+      const markAllBtn = document.getElementById('mark-all-read-btn');
+      if (markAllBtn) {
+        markAllBtn.addEventListener('click', function() {
+          const unreadPills = document.querySelectorAll('.bg-priority-critical-soft, .bg-priority-high-soft');
+          this.innerHTML = '<span class="material-symbols-outlined text-lg text-secondary-container">check</span><span>All Marked Read</span>';
+          this.classList.add('opacity-80');
+          setTimeout(() => {
+            this.innerHTML = '<span class="material-symbols-outlined text-lg text-secondary-container">done_all</span><span>Mark all as read</span>';
+            this.classList.remove('opacity-80');
+          }, 2400);
+        });
+      }
+
+      // Quick Mute / Focus Mode feedback
+      const focusToggle = document.getElementById('focus-mode-toggle');
+      if (focusToggle) {
+        focusToggle.addEventListener('change', function() {
+          if (!this.checked) {
+            console.log('Focus mode disabled: All auditory & visual clinical streams live.');
+          } else {
+            console.log('Focus mode enabled: Non-critical channels silenced.');
+          }
+        });
+      }
+
+      // Purge logs confirmation trigger
+      const clearBtn = document.getElementById('clear-logs-btn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (confirm('Archive and clear resolved clinical notification records older than 30 days? Audit traces remain immutable.')) {
+            alert('Notification history purged to HIPAA compliant cold storage.');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main></div><script src="../mediscan-router.js"></script></body></html>
