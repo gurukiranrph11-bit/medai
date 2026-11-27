@@ -1,7 +1,57 @@
 <!DOCTYPE html>
 
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>MediScan AI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#c3c7ce", "on-background": "#0b1c30", "surface-card": "#FFFFFF", "inverse-on-surface": "#eaf1ff", "secondary-container": "#7bf3ed", "primary-fixed": "#cfe5ff", "surface-container-highest": "#d3e4fe", "primary-container": "#15324b", "on-secondary-fixed-variant": "#00504d", "surface-container-low": "#eff4ff", "border-subtle": "#E2E8F0", "tertiary-container": "#053444", "priority-critical-soft": "#FEE2E2", "error-container": "#ffdad6", "priority-low": "#36A477", "on-surface": "#0b1c30", "on-secondary-fixed": "#00201f", "error": "#ba1a1a", "border-focus": "#16A6A1", "priority-moderate-soft": "#FEF9C3", "on-primary": "#ffffff", "secondary-fixed": "#7ef5ef", "priority-high": "#F39A38", "secondary": "#006a66", "on-tertiary-fixed": "#001f2a", "on-surface-variant": "#43474d", "on-primary-fixed-variant": "#2e4963", "tertiary": "#001e29", "on-tertiary-container": "#769db0", "surface": "#f8f9ff", "surface-container-lowest": "#ffffff", "surface-variant": "#d3e4fe", "priority-critical": "#DC4444", "primary-fixed-dim": "#aec9e9", "viewer-dark": "#0B131B", "on-error": "#ffffff", "outline": "#73777e", "surface-tint": "#46617c", "priority-moderate": "#E8BD45", "viewer-surface": "#121E2A", "background": "#f8f9ff", "priority-high-soft": "#FFEDD5", "priority-low-soft": "#DCFCE7", "inverse-surface": "#213145", "surface-container": "#e5eeff", "on-tertiary-fixed-variant": "#244b5c", "secondary-fixed-dim": "#60d9d3", "tertiary-fixed": "#c1e8fd", "on-primary-fixed": "#001d33", "on-secondary": "#ffffff", "inverse-primary": "#aec9e9", "primary": "#001d33", "on-error-container": "#93000a", "surface-bright": "#f8f9ff", "surface-container-high": "#dce9ff", "surface-dim": "#cbdbf5", "tertiary-fixed-dim": "#a5cce0", "canvas-bg": "#F5F8FA", "on-tertiary": "#ffffff", "on-secondary-container": "#006f6b", "on-primary-container": "#7f9ab8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "space-2xl": "3rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "margin-mobile": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": [ "Inter" ], "body-bold": [ "Inter" ], "body-lg": [ "Inter" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-code-sm": [ "JetBrains Mono" ], "label-code": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "headline-xl": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "badge-label": [ "Inter" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ] }, "fontSize": { "body-sm": [ "0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" } ], "body-bold": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" } ], "body-lg": [ "1rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-code-sm": [ "0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "label-code": [ "0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-md": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-xl": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" } ], "badge-label": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" } ], "headline-xl-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "headline-md": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><aside aria-label="Clinical Compliance Banner" class="w-full bg-priority-moderate-soft text-on-surface py-space-sm px-gutter flex items-center justify-center gap-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50"><span class="material-symbols-outlined text-priority-high text-body-lg flex-shrink-0">warning</span><p class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-center"><span class="font-body-bold text-on-surface">CLINICAL SAFETY ADVISORY:</span> AI-assisted decision support. Not a medical diagnosis. Prototype uses synthetic data.</p><span class="bg-surface-container-lowest text-on-surface-variant px-space-xs py-0.5 rounded text-label-code-sm font-label-code-sm ml-space-xs uppercase">SIMULATED</span></aside><main class="flex-1 flex flex-col items-center justify-center w-full px-gutter py-space-xl"><div class="flex flex-col w-full max-w-7xl mx-auto my-auto py-space-sm">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#c3c7ce", "on-background": "#1E1B4B", "surface-card": "#FFFFFF", "inverse-on-surface": "#EEF2FF", "secondary-container": "#FFEDD5", "primary-fixed": "#E0E7FF", "surface-container-highest": "#D5D1F7", "primary-container": "#312E81", "on-secondary-fixed-variant": "#9A3412", "surface-container-low": "#F1EFFF", "border-subtle": "#E4E2F5", "tertiary-container": "#3730A3", "priority-critical-soft": "#FEE2E2", "error-container": "#ffdad6", "priority-low": "#36A477", "on-surface": "#1E1B4B", "on-secondary-fixed": "#431407", "error": "#ba1a1a", "border-focus": "#F97316", "priority-moderate-soft": "#FEF9C3", "on-primary": "#ffffff", "secondary-fixed": "#FED7AA", "priority-high": "#F39A38", "secondary": "#C2410C", "on-tertiary-fixed": "#1E1B4B", "on-surface-variant": "#43474d", "on-primary-fixed-variant": "#3730A3", "tertiary": "#1E1B4B", "on-tertiary-container": "#A5B4FC", "surface": "#F8F7FF", "surface-container-lowest": "#ffffff", "surface-variant": "#D5D1F7", "priority-critical": "#DC4444", "primary-fixed-dim": "#C7D2FE", "viewer-dark": "#0B131B", "on-error": "#ffffff", "outline": "#73777e", "surface-tint": "#4F46E5", "priority-moderate": "#E8BD45", "viewer-surface": "#121E2A", "background": "#F8F7FF", "priority-high-soft": "#FFEDD5", "priority-low-soft": "#EEF2FF", "inverse-surface": "#312E81", "surface-container": "#E8E6FA", "on-tertiary-fixed-variant": "#3730A3", "secondary-fixed-dim": "#FDBA74", "tertiary-fixed": "#E0E7FF", "on-primary-fixed": "#1E1B4B", "on-secondary": "#ffffff", "inverse-primary": "#C7D2FE", "primary": "#1E1B4B", "on-error-container": "#93000a", "surface-bright": "#F8F7FF", "surface-container-high": "#DFDCFA", "surface-dim": "#C9C4F2", "tertiary-fixed-dim": "#C7D2FE", "canvas-bg": "#F8F7FF", "on-tertiary": "#ffffff", "on-secondary-container": "#9A3412", "on-primary-container": "#C7D2FE" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "2rem", "space-2xl": "3rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "margin-mobile": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": [ "Inter" ], "body-bold": [ "Inter" ], "body-lg": [ "Inter" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-code-sm": [ "JetBrains Mono" ], "label-code": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "headline-xl": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "badge-label": [ "Inter" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ] }, "fontSize": { "body-sm": [ "0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" } ], "body-bold": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" } ], "body-lg": [ "1rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-code-sm": [ "0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "label-code": [ "0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-md": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-xl": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" } ], "badge-label": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" } ], "headline-xl-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "headline-md": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ] } } } };</script><link rel="stylesheet" href="../typography.css"/><style id="mediscan-crisp-typography">
+  html, body {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    font-feature-settings: "cv02" 1, "cv03" 1, "cv04" 1, "cv11" 1, "kern" 1 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    -webkit-text-size-adjust: 100% !important;
+  }
+  *, *::before, *::after {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+  input, button, select, textarea {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+  h1, h2, h3, h4, h5, h6, [class*="headline"] {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    letter-spacing: -0.015em !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+  code, pre, [class*="label-code"], [class*="mono"] {
+    font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'SF Mono', monospace !important;
+    font-feature-settings: "tnum" 1, "zero" 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+  .font-label-code-sm, .text-label-code-sm {
+    font-size: 11px !important;
+    line-height: 15px !important;
+    font-weight: 500 !important;
+  }
+  .text-\[9px\], .text-\[10px\] {
+    font-size: 11px !important;
+    line-height: 14px !important;
+  }
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined' !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    transform: translateZ(0);
+  }
+</style>
+</head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><aside aria-label="Clinical Compliance Banner" class="w-full bg-priority-moderate-soft text-on-surface py-space-sm px-gutter flex items-center justify-center gap-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50"><span class="material-symbols-outlined text-priority-high text-body-lg flex-shrink-0">warning</span><p class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-center"><span class="font-body-bold text-on-surface">CLINICAL SAFETY ADVISORY:</span> AI-assisted decision support. Not a medical diagnosis. Prototype uses synthetic data.</p><span class="bg-surface-container-lowest text-on-surface-variant px-space-xs py-0.5 rounded text-label-code-sm font-label-code-sm ml-space-xs uppercase">SIMULATED</span></aside><main class="flex-1 flex flex-col items-center justify-center w-full px-gutter py-space-xl"><div class="flex flex-col w-full max-w-7xl mx-auto my-auto py-space-sm">
 <div class="grid grid-cols-1 lg:grid-cols-12 rounded-xl shadow-xl overflow-hidden min-h-[720px] bg-surface-container-lowest">
 <!-- Left Hero & Clinical Trust Panel -->
 <div class="lg:col-span-5 bg-primary-container text-on-primary p-space-xl lg:p-space-2xl flex flex-col justify-between relative overflow-hidden">
@@ -17,7 +67,8 @@
 <!-- Top Brand Anchor -->
 <div class="relative z-10 flex flex-col gap-space-sm">
 <div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-surface-card/10 backdrop-blur flex items-center justify-center text-secondary-container shadow-inner">
+<img src="../assets/logo.png" alt="MediScan AI Logo" class="h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+<div style="display:none" class="w-10 h-10 rounded-lg bg-surface-card/10 backdrop-blur flex items-center justify-center text-secondary-container shadow-inner">
 <span class="material-symbols-outlined text-headline-sm" style="font-variation-settings: 'FILL' 1;">radiology</span>
 </div>
 <div class="flex flex-col">
@@ -412,14 +463,20 @@
 
     setTimeout(() => {
       toastTitle.textContent = "Clinician Identity Verified";
-      toastMsg.textContent = "Authentication ticket granted: Dr. Mehta (Lead Radiologist). Launching DICOM CADe viewer...";
+      toastMsg.textContent = "Authentication ticket granted: Dr. Mehta (Lead Radiologist). Launching clinical workspace...";
       toast.className = "my-space-md p-space-md rounded-xl bg-priority-low-soft text-on-surface flex items-center justify-between";
+      setTimeout(() => { window.location.href = '../main_dashboard_mediscan_ai_1/code.html'; }, 600);
     }, 1200);
   }
 
   function simulateClinicalLogin() {
+    const email = (document.getElementById('work-email')?.value || '').trim();
+    const pass = (document.getElementById('work-password')?.value || '').trim();
+    if (!email || !pass) {
+      if (window.MediScanUI) window.MediScanUI.toast('Please enter both your hospital email and password.', 'warning');
+      return;
+    }
     const btn = document.getElementById('btn-submit');
-    const originalText = btn.innerHTML;
     btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-body-lg">progress_activity</span><span>Authenticating PAC-ID...</span>`;
     btn.disabled = true;
 
@@ -433,9 +490,10 @@
       const toastMsg = document.getElementById('toast-msg');
       
       toastTitle.textContent = "Session Initialized";
-      toastMsg.textContent = "HIPAA audit entry logged. Loading thoracic CADe radiologic priority queue...";
+      toastMsg.textContent = "HIPAA audit entry logged. Loading clinical workspace...";
       toast.className = "my-space-md p-space-md rounded-xl bg-priority-low-soft text-on-surface flex items-center justify-between";
       toast.classList.remove('hidden');
+      setTimeout(() => { window.location.href = '../main_dashboard_mediscan_ai_1/code.html'; }, 500);
     }, 900);
   }
 

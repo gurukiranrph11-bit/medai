@@ -1,952 +1,1755 @@
 <!DOCTYPE html>
 
-<html lang="en"><head></head><body class="bg-canvas-bg font-body-md text-on-surface antialiased"><svg aria-hidden="true" class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style id="cinematic-heart-styles">
-@keyframes heartLubDub{0%{transform:scale(1) translateY(0);filter:drop-shadow(0 0 25px rgba(220,38,38,0.45)) drop-shadow(0 0 60px rgba(185,28,28,0.25));}14%{transform:scale(1.085) translateY(-3px);filter:drop-shadow(0 0 45px rgba(239,68,68,0.85)) drop-shadow(0 0 95px rgba(220,38,38,0.5));}26%{transform:scale(0.99) translateY(0);filter:drop-shadow(0 0 28px rgba(220,38,38,0.45));}38%{transform:scale(1.055) translateY(-2px);filter:drop-shadow(0 0 38px rgba(239,68,68,0.75)) drop-shadow(0 0 75px rgba(220,38,38,0.4));}52%{transform:scale(1) translateY(0);filter:drop-shadow(0 0 25px rgba(220,38,38,0.45));}100%{transform:scale(1) translateY(0);filter:drop-shadow(0 0 25px rgba(220,38,38,0.45));}}
-@keyframes heartTachycardia{0%{transform:scale(1) translateY(0);filter:drop-shadow(0 0 35px rgba(239,68,68,0.7)) drop-shadow(0 0 80px rgba(244,63,94,0.5));}20%{transform:scale(1.12) translateY(-4px);filter:drop-shadow(0 0 60px rgba(255,50,50,0.95)) drop-shadow(0 0 120px rgba(220,38,38,0.8));}45%{transform:scale(0.97) translateY(1px);}65%{transform:scale(1.08) translateY(-2px);}100%{transform:scale(1) translateY(0);}}
-@keyframes heartPVC{0%{transform:scale(1) translateY(0);filter:drop-shadow(0 0 25px rgba(220,38,38,0.45));}12%{transform:scale(1.07) translateY(-2px);}22%{transform:scale(0.98);}32%{transform:scale(1.18) translateY(-6px) rotate(-1.5deg);filter:drop-shadow(0 0 70px rgba(249,115,22,0.9)) drop-shadow(0 0 120px rgba(220,38,38,0.8));}44%{transform:scale(0.92) rotate(1deg);}72%{transform:scale(0.96);opacity:0.92;}88%{transform:scale(1.04) translateY(-1px);}100%{transform:scale(1) translateY(0);}}
-@keyframes heartLevitate{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes pulseWave{0%{transform:scale(0.75);opacity:0.85;}60%{opacity:0.4;}100%{transform:scale(2.1);opacity:0;}}
-@keyframes coronaryShimmer{0%,100%{opacity:0.55;stroke-dashoffset:0;}50%{opacity:1;stroke-dashoffset:-35;}}
-@keyframes ambientFloat{0%{transform:translate(0, 0) scale(1);opacity:0.25;}50%{transform:translate(18px, -28px) scale(1.2);opacity:0.75;}100%{transform:translate(-10px, -55px) scale(0.9);opacity:0;}}
-@keyframes cinematicHeroFade{0%{opacity:0;transform:scale(0.85) translateY(18px);}100%{opacity:1;transform:scale(1) translateY(0);}}
-@keyframes textStaggerUp{0%{opacity:0;transform:translateY(16px);}100%{opacity:1;transform:translateY(0);}}
-@keyframes ecgScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.heart-mesh-container{perspective:1100px;transform-style:preserve-3d;}
-.heart-pulsing-mesh{animation:heartLubDub 1.05s cubic-bezier(0.21,0.61,0.35,1) infinite;transform-origin:50% 55%;will-change:transform,filter;transition:animation-duration 0.35s ease;}
-.heart-pulsing-mesh.mode-tachycardia{animation:heartTachycardia 0.435s cubic-bezier(0.25,1,0.5,1) infinite !important;}
-.heart-pulsing-mesh.mode-pvc{animation:heartPVC 1.42s cubic-bezier(0.22,0.61,0.36,1) infinite !important;}
-.heart-mesh-container:hover .heart-pulsing-mesh{filter:drop-shadow(0 0 55px rgba(239,68,68,0.95)) drop-shadow(0 0 110px rgba(220,38,38,0.7)) !important;}
-.heart-levitation-wrapper{animation:heartLevitate 4.5s ease-in-out infinite;transform-style:preserve-3d;will-change:transform;}
-.cardiac-ripple{position:absolute;border-radius:9999px;border:1.5px solid rgba(239,68,68,0.55);box-shadow:0 0 24px rgba(220,38,38,0.4),inset 0 0 24px rgba(220,38,38,0.3);animation:pulseWave 1.05s cubic-bezier(0.1,0.8,0.3,1) infinite;pointer-events:none;will-change:transform,opacity;}
-.cardiac-ripple.mode-tachycardia{animation-duration:0.435s !important;border-color:rgba(239,68,68,0.85);}
-.cardiac-ripple.mode-pvc{animation-duration:1.42s !important;border-color:rgba(249,115,22,0.8);}
-.coronary-glow{stroke-dasharray:12,18;animation:coronaryShimmer 2.2s linear infinite;}
-.hero-reveal{animation:cinematicHeroFade 1.4s cubic-bezier(0.16,1,0.3,1) forwards;}
-.hero-text-stagger{animation:textStaggerUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;}
-.hero-metrics-stagger{animation:textStaggerUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s both;}
-@media(prefers-reduced-motion:reduce){.heart-pulsing-mesh,.heart-levitation-wrapper,.cardiac-ripple,.coronary-glow,.hero-reveal,.hero-text-stagger,.hero-metrics-stagger{animation:none !important;transform:none !important;transition:none !important;}}
-</style><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#e5eeff", "tertiary-container": "#053444", "tertiary": "#001e29", "on-surface-variant": "#43474d", "border-focus": "#16A6A1", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#006f6b", "primary-fixed": "#cfe5ff", "tertiary-fixed": "#c1e8fd", "secondary-fixed": "#7ef5ef", "surface": "#f8f9ff", "on-tertiary-fixed-variant": "#244b5c", "on-secondary-fixed": "#00201f", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#7f9ab8", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#0b1c30", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#2e4963", "surface-container-low": "#eff4ff", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504d", "tertiary-fixed-dim": "#a5cce0", "primary": "#001d33", "surface-container-high": "#dce9ff", "surface-variant": "#d3e4fe", "on-tertiary-container": "#769db0", "primary-container": "#15324b", "on-surface": "#0b1c30", "canvas-bg": "#F5F8FA", "inverse-on-surface": "#eaf1ff", "background": "#f8f9ff", "primary-fixed-dim": "#aec9e9", "surface-dim": "#cbdbf5", "inverse-primary": "#aec9e9", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#001f2a", "on-primary-fixed": "#001d33", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#213145", "border-subtle": "#E2E8F0", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#DCFCE7", "surface-tint": "#46617c", "surface-container-highest": "#d3e4fe", "secondary-container": "#7bf3ed", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#f8f9ff", "secondary": "#006a66", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#60d9d3", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script><div class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">Clinical Safety Advisory:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div></div><header class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(21,50,75,0.05)] border-b border-border-subtle"><div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><img alt="MediScan AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCrGUksU0QCvpdnko7vABAVcyQ6Y8Y-4gdm2qM_VwzGiaCd-2TF49C7AnlbJfisY2lxF0Ww-l1qN2qXMSQgmE3_UWBtbq7pRSSghIuRW0WwW28nUhX8HoE9HTiPLyyUT5pCOQ4IpeaQQw0EfyAefT4tzQL_aGIkyZBa8XB5jzFJ14X2kQHuj1Yn93m7YT0NP6jBmqUdcU43On2rYn0Y1xLSI3b4f_q_8PeqaRNNTT8"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical Decision Support</span></div></div><div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO / SIMULATED</span></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all" placeholder="Search patients, ID, DICOM studies, MRN..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></button><div class="h-6 w-px bg-border-subtle"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end hidden lg:flex"><span class="font-body-bold text-body-bold text-on-surface leading-tight">Dr. A. Mehta</span><span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief Radiologist</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE"/></div></div></div></header><aside class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(21,50,75,0.03)]"><div class="flex-1 overflow-y-auto py-space-md px-space-sm"><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical Workflows</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="upload-scan" href="#"><span class="material-symbols-outlined text-lg">upload_file</span><span>Upload Scan</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="ai-analysis" href="#"><span class="material-symbols-outlined text-lg">neurology</span><span>AI Analysis</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="clinical-datasets" href="#"><span class="material-symbols-outlined text-lg">database</span><span>Clinical Datasets</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="patients" href="#"><span class="material-symbols-outlined text-lg">personal_injury</span><span>Patients</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="risk-prioritization" href="#"><span class="material-symbols-outlined text-lg">acute</span><span>Risk Prioritization</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="reports" href="#"><span class="material-symbols-outlined text-lg">description</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="notifications" href="#"><span class="material-symbols-outlined text-lg">notifications_active</span><span>Notifications</span></a><div class="my-space-xs border-t border-border-subtle"></div><div class="px-space-sm mb-space-xs"><span class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span></div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings-profile" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Settings / Profile</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="admin" href="#"><span class="material-symbols-outlined text-lg">admin_panel_settings</span><span>Admin</span></a></nav></div><div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span></div><button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-sm">keyboard_arrow_down</span></button></div><div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging Active</span></div></div></div></aside><div class="pl-64"><main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg"><div class="flex flex-col w-full">
-<!-- Top Greeting & Operational Actions Bar with Interactive Arrhythmia Trigger Controls -->
-<div class="relative w-full rounded-2xl overflow-hidden mb-space-xl p-space-lg lg:p-space-xl text-white shadow-2xl transition-all duration-700 border border-slate-700/60 hero-reveal" id="cinematic-heart-hero" style="background: radial-gradient(circle at 72% 48%, rgba(185, 28, 28, 0.32) 0%, rgba(127, 29, 29, 0.22) 26%, rgba(21, 50, 75, 0.95) 62%, rgb(8, 19, 30) 100%); min-height: 420px;"><div class="absolute inset-0 pointer-events-none overflow-hidden"><div class="absolute w-2 h-2 rounded-full bg-rose-500/40 blur-[1px]" style="top:20%; left:12%; animation: ambientFloat 6.5s ease-in-out infinite;"></div><div class="absolute w-3 h-3 rounded-full bg-red-600/30 blur-[1px]" style="top:65%; left:28%; animation: ambientFloat 8.2s ease-in-out infinite 1.2s;"></div><div class="absolute w-1.5 h-1.5 rounded-full bg-rose-400/50 blur-[0.5px]" style="top:35%; right:22%; animation: ambientFloat 5.8s ease-in-out infinite 2.5s;"></div><div class="absolute w-2.5 h-2.5 rounded-full bg-red-500/35 blur-[1px]" style="top:78%; right:38%; animation: ambientFloat 7.4s ease-in-out infinite 0.7s;"></div><div class="absolute w-2 h-2 rounded-full bg-red-400/30 blur-[1px]" style="top:15%; right:45%; animation: ambientFloat 9.1s ease-in-out infinite 3.1s;"></div><div class="absolute -right-16 -top-24 w-96 h-96 rounded-full bg-red-600/20 blur-3xl pointer-events-none"></div><div class="absolute right-1/4 -bottom-20 w-80 h-80 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div><div class="absolute inset-0 bg-gradient-to-r from-[#08131e]/90 via-[#0e2133]/60 to-transparent pointer-events-none"></div></div><div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center"><div class="lg:col-span-7 flex flex-col justify-center hero-text-stagger"><div class="flex flex-wrap items-center gap-2 mb-2"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/40 text-rose-300 font-label-code-sm text-label-code-sm font-bold uppercase tracking-wider backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>Real-Time Cardiac Biomechanics</span><span class="h-4 w-px bg-slate-600/50 hidden sm:block"></span><span class="font-label-code-sm text-label-code-sm text-slate-300 font-medium">Station ID: RAD-ONC-04</span></div><h1 class="font-headline-xl text-headline-xl text-white tracking-tight drop-shadow-sm">Good morning, Dr. Mehta</h1><p class="font-body-md text-body-md text-slate-300 mt-2 max-w-xl leading-relaxed">Tuesday, November 18, 2026 • <span class="font-body-bold text-body-bold text-rose-400 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/60 shadow-sm">12 pending emergency triage reviews</span> awaiting clinical validation with autonomous multi-chamber cardiac hemodynamics.</p><div class="flex flex-wrap items-center gap-space-sm mt-space-md pt-1"><button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-100 transition-all border border-slate-700/80 shadow-md font-body-bold text-body-bold backdrop-blur-sm hover:scale-[1.02]"><span class="material-symbols-outlined text-slate-300 text-lg">tune</span><span>Batch Prioritization</span></button><button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-100 transition-all border border-slate-700/80 shadow-md font-body-bold text-body-bold backdrop-blur-sm hover:scale-[1.02]"><span class="material-symbols-outlined text-slate-300 text-lg">download</span><span>Export Daily Log</span></button><button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white transition-all shadow-[0_0_20px_rgba(225,29,72,0.45)] font-body-bold text-body-bold group hover:scale-[1.02]"><span class="material-symbols-outlined text-rose-200 group-hover:rotate-90 transition-transform text-xl">add_circle</span><span>+ Upload DICOM Scan</span></button></div></div><div class="lg:col-span-5 flex items-center justify-center relative flex-col w-full"><div class="heart-mesh-container relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center cursor-pointer select-none" id="interactive-heart-viewport"><div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-1"></div><div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-2" style="animation-delay: 0.28s;"></div><div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-3" style="animation-delay: 0.54s;"></div><div class="heart-levitation-wrapper relative flex items-center justify-center transition-transform duration-200 ease-out" id="heart-tilt-target"><div class="heart-pulsing-mesh relative flex items-center justify-center" id="hero-pulsing-heart"><svg class="w-64 h-64 sm:w-72 sm:h-72 drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)] overflow-visible" fill="none" viewbox="0 0 320 320" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient gradientunits="userSpaceOnUse" id="aortaGrad" x1="110" x2="210" y1="30" y2="130"><stop offset="0%" stop-color="#EF4444"></stop><stop offset="40%" stop-color="#DC2626"></stop><stop offset="100%" stop-color="#7F1D1D"></stop></lineargradient><lineargradient gradientunits="userSpaceOnUse" id="brachioGrad" x1="130" x2="160" y1="20" y2="70"><stop offset="0%" stop-color="#F87171"></stop><stop offset="100%" stop-color="#991B1B"></stop></lineargradient><lineargradient gradientunits="userSpaceOnUse" id="pulmGrad" x1="150" x2="230" y1="80" y2="160"><stop offset="0%" stop-color="#38BDF8"></stop><stop offset="45%" stop-color="#0284C7"></stop><stop offset="100%" stop-color="#075985"></stop></lineargradient><lineargradient gradientunits="userSpaceOnUse" id="venaCavaGrad" x1="90" x2="120" y1="50" y2="140"><stop offset="0%" stop-color="#60A5FA"></stop><stop offset="60%" stop-color="#2563EB"></stop><stop offset="100%" stop-color="#1E3A8A"></stop></lineargradient><radialgradient cx="40%" cy="45%" id="heartMuscleGrad" r="65%"><stop offset="0%" stop-color="#F87171"></stop><stop offset="20%" stop-color="#DC2626"></stop><stop offset="55%" stop-color="#991B1B"></stop><stop offset="85%" stop-color="#450A0A"></stop><stop offset="100%" stop-color="#180303"></stop></radialgradient><radialgradient cx="60%" cy="55%" id="leftVentricleBulge" r="50%"><stop offset="0%" stop-color="#EF4444" stop-opacity="0.9"></stop><stop offset="60%" stop-color="#7F1D1D" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#2B0404"></stop></radialgradient><lineargradient gradientunits="userSpaceOnUse" id="specularSheen" x1="110" x2="170" y1="110" y2="230"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"></stop><stop offset="30%" stop-color="#FCA5A5" stop-opacity="0.2"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0"></stop></lineargradient><filter height="140%" id="heartInnerGlow" width="140%" x="-20%" y="-20%"><fegaussianblur result="blur" stddeviation="4"></fegaussianblur><fecomposite in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowDiff"></fecomposite><feflood flood-color="#FFE4E6" flood-opacity="0.4"></feflood><fecomposite in2="shadowDiff" operator="in"></fecomposite></filter></defs><path d="M102 62 C102 40, 118 42, 118 78 C118 102, 114 120, 112 136 C105 130, 98 110, 98 88 Z" fill="url(#venaCavaGrad)" stroke="#1D4ED8" stroke-width="1.5"></path><path d="M104 50 L104 32 C104 28, 116 28, 116 32 L116 52 Z" fill="#60A5FA" opacity="0.75"></path><path d="M138 106 C134 68, 146 32, 182 32 C214 32, 226 62, 222 96 C219 122, 206 142, 196 150 C182 138, 186 114, 186 94 C186 68, 178 52, 168 52 C154 52, 148 70, 148 98 C148 114, 144 126, 138 106 Z" fill="url(#aortaGrad)" stroke="#991B1B" stroke-width="1.5"></path><path d="M154 44 L150 18 C150 15, 158 14, 160 18 L165 42 Z" fill="url(#brachioGrad)"></path><path d="M174 38 L175 14 C175 11, 183 11, 184 14 L185 38 Z" fill="url(#brachioGrad)"></path><path d="M194 42 L200 20 C200 17, 208 18, 206 22 L201 46 Z" fill="url(#brachioGrad)"></path><path d="M156 102 C168 92, 196 92, 218 114 C228 124, 234 138, 232 148 C218 150, 198 142, 184 134 C172 144, 162 148, 154 146 C152 130, 154 114, 156 102 Z" fill="url(#pulmGrad)" stroke="#0369A1" stroke-width="1.5"></path><path d="M222 116 C232 112, 246 114, 252 120 L248 132 C240 128, 232 128, 224 132 Z" fill="#38BDF8" opacity="0.85"></path><path d="M104 116 C90 122, 82 142, 84 164 C86 182, 98 194, 114 198 C116 172, 112 140, 104 116 Z" fill="#B91C1C" stroke="#7F1D1D" stroke-width="1.5"></path><path d="M112 138 C128 120, 164 124, 182 142 C184 160, 180 184, 172 196 C152 194, 126 186, 114 172 C110 158, 110 148, 112 138 Z" fill="#991B1B" opacity="0.6"></path><path d="M100 148 C118 132, 168 136, 206 156 C238 174, 252 208, 240 242 C228 274, 190 300, 158 312 C148 316, 142 312, 138 304 C120 274, 92 238, 86 202 C82 178, 88 158, 100 148 Z" fill="url(#heartMuscleGrad)" filter="url(#heartInnerGlow)" stroke="#7F1D1D" stroke-width="1.5"></path><path d="M146 158 C182 162, 224 186, 232 222 C240 254, 218 286, 174 306 C162 310, 154 308, 152 298 C144 262, 142 216, 146 158 Z" fill="url(#leftVentricleBulge)" opacity="0.85"></path><path d="M102 160 C112 152, 132 152, 142 168 C136 210, 130 252, 148 296 C136 288, 108 254, 100 220 C96 198, 96 174, 102 160 Z" fill="url(#specularSheen)"></path><path class="coronary-glow" d="M166 142 Q158 184 162 216 T148 278" stroke="#FCA5A5" stroke-linecap="round" stroke-width="2.5"></path><path class="coronary-glow" d="M160 196 Q178 208 194 220" stroke="#FECDD3" stroke-linecap="round" stroke-width="1.8"></path><path class="coronary-glow" d="M154 242 Q170 254 184 266" stroke="#F87171" stroke-linecap="round" stroke-width="1.5"></path><path class="coronary-glow" d="M162 170 Q142 186 128 202" stroke="#60A5FA" stroke-linecap="round" stroke-width="2.2"></path><path class="coronary-glow" d="M136 194 Q122 214 116 238" stroke="#38BDF8" stroke-linecap="round" stroke-width="1.6"></path><ellipse cx="124" cy="172" fill="#FFFFFF" opacity="0.55" rx="16" ry="8" transform="rotate(-28 124 172)"></ellipse><ellipse cx="194" cy="202" fill="#FFFFFF" opacity="0.35" rx="22" ry="9" transform="rotate(35 194 202)"></ellipse><circle cx="144" cy="296" fill="#FECDD3" opacity="0.8" r="2.5"></circle><circle cx="152" cy="304" fill="#F87171" opacity="0.9" r="1.8"></circle></svg></div></div><div class="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-950/85 border border-slate-700/80 backdrop-blur-md flex items-center gap-2 shadow-lg pointer-events-none transition-all duration-300" id="heart-status-pill"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" id="heart-status-dot"></span><span class="font-label-code-sm text-label-code-sm text-slate-200 font-bold tracking-wider" id="heart-status-label">72 BPM • SINUS RHYTHM</span></div></div>
-<!-- ARRHYTHMIA ALERT SIMULATOR & TRIGGER CONTROLS -->
-<div class="w-full max-w-md mt-2 px-3.5 py-3 rounded-xl bg-slate-950/90 border border-slate-700/70 backdrop-blur-md shadow-2xl relative flex flex-col gap-2">
-<div class="flex items-center justify-between pb-1 border-b border-slate-800/80">
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-xs text-rose-400">vital_signs</span>
-<span class="font-label-code-sm text-[10px] text-slate-300 uppercase font-bold tracking-wider">Arrhythmia Alert Simulator &amp; Trigger Controls</span>
-</div>
-<div class="flex items-center gap-1.5">
-<button class="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 font-label-code-sm text-[10px] transition-colors" id="telemetry-audio-btn" onclick="toggleTelemetryAudio()" title="Toggle acoustic alarm simulation">
-<span class="material-symbols-outlined text-xs text-emerald-400" id="audio-icon">volume_up</span>
-<span class="hidden sm:inline" id="audio-label">ALARM ON</span>
-</button>
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" id="simulator-live-indicator"></span>
-</div>
-</div>
-<!-- Segmented Bar Rhythm State Selectors -->
-<div class="grid grid-cols-3 gap-1.5 p-1 rounded-lg bg-slate-900/90 border border-slate-800/80" id="arrhythmia-selector-bar">
-<button class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-emerald-950/80 text-emerald-300 border border-emerald-500/50 shadow-sm" id="btn-rhythm-normal" onclick="setRhythmState('normal')">
-<span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Normal Sinus
-      </span>
-<span class="font-label-code-sm text-[9px] text-emerald-400/80">72 BPM</span>
-</button>
-<button class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent" id="btn-rhythm-tachy" onclick="setRhythmState('tachycardia')">
-<span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-red-400 opacity-60"></span>Tachycardia
-      </span>
-<span class="font-label-code-sm text-[9px] text-slate-400">&gt;130 BPM</span>
-</button>
-<button class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent" id="btn-rhythm-pvc" onclick="setRhythmState('pvc')">
-<span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-400 opacity-60"></span>PVC / Trigeminy
-      </span>
-<span class="font-label-code-sm text-[9px] text-slate-400">Ectopic Couplets</span>
-</button>
-</div>
-<!-- Dynamic Rhythm Alert Banner & Escalation CTA -->
-<div class="flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 transition-all duration-300" id="rhythm-alert-banner">
-<div class="flex items-center gap-1.5 overflow-hidden">
-<span class="material-symbols-outlined text-sm shrink-0" id="alert-banner-icon">check_circle</span>
-<span class="font-label-code-sm text-[10px] truncate" id="alert-banner-text">STATUS: Regular Sinus Rhythm — No Ventricular Arrhythmia</span>
-</div>
-<button class="hidden shrink-0 items-center gap-1 px-2 py-0.5 rounded bg-red-600 hover:bg-red-500 text-white font-label-code-sm text-[10px] font-bold shadow transition-colors" id="alert-escalate-btn" onclick="acknowledgeAlert()">
-<span class="material-symbols-outlined text-xs">notification_important</span>
-<span>Escalate MD</span>
-</button>
-</div>
-<!-- Lead II ECG Monitor Strip -->
-<div class="px-2.5 py-2 rounded-lg bg-slate-950 border border-slate-800/90 relative overflow-hidden">
-<div class="flex items-center justify-between gap-2 mb-1">
-<div class="flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" id="ecg-ping-dot"></span>
-<span class="font-label-code-sm text-[10px] text-emerald-400 font-bold uppercase tracking-wider" id="ecg-lead-label">LEAD II • ECG MONITOR</span>
-<span class="hidden sm:inline-block font-label-code-sm text-[9px] text-slate-400 px-1 py-0.2 rounded bg-slate-900 border border-slate-700/50">25 mm/s • 10 mm/mV</span>
-</div>
-<div class="flex items-center gap-1 font-label-code-sm text-[10px] text-slate-300 font-medium">
-<span class="text-priority-low font-bold" id="ecg-bpm-readout">72 BPM</span>
-<span class="text-slate-600">|</span>
-<span class="text-slate-400 hidden sm:inline" id="ecg-interval-readout">PR: 142ms QRS: 88ms</span>
-</div>
-</div>
-<div class="relative w-full h-14 bg-slate-950 rounded border border-slate-800/80 overflow-hidden flex items-center">
-<svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<pattern height="12" id="ecgGrid" patternunits="userSpaceOnUse" width="12">
-<path d="M 12 0 L 0 0 0 12" fill="none" stroke="#38bdf8" stroke-width="0.5"></path>
-</pattern>
-</defs>
-<rect fill="url(#ecgGrid)" height="100%" width="100%"></rect>
-</svg>
-<!-- Active Lead Waveform Container -->
-<div class="w-full h-full relative z-10 flex items-center" id="waveform-svg-container">
-<!-- SVG Normal Sinus -->
-<svg class="w-full h-full relative z-10 overflow-visible" fill="none" id="svg-normal-wave" preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient id="ecgTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
-<stop offset="0%" stop-color="#10b981" stop-opacity="0.15"></stop>
-<stop offset="70%" stop-color="#34d399" stop-opacity="0.85"></stop>
-<stop offset="98%" stop-color="#6ee7b7" stop-opacity="1"></stop>
-<stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
-</lineargradient>
-<filter height="160%" id="ecgGlow" width="120%" x="-10%" y="-30%">
-<fegaussianblur result="glow" stddeviation="1.5"></fegaussianblur>
-<femerge><femergenode in="glow"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge>
-</filter>
-</defs>
-<path d="M0,28 L30,28 Q34,28 36,25 Q38,22 40,28 L50,28 L53,30 L57,6 L62,48 L65,28 L72,28 Q78,28 82,23 Q86,18 90,28 L120,28 L150,28 Q154,28 156,25 Q158,22 160,28 L170,28 L173,30 L177,6 L182,48 L185,28 L192,28 Q198,28 202,23 Q206,18 210,28 L240,28 L270,28 Q274,28 276,25 Q278,22 280,28 L290,28 L293,30 L297,6 L302,48 L305,28 L312,28 Q318,28 322,23 Q326,18 330,28 L360,28" filter="url(#ecgGlow)" stroke="url(#ecgTraceGrad)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
-</svg>
-<!-- SVG Tachycardia -->
-<svg class="w-full h-full relative z-10 overflow-visible hidden" fill="none" id="svg-tachy-wave" preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient id="tachyTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
-<stop offset="0%" stop-color="#ef4444" stop-opacity="0.25"></stop>
-<stop offset="70%" stop-color="#f87171" stop-opacity="0.9"></stop>
-<stop offset="98%" stop-color="#fecaca" stop-opacity="1"></stop>
-<stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
-</lineargradient>
-<filter height="160%" id="tachyGlow" width="120%" x="-10%" y="-30%">
-<fegaussianblur result="glow" stddeviation="1.8"></fegaussianblur>
-<femerge><femergenode in="glow"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge>
-</filter>
-</defs>
-<path d="M0,28 L12,28 Q15,28 16,24 Q18,22 19,28 L24,28 L26,31 L29,4 L33,50 L35,28 L39,28 Q43,28 46,22 Q48,18 51,28 L62,28 Q65,28 67,24 Q69,22 71,28 L76,28 L78,31 L81,4 L85,50 L87,28 L91,28 Q95,28 98,22 Q100,18 103,28 L114,28 Q117,28 119,24 Q121,22 123,28 L128,28 L130,31 L133,4 L137,50 L139,28 L143,28 Q147,28 150,22 Q152,18 155,28 L166,28 Q169,28 171,24 Q173,22 175,28 L180,28 L182,31 L185,4 L189,50 L191,28 L195,28 Q199,28 202,22 Q204,18 207,28 L218,28 Q221,28 223,24 Q225,22 227,28 L232,28 L234,31 L237,4 L241,50 L243,28 L247,28 Q251,28 254,22 Q256,18 259,28 L270,28 Q273,28 275,24 Q277,22 279,28 L284,28 L286,31 L289,4 L293,50 L295,28 L299,28 Q303,28 306,22 Q308,18 311,28 L322,28 Q325,28 327,24 Q329,22 331,28 L336,28 L338,31 L341,4 L345,50 L347,28 L351,28 Q355,28 358,22 L360,28" filter="url(#tachyGlow)" stroke="url(#tachyTraceGrad)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
-</svg>
-<!-- SVG PVC / Trigeminy -->
-<svg class="w-full h-full relative z-10 overflow-visible hidden" fill="none" id="svg-pvc-wave" preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient id="pvcTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
-<stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"></stop>
-<stop offset="55%" stop-color="#fbbf24" stop-opacity="0.85"></stop>
-<stop offset="90%" stop-color="#f87171" stop-opacity="1"></stop>
-<stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
-</lineargradient>
-<filter height="160%" id="pvcGlow" width="120%" x="-10%" y="-30%">
-<fegaussianblur result="glow" stddeviation="1.6"></fegaussianblur>
-<femerge><femergenode in="glow"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge>
-</filter>
-</defs>
-<!-- Normal beat -> Ectopic Wide PVC -> Compensatory Pause -> Normal beat -->
-<path d="M0,28 L24,28 Q27,28 29,25 Q31,22 33,28 L40,28 L43,30 L47,8 L52,48 L55,28 L62,28 Q67,28 71,23 Q74,19 77,28 L95,28 L98,32 C101,36 103,48 107,52 C112,54 115,10 119,4 C123,-2 128,15 133,36 C136,46 142,48 147,38 C151,30 156,28 160,28 L215,28 Q218,28 220,25 Q222,22 224,28 L231,28 L234,30 L238,8 L243,48 L246,28 L253,28 Q258,28 262,23 Q265,19 268,28 L286,28 L289,32 C292,36 294,48 298,52 C303,54 306,10 310,4 C314,-2 319,15 324,36 C327,46 333,48 338,38 C342,30 347,28 351,28 L360,28" filter="url(#pvcGlow)" stroke="url(#pvcTraceGrad)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-20"></div>
-</div>
-<div class="flex items-center justify-between mt-1 text-[9px] font-label-code-sm text-slate-400">
-<span class="flex items-center gap-1" id="ecg-cal-info"><span class="w-1 h-1 rounded-full bg-emerald-400"></span>CAL 1.0mV</span>
-<span id="ecg-qt-info">QT/QTc: 396 / 418ms</span>
-<span class="text-slate-300 font-semibold" id="ecg-sync-status">SYNCHRONIZED</span>
-</div>
-</div>
-</div>
-</div></div></div>
-<!-- Key Metrics 4-Card Row -->
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-lg mb-space-xl">
-<!-- Card 1: Total Cases -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="flex items-start justify-between">
-<div>
-<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Volume (30 Days)</span>
-<div class="font-headline-xl text-headline-xl text-primary mt-1">1,248</div>
-</div>
-<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-<span class="material-symbols-outlined text-2xl">folder_managed</span>
-</div>
-</div>
-<div class="mt-space-md flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-priority-low text-base">trending_up</span>
-<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">+12% vs last month</span>
-<span class="font-body-sm text-body-sm text-outline ml-auto">DICOM Instances</span>
-</div>
-<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container"></div>
-</div>
-<!-- Card 2: Pending Reviews -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="flex items-start justify-between">
-<div>
-<div class="flex items-center gap-2">
-<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Pending Reviews</span>
-<span class="px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">Active</span>
-</div>
-<div class="font-headline-xl text-headline-xl text-primary mt-1">37</div>
-</div>
-<div class="w-11 h-11 rounded-lg bg-priority-high-soft flex items-center justify-center text-priority-high">
-<span class="material-symbols-outlined text-2xl">hourglass_top</span>
-</div>
-</div>
-<div class="mt-space-md flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-priority-high text-base">stethoscope</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Requires Doctor Approval</span>
-<span class="font-label-code-sm text-label-code-sm text-outline ml-auto">Avg 22m</span>
-</div>
-<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-high/60"></div>
-</div>
-<!-- Card 3: High-Priority Cases -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="flex items-start justify-between">
-<div>
-<div class="flex items-center gap-1.5">
-<span class="font-label-code-sm text-label-code-sm text-priority-critical uppercase font-bold tracking-wider">Critical Queue</span>
-<span class="w-2 h-2 rounded-full bg-priority-critical animate-ping"></span>
-</div>
-<div class="font-headline-xl text-headline-xl text-priority-critical mt-1">12</div>
-</div>
-<div class="w-11 h-11 rounded-lg bg-priority-critical-soft flex items-center justify-center text-priority-critical">
-<span class="material-symbols-outlined text-2xl">e911_emergency</span>
-</div>
-</div>
-<div class="mt-space-md flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-priority-critical text-base">emergency</span>
-<span class="font-body-bold text-body-bold text-priority-critical">Immediate Review Needed</span>
-<span class="font-label-code-sm text-label-code-sm text-outline ml-auto">&lt; 60m SLA</span>
-</div>
-<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-critical"></div>
-</div>
-<!-- Card 4: Completed Analyses -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
-<div class="flex items-start justify-between">
-<div>
-<span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Verified Decisions</span>
-<div class="font-headline-xl text-headline-xl text-primary mt-1">1,086</div>
-</div>
-<div class="w-11 h-11 rounded-lg bg-priority-low-soft flex items-center justify-center text-priority-low">
-<span class="material-symbols-outlined text-2xl">task_alt</span>
-</div>
-</div>
-<div class="mt-space-md flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-priority-low text-base">verified</span>
-<span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">99.4% concordance</span>
-<span class="font-body-sm text-body-sm text-outline ml-auto">AI vs MD</span>
-</div>
-<div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-low"></div>
-</div>
-</div>
-<!-- Main Asymmetric Grid: 8 cols left, 4 cols right -->
-<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
-<!-- LEFT COLUMN (Span 8) -->
-<div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
-<!-- Trend & Inflow Visual Chart Card -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
-<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-space-sm mb-space-md">
-<div>
-<div class="flex items-center gap-2">
-<h2 class="font-headline-sm text-headline-sm text-primary">Analysis Inflow &amp; Clinical Sign-off Velocity</h2>
-<span class="px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">SIMULATED DATA</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Comparing AI raw inferencing rate against board-certified sign-offs</p>
-</div>
-<!-- Time Range Selector Segmented Control -->
-<div class="inline-flex p-1 rounded-lg bg-surface-container-low self-start sm:self-auto" id="range-toggle-group">
-<button class="px-3 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors" onclick="setChartRange('7D', this)">7D</button>
-<button class="px-3 py-1 rounded-md bg-surface-card shadow-sm text-primary font-label-code-sm text-label-code-sm font-bold transition-colors" onclick="setChartRange('30D', this)">30D</button>
-<button class="px-3 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors" onclick="setChartRange('90D', this)">90D</button>
-</div>
-</div>
-<!-- Legend & Spark Stats -->
-<div class="flex flex-wrap items-center gap-space-lg mb-space-md py-space-sm px-space-md rounded-lg bg-surface-container-low">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-sm bg-primary-container"></span>
-<span class="font-body-sm text-body-sm text-on-surface">Scans Processed: <strong class="font-label-code text-label-code">1,248</strong></span>
-</div>
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-sm bg-border-focus"></span>
-<span class="font-body-sm text-body-sm text-on-surface">Doctor Approved: <strong class="font-label-code text-label-code">1,086</strong></span>
-</div>
-<div class="ml-auto hidden md:flex items-center gap-2 text-outline font-label-code-sm text-label-code-sm">
-<span class="material-symbols-outlined text-sm">schedule</span>
-<span>Peak Velocity: 14:00 - 18:00</span>
-</div>
-</div>
-<!-- High Fidelity SVG Line Chart with Grid & Tooltip Anchor -->
-<div class="w-full h-64 relative">
-<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 760 220">
-<defs>
-<lineargradient id="processedFill" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#15324B" stop-opacity="0.25"></stop>
-<stop offset="100%" stop-color="#15324B" stop-opacity="0.0"></stop>
-</lineargradient>
-<lineargradient id="approvedFill" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#16A6A1" stop-opacity="0.3"></stop>
-<stop offset="100%" stop-color="#16A6A1" stop-opacity="0.0"></stop>
-</lineargradient>
-</defs>
-<!-- Horizontal Background Guidelines -->
-<line stroke="#E2E8F0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="20" y2="20"></line>
-<line stroke="#E2E8F0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="70" y2="70"></line>
-<line stroke="#E2E8F0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="120" y2="120"></line>
-<line stroke="#E2E8F0" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="170" y2="170"></line>
-<!-- Processed Scans Area & Line (Navy) -->
-<path d="M0,160 Q70,140 140,110 T280,105 T420,60 T560,75 T700,35 L760,25 L760,210 L0,210 Z" fill="url(#processedFill)"></path>
-<path d="M0,160 Q70,140 140,110 T280,105 T420,60 T560,75 T700,35 L760,25" stroke="#15324B" stroke-linecap="round" stroke-width="2.5"></path>
-<!-- Approved Scans Area & Line (Teal) -->
-<path d="M0,180 Q70,165 140,135 T280,130 T420,85 T560,95 T700,55 L760,40 L760,210 L0,210 Z" fill="url(#approvedFill)"></path>
-<path d="M0,180 Q70,165 140,135 T280,130 T420,85 T560,95 T700,55 L760,40" stroke="#16A6A1" stroke-linecap="round" stroke-width="2.5"></path>
-<!-- Data Callout Markers -->
-<circle cx="420" cy="60" fill="#15324B" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
-<circle cx="420" cy="85" fill="#16A6A1" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
-<circle cx="700" cy="35" fill="#15324B" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
-<circle cx="700" cy="55" fill="#16A6A1" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
-</svg>
-<!-- Timeline X-Axis Labels -->
-<div class="flex justify-between items-center text-outline font-label-code-sm text-label-code-sm mt-3 pt-2">
-<span>Nov 01</span>
-<span>Nov 05</span>
-<span>Nov 09</span>
-<span>Nov 13</span>
-<span>Nov 17 (Peak Day)</span>
-<span>Today</span>
-</div>
-</div>
-</div>
-<!-- Recent Medical Cases Data Table Module -->
-<div class="rounded-xl bg-surface-card shadow-sm flex flex-col overflow-hidden">
-<!-- Table Search & Filters Bar -->
-<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-<div>
-<h2 class="font-headline-sm text-headline-sm text-primary">Recent Medical Worklist</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Live feed of DICOM ingested series mapped to AI predictive triage</p>
-</div>
-<div class="flex flex-wrap items-center gap-space-sm">
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg pointer-events-none">filter_list</span>
-<select class="h-10 pl-9 pr-8 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-card transition-all cursor-pointer">
-<option value="all">All Modalities</option>
-<option value="xr">Chest X-ray</option>
-<option value="mri">Brain MRI</option>
-<option value="ct">Abdominal CT</option>
-</select>
-</div>
-<div class="relative">
-<input class="h-10 pl-3 pr-8 bg-surface-container-low rounded-lg font-label-code-sm text-label-code-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-card transition-all" placeholder="Filter patient ID..." type="text"/>
-<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-lg">search</span>
-</div>
-</div>
-</div>
-<!-- Scrollable Table -->
-<div class="overflow-x-auto">
-<table class="w-full text-left">
-<thead class="bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm uppercase tracking-wider">
-<tr>
-<th class="py-3.5 px-space-md font-semibold">Patient ID</th>
-<th class="py-3.5 px-space-md font-semibold">Modality</th>
-<th class="py-3.5 px-space-md font-semibold">Study Date</th>
-<th class="py-3.5 px-space-md font-semibold">AI Status</th>
-<th class="py-3.5 px-space-md font-semibold">Priority</th>
-<th class="py-3.5 px-space-md font-semibold">Clinician</th>
-<th class="py-3.5 px-space-md font-semibold text-right">Action</th>
-</tr>
-</thead>
-<tbody class="font-body-sm text-body-sm">
-<!-- Row 1: PT-20481 (Critical) -->
-<tr class="hover:bg-surface-container-low/70 transition-colors">
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-priority-critical text-base">emergency</span>
-<span class="font-label-code text-label-code font-bold text-primary">PT-20481</span>
-</div>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Chest X-ray</span>
-</td>
-<td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov 17, 2026</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
-                    Awaiting Review
-                  </span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-critical-soft text-priority-critical font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-sm">warning</span>
-                    CRITICAL
-                  </span>
-</td>
-<td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</td>
-<td class="py-3.5 px-space-md text-right">
-<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-colors">
-<span>View Case</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
-</td>
-</tr>
-<!-- Row 2: PT-20485 (Moderate) -->
-<tr class="hover:bg-surface-container-low/70 transition-colors bg-surface-container-lowest">
-<td class="py-3.5 px-space-md">
-<span class="font-label-code text-label-code font-bold text-primary">PT-20485</span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Brain MRI</span>
-</td>
-<td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov 17, 2026</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-xs">done</span>
-                    Completed
-                  </span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-moderate-soft text-priority-high font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-sm">info</span>
-                    MODERATE
-                  </span>
-</td>
-<td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. S. Rao</td>
-<td class="py-3.5 px-space-md text-right">
-<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-body-bold text-body-bold transition-colors">
-<span>View Case</span>
-<span class="material-symbols-outlined text-sm">visibility</span>
-</button>
-</td>
-</tr>
-<!-- Row 3: PT-20492 (High) -->
-<tr class="hover:bg-surface-container-low/70 transition-colors">
-<td class="py-3.5 px-space-md">
-<div class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-priority-high text-base">priority_high</span>
-<span class="font-label-code text-label-code font-bold text-primary">PT-20492</span>
-</div>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Abdominal CT</span>
-</td>
-<td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov 17, 2026</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
-                    Awaiting Review
-                  </span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-sm">warning_amber</span>
-                    HIGH
-                  </span>
-</td>
-<td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. K. Nair</td>
-<td class="py-3.5 px-space-md text-right">
-<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-colors">
-<span>View Case</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
-</td>
-</tr>
-<!-- Row 4: PT-20510 (Low / In Processing) -->
-<tr class="hover:bg-surface-container-low/70 transition-colors bg-surface-container-lowest">
-<td class="py-3.5 px-space-md">
-<span class="font-label-code text-label-code font-bold text-primary">PT-20510</span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Chest X-ray</span>
-</td>
-<td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov 17, 2026</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-surface-container-high text-secondary font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-xs animate-spin">sync</span>
-                    Processing
-                  </span>
-</td>
-<td class="py-3.5 px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                    LOW
-                  </span>
-</td>
-<td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</td>
-<td class="py-3.5 px-space-md text-right">
-<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-outline font-body-bold text-body-bold cursor-not-allowed" disabled="">
-<span>Analysing</span>
-<span class="material-symbols-outlined text-sm">hourglass_empty</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Table Footer / Pagination -->
-<div class="p-space-md bg-surface-card flex flex-col sm:flex-row items-center justify-between gap-space-sm">
-<span class="font-body-sm text-body-sm text-on-surface-variant">
-            Showing <strong class="text-on-surface font-semibold">1-4</strong> of <strong class="text-on-surface font-semibold">37</strong> pending studies
-          </span>
-<div class="flex items-center gap-1.5">
-<button class="p-1.5 rounded-md bg-surface-container-low text-outline hover:text-on-surface disabled:opacity-40" disabled="">
-<span class="material-symbols-outlined text-lg">chevron_left</span>
-</button>
-<button class="w-8 h-8 rounded-md bg-primary text-on-primary font-label-code-sm text-label-code-sm font-bold">1</button>
-<button class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">2</button>
-<button class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">3</button>
-<span class="px-1 text-outline">...</span>
-<button class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">10</button>
-<button class="p-1.5 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- RIGHT COLUMN (Span 4): High-Priority Triage & Radiographic Distributions -->
-<div class="xl:col-span-4 flex flex-col gap-space-lg min-w-0">
-<!-- Critical Triage Urgent Action Panel -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col relative overflow-hidden">
-<div class="flex items-center justify-between mb-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-priority-critical text-xl">priority_high</span>
-<h2 class="font-headline-sm text-headline-sm text-primary">Triage Action Hub</h2>
-</div>
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">DEMO / SIMULATED</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-          Immediate automated alerts filtered by convolutional neural net high-risk activation.
-        </p>
-<!-- Triage Items Stack -->
-<div class="flex flex-col gap-space-md">
-<!-- Urgent Card 1 -->
-<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="font-label-code font-bold text-priority-critical">PT-20481</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-label-code-sm">Chest X-Ray</span>
-</div>
-<span class="inline-flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold">
-<span class="material-symbols-outlined text-xs">timer</span>
-                Review within 45m
-              </span>
-</div>
-<div class="font-body-bold text-body-bold text-primary">
-              Right Pleural Effusion Suspicion
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="../typography.css" />
+  <style id="mediscan-crisp-typography">
+    html,
+    body {
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+      font-feature-settings: "cv02" 1, "cv03" 1, "cv04" 1, "cv11" 1, "kern" 1 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+      -webkit-text-size-adjust: 100% !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    [class*="headline"] {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      letter-spacing: -0.015em !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+    }
+
+    code,
+    pre,
+    [class*="label-code"],
+    [class*="mono"] {
+      font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'SF Mono', monospace !important;
+      font-feature-settings: "tnum" 1, "zero" 1 !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+    }
+
+    .font-label-code-sm,
+    .text-label-code-sm {
+      font-size: 11px !important;
+      line-height: 15px !important;
+      font-weight: 500 !important;
+    }
+
+    .text-\[9px\],
+    .text-\[10px\] {
+      font-size: 11px !important;
+      line-height: 14px !important;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: optimizeLegibility !important;
+      transform: translateZ(0);
+    }
+  </style>
+</head>
+
+<body class="bg-canvas-bg font-body-md text-on-surface antialiased"><svg aria-hidden="true"
+    class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_dashboard" name="shell-type" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style id="cinematic-heart-styles">
+    @keyframes heartLubDub {
+      0% {
+        transform: scale(1) translateY(0);
+        filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.45)) drop-shadow(0 0 60px rgba(185, 28, 28, 0.25));
+      }
+
+      14% {
+        transform: scale(1.085) translateY(-3px);
+        filter: drop-shadow(0 0 45px rgba(239, 68, 68, 0.85)) drop-shadow(0 0 95px rgba(220, 38, 38, 0.5));
+      }
+
+      26% {
+        transform: scale(0.99) translateY(0);
+        filter: drop-shadow(0 0 28px rgba(220, 38, 38, 0.45));
+      }
+
+      38% {
+        transform: scale(1.055) translateY(-2px);
+        filter: drop-shadow(0 0 38px rgba(239, 68, 68, 0.75)) drop-shadow(0 0 75px rgba(220, 38, 38, 0.4));
+      }
+
+      52% {
+        transform: scale(1) translateY(0);
+        filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.45));
+      }
+
+      100% {
+        transform: scale(1) translateY(0);
+        filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.45));
+      }
+    }
+
+    @keyframes heartTachycardia {
+      0% {
+        transform: scale(1) translateY(0);
+        filter: drop-shadow(0 0 35px rgba(239, 68, 68, 0.7)) drop-shadow(0 0 80px rgba(244, 63, 94, 0.5));
+      }
+
+      20% {
+        transform: scale(1.12) translateY(-4px);
+        filter: drop-shadow(0 0 60px rgba(255, 50, 50, 0.95)) drop-shadow(0 0 120px rgba(220, 38, 38, 0.8));
+      }
+
+      45% {
+        transform: scale(0.97) translateY(1px);
+      }
+
+      65% {
+        transform: scale(1.08) translateY(-2px);
+      }
+
+      100% {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes heartPVC {
+      0% {
+        transform: scale(1) translateY(0);
+        filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.45));
+      }
+
+      12% {
+        transform: scale(1.07) translateY(-2px);
+      }
+
+      22% {
+        transform: scale(0.98);
+      }
+
+      32% {
+        transform: scale(1.18) translateY(-6px) rotate(-1.5deg);
+        filter: drop-shadow(0 0 70px rgba(249, 115, 22, 0.9)) drop-shadow(0 0 120px rgba(220, 38, 38, 0.8));
+      }
+
+      44% {
+        transform: scale(0.92) rotate(1deg);
+      }
+
+      72% {
+        transform: scale(0.96);
+        opacity: 0.92;
+      }
+
+      88% {
+        transform: scale(1.04) translateY(-1px);
+      }
+
+      100% {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes heartLevitate {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes pulseWave {
+      0% {
+        transform: scale(0.75);
+        opacity: 0.85;
+      }
+
+      60% {
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: scale(2.1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes coronaryShimmer {
+
+      0%,
+      100% {
+        opacity: 0.55;
+        stroke-dashoffset: 0;
+      }
+
+      50% {
+        opacity: 1;
+        stroke-dashoffset: 35;
+      }
+    }
+
+    @keyframes ambientFloat {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.25;
+      }
+
+      50% {
+        transform: translate(18px, -28px) scale(1.2);
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: translate(-10px, -55px) scale(0.9);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cinematicHeroFade {
+      0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(18px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes textStaggerUp {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ecgScroll {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .heart-mesh-container {
+      perspective: 1100px;
+    }
+
+    .heart-pulsing-mesh {
+      animation: heartLubDub 1.05s cubic-bezier(0.21, 0.61, 0.35, 1) infinite;
+      transform-origin: 50% 55%;
+      will-change: transform, filter;
+      transition: animation-duration 0.35s ease;
+    }
+
+    .heart-pulsing-mesh.mode-tachycardia {
+      animation: heartTachycardia 0.435s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+    }
+
+    .heart-pulsing-mesh.mode-pvc {
+      animation: heartPVC 1.42s cubic-bezier(0.22, 0.61, 0.36, 1) infinite !important;
+    }
+
+    .heart-mesh-container:hover .heart-pulsing-mesh {
+      filter: drop-shadow(0 0 55px rgba(239, 68, 68, 0.95)) drop-shadow(0 0 110px rgba(220, 38, 38, 0.7)) !important;
+    }
+
+    .heart-levitation-wrapper {
+      animation: heartLevitate 4.5s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .cardiac-ripple {
+      position: absolute;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(239, 68, 68, 0.55);
+      box-shadow: 0 0 24px rgba(220, 38, 38, 0.4), inset 0 0 24px rgba(220, 38, 38, 0.3);
+      animation: pulseWave 1.05s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    .cardiac-ripple.mode-tachycardia {
+      animation-duration: 0.435s !important;
+      border-color: rgba(239, 68, 68, 0.85);
+    }
+
+    .cardiac-ripple.mode-pvc {
+      animation-duration: 1.42s !important;
+      border-color: rgba(249, 115, 22, 0.8);
+    }
+
+    .coronary-glow {
+      stroke-dasharray: 12, 18;
+      animation: coronaryShimmer 2.2s linear infinite;
+    }
+
+    .hero-reveal {
+      animation: cinematicHeroFade 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-text-stagger {
+      animation: textStaggerUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    .hero-metrics-stagger {
+      animation: textStaggerUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .heart-pulsing-mesh,
+      .heart-levitation-wrapper,
+      .cardiac-ripple,
+      .coronary-glow,
+      .hero-reveal,
+      .hero-text-stagger,
+      .hero-metrics-stagger {
+        animation: none !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-card": "#FFFFFF", "priority-high": "#F39A38", "surface-container": "#E8E6FA", "tertiary-container": "#3730A3", "tertiary": "#1E1B4B", "on-surface-variant": "#43474d", "border-focus": "#F97316", "outline-variant": "#c3c7ce", "viewer-surface": "#121E2A", "on-secondary-container": "#9A3412", "primary-fixed": "#E0E7FF", "tertiary-fixed": "#E0E7FF", "secondary-fixed": "#FED7AA", "surface": "#F8F7FF", "on-tertiary-fixed-variant": "#3730A3", "on-secondary-fixed": "#431407", "priority-critical-soft": "#FEE2E2", "on-primary-container": "#C7D2FE", "on-primary": "#ffffff", "outline": "#73777e", "on-background": "#1E1B4B", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#3730A3", "surface-container-low": "#F1EFFF", "on-error": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#9A3412", "tertiary-fixed-dim": "#C7D2FE", "primary": "#1E1B4B", "surface-container-high": "#DFDCFA", "surface-variant": "#D5D1F7", "on-tertiary-container": "#A5B4FC", "primary-container": "#312E81", "on-surface": "#1E1B4B", "canvas-bg": "#F8F7FF", "inverse-on-surface": "#EEF2FF", "background": "#F8F7FF", "primary-fixed-dim": "#C7D2FE", "surface-dim": "#C9C4F2", "inverse-primary": "#C7D2FE", "viewer-dark": "#0B131B", "on-tertiary-fixed": "#1E1B4B", "on-primary-fixed": "#1E1B4B", "surface-container-lowest": "#ffffff", "priority-high-soft": "#FFEDD5", "inverse-surface": "#312E81", "border-subtle": "#E4E2F5", "priority-moderate-soft": "#FEF9C3", "priority-low-soft": "#EEF2FF", "surface-tint": "#4F46E5", "surface-container-highest": "#D5D1F7", "secondary-container": "#FFEDD5", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "priority-critical": "#DC4444", "surface-bright": "#F8F7FF", "secondary": "#C2410C", "priority-moderate": "#E8BD45", "secondary-fixed-dim": "#FDBA74", "priority-low": "#36A477" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "body-bold": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-code-sm": ["JetBrains Mono"], "label-code": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-bold": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" }], "label-code-sm": ["0.6875rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-code": ["0.8125rem", { "lineHeight": "1.125rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.375rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["1rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "badge-label": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }] } } } };</script>
+  <div
+    class="fixed top-0 left-0 right-0 z-50 h-7 bg-priority-high-soft border-b border-priority-high/30 px-space-md flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+    <div class="flex items-center gap-space-xs"><span
+        class="material-symbols-outlined text-priority-high text-sm">verified_user</span><span
+        class="font-label-code-sm text-label-code-sm text-on-surface font-semibold tracking-wide uppercase">Clinical
+        Safety Advisory:</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium">AI-assisted
+        decision support. Not a medical diagnosis. All findings require qualified healthcare professional review.</span>
+    </div>
+    <div class="flex items-center gap-space-xs"><span
+        class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span><span
+        class="font-label-code-sm text-label-code-sm text-priority-high font-bold">PROTO-21 CFR COMPLIANT</span></div>
+  </div>
+  <header
+    class="fixed top-7 left-0 right-0 z-40 h-16 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(49, 46, 129,0.05)] border-b border-border-subtle">
+    <div class="w-full h-full px-space-lg flex items-center justify-between gap-space-md">
+      <div class="flex items-center gap-space-md">
+        <div class="flex items-center gap-space-sm"><img src="../assets/logo.png" alt="MediScan AI Logo"
+            class="h-10 w-auto object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display:none"
+            class="w-10 h-10 rounded-xl bg-primary items-center justify-center shadow-sm flex-shrink-0"><span
+              class="material-symbols-outlined text-secondary text-2xl">radiology</span></div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-space-xs"><span
+                class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MediScan</span><span
+                class="font-headline-sm text-headline-sm text-secondary tracking-tight font-bold">AI</span></div><span
+              class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Clinical
+              Decision Support</span>
+          </div>
+        </div>
+        <div class="h-6 w-px bg-border-subtle hidden sm:block"></div><span
+          class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-priority-moderate-soft border border-priority-moderate text-priority-high font-label-code-sm text-label-code-sm font-bold tracking-wider">DEMO
+          / SIMULATED</span>
+      </div>
+      <div class="flex-1 max-w-xl mx-space-md hidden md:block">
+        <div class="relative flex items-center"><span
+            class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input
+            class="w-full h-10 pl-10 pr-4 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline border border-transparent focus:border-border-focus focus:bg-surface-card focus:outline-none transition-all"
+            placeholder="Search patients, ID, DICOM studies, MRN..." type="text" /></div>
+      </div>
+      <div class="flex items-center gap-space-md"><button
+          class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"><span
+            class="material-symbols-outlined text-xl">notifications</span><span
+            class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-priority-critical font-label-code-sm text-label-code-sm text-on-error font-bold">4</span></button>
+        <div class="h-6 w-px bg-border-subtle"></div>
+        <div class="flex items-center gap-space-sm pl-space-xs">
+          <div class="flex flex-col items-end hidden lg:flex"><span
+              class="font-body-bold text-body-bold text-on-surface leading-tight">Dr. A. Mehta</span><span
+              class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high font-label-code-sm text-label-code-sm text-on-surface-variant font-semibold">Chief
+              Radiologist</span></div><img alt="Profile"
+            class="w-8 h-8 rounded-full object-cover ring-2 ring-border-focus/30"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzq1RuqRD3ZUDJB-SmCpZnP59rf0U37wspRspIoYpu0Ws4qBv5D8PhSjgpxNfL2P0uUdhp-bLp3LITiv5zJSYwiKZ9XRh_j-PikJ54GwzCtB8yHVRfvCvBjxZNc2s4pJ_epo7ZnVvdqFzW_MClQ1YNxBm8z2otW5KH8o-zWINlV5CYT1NQMbvxLD02MGRA10TJ31mnhE0cBpPtALmFrHGmnFhTeptuXeI-pw5P9rE" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside
+    class="fixed left-0 top-[5.75rem] bottom-0 w-64 bg-surface-card border-r border-border-subtle z-30 flex flex-col justify-between shadow-[2px_0_12px_rgba(49, 46, 129,0.03)]">
+    <div class="flex-1 overflow-y-auto py-space-md px-space-sm">
+      <div class="px-space-sm mb-space-xs"><span
+          class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Clinical
+          Workflows</span></div>
+      <nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a
+          aria-current="page"
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-bold shadow-sm"
+          data-path="dashboard" href="#"><span
+            class="material-symbols-outlined text-lg">dashboard</span><span>Dashboard</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="upload-scan" href="#"><span
+            class="material-symbols-outlined text-lg">upload_file</span><span>Upload Scan</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="ai-analysis" href="#"><span class="material-symbols-outlined text-lg">neurology</span><span>AI
+            Analysis</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="clinical-datasets" href="#"><span
+            class="material-symbols-outlined text-lg">database</span><span>Clinical Datasets</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="patients" href="#"><span
+            class="material-symbols-outlined text-lg">personal_injury</span><span>Patients</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="risk-prioritization" href="#"><span
+            class="material-symbols-outlined text-lg">acute</span><span>Risk Prioritization</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="reports" href="#"><span
+            class="material-symbols-outlined text-lg">description</span><span>Reports</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="notifications" href="#"><span
+            class="material-symbols-outlined text-lg">notifications_active</span><span>Notifications</span></a>
+        <div class="my-space-xs border-t border-border-subtle"></div>
+        <div class="px-space-sm mb-space-xs"><span
+            class="font-label-code-sm text-label-code-sm text-outline font-semibold uppercase tracking-wider">Governance</span>
+        </div><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="settings-profile" href="#"><span
+            class="material-symbols-outlined text-lg">manage_accounts</span><span>Settings / Profile</span></a><a
+          class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md"
+          data-path="admin" href="#"><span
+            class="material-symbols-outlined text-lg">admin_panel_settings</span><span>Admin</span></a>
+      </nav>
+    </div>
+    <div class="p-space-sm border-t border-border-subtle bg-surface-container-lowest">
+      <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span><span
+              class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">All Systems Operational</span>
+          </div><button class="text-on-surface-variant hover:text-on-surface"><span
+              class="material-symbols-outlined text-sm">keyboard_arrow_down</span></button>
+        </div>
+        <div class="flex items-center gap-1 text-on-surface-variant font-label-code-sm text-label-code-sm"><span
+            class="material-symbols-outlined text-xs text-secondary">lock</span><span>HIPAA / Audit Logging
+            Active</span></div>
+      </div>
+    </div>
+  </aside>
+  <div class="pl-64">
+    <main class="min-h-screen pt-[5.75rem] w-full px-space-lg pb-space-2xl bg-canvas-bg">
+      <div class="flex flex-col w-full">
+        <!-- Top Greeting & Operational Actions Bar with Interactive Arrhythmia Trigger Controls -->
+        <div
+          class="relative w-full rounded-2xl overflow-hidden mb-space-xl p-space-lg lg:p-space-xl text-white shadow-2xl transition-all duration-700 border border-slate-700/60 hero-reveal"
+          id="cinematic-heart-hero"
+          style="background: radial-gradient(circle at 72% 48%, rgba(185, 28, 28, 0.32) 0%, rgba(127, 29, 29, 0.22) 26%, rgba(49, 46, 129, 0.95) 62%, rgb(8, 19, 30) 100%); min-height: 420px;">
+          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute w-2 h-2 rounded-full bg-rose-500/40 blur-[1px]"
+              style="top:20%; left:12%; animation: ambientFloat 6.5s ease-in-out infinite;"></div>
+            <div class="absolute w-3 h-3 rounded-full bg-red-600/30 blur-[1px]"
+              style="top:65%; left:28%; animation: ambientFloat 8.2s ease-in-out infinite 1.2s;"></div>
+            <div class="absolute w-1.5 h-1.5 rounded-full bg-rose-400/50 blur-[0.5px]"
+              style="top:35%; right:22%; animation: ambientFloat 5.8s ease-in-out infinite 2.5s;"></div>
+            <div class="absolute w-2.5 h-2.5 rounded-full bg-red-500/35 blur-[1px]"
+              style="top:78%; right:38%; animation: ambientFloat 7.4s ease-in-out infinite 0.7s;"></div>
+            <div class="absolute w-2 h-2 rounded-full bg-red-400/30 blur-[1px]"
+              style="top:15%; right:45%; animation: ambientFloat 9.1s ease-in-out infinite 3.1s;"></div>
+            <div class="absolute -right-16 -top-24 w-96 h-96 rounded-full bg-red-600/20 blur-3xl pointer-events-none">
             </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              Inference marker detects dense blunting of right costophrenic angle with <strong class="text-priority-critical">89% confidence</strong>.
-            </p>
-<div class="mt-1 flex items-center justify-between pt-2">
-<span class="font-label-code-sm text-label-code-sm text-outline">Uploaded: 14 mins ago</span>
-<button class="px-3.5 py-1.5 rounded-lg bg-priority-critical text-on-error hover:bg-error transition-colors font-body-bold text-body-bold text-xs shadow-sm">
-                Review now
-              </button>
-</div>
-</div>
-<!-- Urgent Card 2 -->
-<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-2">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="font-label-code font-bold text-priority-high">PT-20489</span>
-<span class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-label-code-sm">Brain MRI</span>
-</div>
-<span class="inline-flex items-center gap-1 text-priority-high font-label-code-sm text-label-code-sm font-bold">
-<span class="material-symbols-outlined text-xs">timer</span>
-                Review within 1h 10m
-              </span>
-</div>
-<div class="font-body-bold text-body-bold text-primary">
-              Acute Ischemic Sign Simulated
+            <div
+              class="absolute right-1/4 -bottom-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none">
             </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              DWI hyperintensity localized to left middle cerebral artery territory. High priority protocol.
-            </p>
-<div class="mt-1 flex items-center justify-between pt-2">
-<span class="font-label-code-sm text-label-code-sm text-outline">Uploaded: 28 mins ago</span>
-<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors font-body-bold text-body-bold text-xs shadow-sm">
-                Review now
-              </button>
-</div>
-</div>
-</div>
-</div>
-<!-- Modality & Risk Distribution Visualizers (2 Bento Sub-Cards) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-space-lg">
-<!-- Modality Distribution Bar / Ratio Card -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
-<div class="flex items-center justify-between mb-space-sm">
-<h3 class="font-headline-sm text-headline-sm text-primary">Modality Breakdown</h3>
-<span class="material-symbols-outlined text-outline text-lg">medical_services</span>
-</div>
-<!-- Visual Segmented Bar -->
-<div class="w-full h-3 rounded-full overflow-hidden flex bg-surface-container mb-space-md">
-<div class="h-full bg-primary-container" style="width: 54%" title="Chest X-Ray 54%"></div>
-<div class="h-full bg-border-focus" style="width: 28%" title="Brain MRI 28%"></div>
-<div class="h-full bg-secondary-fixed" style="width: 18%" title="Abdominal CT 18%"></div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-                Chest X-ray
-              </span>
-<span class="font-label-code text-label-code font-bold text-primary">54% <span class="text-outline font-normal text-xs">(674)</span></span>
-</div>
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-border-focus"></span>
-                Brain MRI
-              </span>
-<span class="font-label-code text-label-code font-bold text-primary">28% <span class="text-outline font-normal text-xs">(349)</span></span>
-</div>
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>
-                Abdominal CT
-              </span>
-<span class="font-label-code text-label-code font-bold text-primary">18% <span class="text-outline font-normal text-xs">(225)</span></span>
-</div>
-</div>
-</div>
-<!-- Risk Level Distribution Donut Card -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
-<div class="flex items-center justify-between mb-space-sm">
-<h3 class="font-headline-sm text-headline-sm text-primary">Risk Stratification</h3>
-<span class="material-symbols-outlined text-outline text-lg">pie_chart</span>
-</div>
-<div class="flex items-center gap-space-md my-auto">
-<!-- Inline SVG Donut Chart -->
-<div class="relative w-28 h-28 shrink-0 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<!-- Background Circle -->
-<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
-<!-- Low (42%) -->
-<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#36A477" stroke-dasharray="42, 100" stroke-linecap="round" stroke-width="4"></path>
-<!-- Moderate (34%) offset 42 -->
-<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E8BD45" stroke-dasharray="34, 100" stroke-dashoffset="-42" stroke-width="4"></path>
-<!-- High (16%) offset 76 -->
-<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#F39A38" stroke-dasharray="16, 100" stroke-dashoffset="-76" stroke-width="4"></path>
-<!-- Critical (8%) offset 92 -->
-<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#DC4444" stroke-dasharray="8, 100" stroke-dashoffset="-92" stroke-linecap="round" stroke-width="4"></path>
-</svg>
-<div class="absolute flex flex-col items-center">
-<span class="font-label-code text-label-code font-bold text-primary">100%</span>
-<span class="font-label-code-sm text-label-code-sm text-outline">Triage</span>
-</div>
-</div>
-<!-- Legend Grid -->
-<div class="flex flex-col gap-1.5 w-full">
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-critical"></span>Critical</span>
-<span class="font-label-code-sm text-label-code-sm font-bold text-priority-critical">8%</span>
-</div>
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-high"></span>High</span>
-<span class="font-label-code-sm text-label-code-sm font-bold text-priority-high">16%</span>
-</div>
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-moderate"></span>Moderate</span>
-<span class="font-label-code-sm text-label-code-sm font-bold text-on-surface">34%</span>
-</div>
-<div class="flex items-center justify-between font-body-sm text-body-sm">
-<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-priority-low"></span>Low</span>
-<span class="font-label-code-sm text-label-code-sm font-bold text-priority-low">42%</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Real-Time AI Analysis Activity Feed -->
-<div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
-<div class="flex items-center justify-between mb-space-md">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-border-focus animate-ping"></span>
-<h3 class="font-headline-sm text-headline-sm text-primary">Live Engine Activity</h3>
-</div>
-<span class="font-label-code-sm text-label-code-sm text-outline">Audit Log #8492</span>
-</div>
-<div class="flex flex-col gap-space-md relative">
-<!-- Continuous connecting faint vertical line -->
-<div class="absolute left-3.5 top-2 bottom-2 w-0.5 bg-surface-container"></div>
-<!-- Feed Item 1 -->
-<div class="flex items-start gap-space-sm relative z-10">
-<div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
-<span class="material-symbols-outlined text-sm">memory</span>
-</div>
-<div class="flex flex-col flex-1">
-<p class="font-body-sm text-body-sm text-on-surface">
-                Simulated inference completed for <span class="font-label-code-sm font-bold text-primary">PT-20512</span>
-</p>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="font-label-code-sm text-label-code-sm text-outline">Just now</span>
-<span class="w-1 h-1 rounded-full bg-outline"></span>
-<span class="font-label-code-sm text-label-code-sm text-secondary font-medium">98.2ms latency</span>
-</div>
-</div>
-</div>
-<!-- Feed Item 2 -->
-<div class="flex items-start gap-space-sm relative z-10">
-<div class="w-7 h-7 rounded-full bg-priority-low-soft flex items-center justify-center text-priority-low shrink-0">
-<span class="material-symbols-outlined text-sm">verified</span>
-</div>
-<div class="flex flex-col flex-1">
-<p class="font-body-sm text-body-sm text-on-surface">
-<strong class="font-semibold text-primary">Dr. P. Iyer</strong> signed off report for <span class="font-label-code-sm font-bold text-primary">PT-20470</span>
-</p>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="font-label-code-sm text-label-code-sm text-outline">3m ago</span>
-<span class="w-1 h-1 rounded-full bg-outline"></span>
-<span class="font-label-code-sm text-label-code-sm text-priority-low font-medium">Concordant match</span>
-</div>
-</div>
-</div>
-<!-- Feed Item 3 -->
-<div class="flex items-start gap-space-sm relative z-10">
-<div class="w-7 h-7 rounded-full bg-priority-critical-soft flex items-center justify-center text-priority-critical shrink-0">
-<span class="material-symbols-outlined text-sm">notification_important</span>
-</div>
-<div class="flex flex-col flex-1">
-<p class="font-body-sm text-body-sm text-on-surface">
-                Critical finding escalated: <span class="font-label-code-sm font-bold text-primary">PT-20481</span> pushed to emergency board
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-[#17143B]/90 via-[#1E1B4B]/60 to-transparent pointer-events-none">
+            </div>
+          </div>
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+            <div class="lg:col-span-7 flex flex-col justify-center hero-text-stagger">
+              <div class="flex flex-wrap items-center gap-2 mb-2"><span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/40 text-rose-300 font-label-code-sm text-label-code-sm font-bold uppercase tracking-wider backdrop-blur-md"><span
+                    class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>Real-Time Cardiac
+                  Biomechanics</span><span class="h-4 w-px bg-slate-600/50 hidden sm:block"></span><span
+                  class="font-label-code-sm text-label-code-sm text-slate-300 font-medium">Station ID: RAD-ONC-04</span>
+              </div>
+              <h1 class="font-headline-xl text-headline-xl text-white tracking-tight drop-shadow-sm">Good morning, Dr.
+                Mehta</h1>
+              <p class="font-body-md text-body-md text-slate-300 mt-2 max-w-xl leading-relaxed">Tuesday, November 18,
+                2026 • <span
+                  class="font-body-bold text-body-bold text-rose-400 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/60 shadow-sm">12
+                  pending emergency triage reviews</span> awaiting clinical validation with autonomous multi-chamber
+                cardiac hemodynamics.</p>
+              <div class="flex flex-wrap items-center gap-space-sm mt-space-md pt-1"><button
+                  class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-100 transition-all border border-slate-700/80 shadow-md font-body-bold text-body-bold backdrop-blur-sm hover:scale-[1.02]"><span
+                    class="material-symbols-outlined text-slate-300 text-lg">tune</span><span>Batch
+                    Prioritization</span></button><button
+                  class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-100 transition-all border border-slate-700/80 shadow-md font-body-bold text-body-bold backdrop-blur-sm hover:scale-[1.02]"><span
+                    class="material-symbols-outlined text-slate-300 text-lg">download</span><span>Export Daily
+                    Log</span></button><button
+                  class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white transition-all shadow-[0_0_20px_rgba(225,29,72,0.45)] font-body-bold text-body-bold group hover:scale-[1.02]"><span
+                    class="material-symbols-outlined text-rose-200 group-hover:rotate-90 transition-transform text-xl">add_circle</span><span>+
+                    Upload DICOM Scan</span></button></div>
+            </div>
+            <div class="lg:col-span-5 min-w-0 flex items-center justify-center relative flex-col w-full">
+              <div
+                class="heart-mesh-container relative w-full max-w-[280px] sm:max-w-[320px] aspect-square pb-8 flex items-center justify-center cursor-pointer select-none mx-auto"
+                id="interactive-heart-viewport">
+                <div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-1"></div>
+                <div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-2" style="animation-delay: 0.28s;"></div>
+                <div class="cardiac-ripple w-44 h-44" id="cardiac-ripple-3" style="animation-delay: 0.54s;"></div>
+                <div
+                  class="heart-levitation-wrapper relative flex items-center justify-center w-full h-full transition-transform duration-200 ease-out"
+                  id="heart-tilt-target">
+                  <div class="heart-pulsing-mesh relative flex items-center justify-center w-full h-full"
+                    id="hero-pulsing-heart"><svg
+                      class="w-full h-full max-w-[230px] sm:max-w-[260px] drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)]"
+                      fill="none" preserveAspectRatio="xMidYMid meet" viewBox="40 0 250 330"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <lineargradient gradientunits="userSpaceOnUse" id="aortaGrad" x1="110" x2="210" y1="30"
+                          y2="130">
+                          <stop offset="0%" stop-color="#EF4444"></stop>
+                          <stop offset="40%" stop-color="#DC2626"></stop>
+                          <stop offset="100%" stop-color="#7F1D1D"></stop>
+                        </lineargradient>
+                        <lineargradient gradientunits="userSpaceOnUse" id="brachioGrad" x1="130" x2="160" y1="20"
+                          y2="70">
+                          <stop offset="0%" stop-color="#F87171"></stop>
+                          <stop offset="100%" stop-color="#991B1B"></stop>
+                        </lineargradient>
+                        <lineargradient gradientunits="userSpaceOnUse" id="pulmGrad" x1="150" x2="230" y1="80" y2="160">
+                          <stop offset="0%" stop-color="#818CF8"></stop>
+                          <stop offset="45%" stop-color="#0284C7"></stop>
+                          <stop offset="100%" stop-color="#075985"></stop>
+                        </lineargradient>
+                        <lineargradient gradientunits="userSpaceOnUse" id="venaCavaGrad" x1="90" x2="120" y1="50"
+                          y2="140">
+                          <stop offset="0%" stop-color="#60A5FA"></stop>
+                          <stop offset="60%" stop-color="#2563EB"></stop>
+                          <stop offset="100%" stop-color="#1E3A8A"></stop>
+                        </lineargradient>
+                        <radialgradient cx="48%" cy="45%" id="heartMuscleGrad" r="65%"><stop offset="0%" stop-color="#FCA5A5"></stop><stop offset="25%" stop-color="#EF4444"></stop><stop offset="60%" stop-color="#B91C1C"></stop><stop offset="88%" stop-color="#7F1D1D"></stop><stop offset="100%" stop-color="#450A0A"></stop></radialgradient><radialgradient cx="55%" cy="50%" id="leftVentricleBulge" r="55%"><stop offset="0%" stop-color="#F87171" stop-opacity="0.9"></stop><stop offset="55%" stop-color="#DC2626" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#7F1D1D" stop-opacity="0.85"></stop></radialgradient><lineargradient gradientunits="userSpaceOnUse" id="specularSheen" x1="110" x2="170" y1="110" y2="230"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65"></stop><stop offset="30%" stop-color="#FCA5A5" stop-opacity="0.25"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0"></stop></lineargradient><lineargradient gradientunits="userSpaceOnUse" id="specularSheenRight" x1="225" x2="175" y1="160" y2="275"><stop offset="0%" stop-color="#FDBA74" stop-opacity="0.45"></stop><stop offset="45%" stop-color="#F87171" stop-opacity="0.2"></stop><stop offset="100%" stop-color="#991B1B" stop-opacity="0"></stop></lineargradient>
+                        <filter height="140%" id="heartInnerGlow" width="140%" x="-20%" y="-20%">
+                          <fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+                          <fecomposite in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowDiff">
+                          </fecomposite>
+                          <feflood flood-color="#FFE4E6" flood-opacity="0.4"></feflood>
+                          <fecomposite in2="shadowDiff" operator="in"></fecomposite>
+                        </filter>
+                      </defs>
+                      <path d="M102 62 C102 40, 118 42, 118 78 C118 102, 114 120, 112 136 C105 130, 98 110, 98 88 Z"
+                        fill="url(#venaCavaGrad)" stroke="#1D4ED8" stroke-width="1.5"></path>
+                      <path d="M104 50 L104 32 C104 28, 116 28, 116 32 L116 52 Z" fill="#60A5FA" opacity="0.75"></path>
+                      <path
+                        d="M138 106 C134 68, 146 32, 182 32 C214 32, 226 62, 222 96 C219 122, 206 142, 196 150 C182 138, 186 114, 186 94 C186 68, 178 52, 168 52 C154 52, 148 70, 148 98 C148 114, 144 126, 138 106 Z"
+                        fill="url(#aortaGrad)" stroke="#991B1B" stroke-width="1.5"></path>
+                      <path d="M154 44 L150 18 C150 15, 158 14, 160 18 L165 42 Z" fill="url(#brachioGrad)"></path>
+                      <path d="M174 38 L175 14 C175 11, 183 11, 184 14 L185 38 Z" fill="url(#brachioGrad)"></path>
+                      <path d="M194 42 L200 20 C200 17, 208 18, 206 22 L201 46 Z" fill="url(#brachioGrad)"></path>
+                      <path
+                        d="M156 102 C168 92, 196 92, 218 114 C228 124, 234 138, 232 148 C218 150, 198 142, 184 134 C172 144, 162 148, 154 146 C152 130, 154 114, 156 102 Z"
+                        fill="url(#pulmGrad)" stroke="#0369A1" stroke-width="1.5"></path>
+                      <path d="M222 116 C232 112, 246 114, 252 120 L248 132 C240 128, 232 128, 224 132 Z" fill="#818CF8"
+                        opacity="0.85"></path>
+                      <path d="M104 116 C90 122, 82 142, 84 164 C86 182, 98 194, 114 198 C116 172, 112 140, 104 116 Z"
+                        fill="#B91C1C" stroke="#7F1D1D" stroke-width="1.5"></path>
+                      <path
+                        d="M112 138 C128 120, 164 124, 182 142 C184 160, 180 184, 172 196 C152 194, 126 186, 114 172 C110 158, 110 148, 112 138 Z"
+                        fill="#991B1B" opacity="0.6"></path>
+                      <path d="M100 148 C118 132, 168 136, 206 156 C238 174, 252 208, 240 242 C228 274, 190 300, 158 312 C148 316, 142 312, 138 304 C120 274, 92 238, 86 202 C82 178, 88 158, 100 148 Z" fill="url(#heartMuscleGrad)" filter="url(#heartInnerGlow)" stroke="#EF4444" stroke-width="1.8"></path><path d="M204 134 C224 132, 242 146, 244 166 C246 182, 236 196, 222 198 C212 180, 206 158, 204 134 Z" fill="#DC2626" stroke="#F87171" stroke-width="1.5"></path><path d="M236 144 L258 138 C262 137, 264 145, 260 147 L240 154 Z" fill="#F87171" opacity="0.85"></path><path d="M240 160 L262 158 C266 158, 266 166, 262 167 L240 169 Z" fill="#F87171" opacity="0.8"></path><path d="M146 158 C182 162, 224 186, 232 222 C240 254, 218 286, 174 306 C162 310, 154 308, 152 298 C144 262, 142 216, 146 158 Z" fill="url(#leftVentricleBulge)" opacity="0.9"></path><path d="M102 160 C112 152, 132 152, 142 168 C136 210, 130 252, 148 296 C136 288, 108 254, 100 220 C96 198, 96 174, 102 160 Z" fill="url(#specularSheen)"></path><path d="M200 168 C220 182, 232 208, 226 236 C220 260, 198 284, 174 296 C188 268, 198 220, 200 168 Z" fill="url(#specularSheenRight)"></path>
+                      <path class="coronary-glow" d="M166 142 Q158 184 162 216 T148 278" stroke="#FCA5A5"
+                        stroke-linecap="round" stroke-width="2.5"></path>
+                      <path class="coronary-glow" d="M160 196 Q178 208 194 220" stroke="#FECDD3" stroke-linecap="round"
+                        stroke-width="1.8"></path>
+                      <path class="coronary-glow" d="M154 242 Q170 254 184 266" stroke="#F87171" stroke-linecap="round"
+                        stroke-width="1.5"></path>
+                      <path class="coronary-glow" d="M162 170 Q142 186 128 202" stroke="#60A5FA" stroke-linecap="round"
+                        stroke-width="2.2"></path>
+                      <path class="coronary-glow" d="M136 194 Q122 214 116 238" stroke="#818CF8" stroke-linecap="round"
+                        stroke-width="1.6"></path>
+                      <ellipse cx="124" cy="172" fill="#FFFFFF" opacity="0.55" rx="16" ry="8"
+                        transform="rotate(-28 124 172)"></ellipse>
+                      <ellipse cx="194" cy="202" fill="#FFFFFF" opacity="0.35" rx="22" ry="9"
+                        transform="rotate(35 194 202)"></ellipse>
+                      <circle cx="144" cy="296" fill="#FECDD3" opacity="0.8" r="2.5"></circle>
+                      <circle cx="152" cy="304" fill="#F87171" opacity="0.9" r="1.8"></circle>
+                    </svg></div>
+                </div>
+                <div
+                  class="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-950/85 border border-slate-700/80 backdrop-blur-md flex items-center gap-2 shadow-lg pointer-events-none transition-all duration-300"
+                  id="heart-status-pill"><span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"
+                    id="heart-status-dot"></span><span
+                    class="font-label-code-sm text-label-code-sm text-slate-200 font-bold tracking-wider"
+                    id="heart-status-label">72 BPM • SINUS RHYTHM</span></div>
+              </div>
+              <!-- ARRHYTHMIA ALERT SIMULATOR & TRIGGER CONTROLS -->
+              <div
+                class="w-full max-w-md mt-2 px-3.5 py-3 rounded-xl bg-slate-950/90 border border-slate-700/70 backdrop-blur-md shadow-2xl relative flex flex-col gap-2">
+                <div class="flex items-center justify-between pb-1 border-b border-slate-800/80">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-xs text-rose-400">vital_signs</span>
+                    <span
+                      class="font-label-code-sm text-[10px] text-slate-300 uppercase font-bold tracking-wider">Arrhythmia
+                      Alert Simulator &amp; Trigger Controls</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      class="flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 font-label-code-sm text-[10px] transition-colors"
+                      id="telemetry-audio-btn" onclick="toggleTelemetryAudio()"
+                      title="Toggle acoustic alarm simulation">
+                      <span class="material-symbols-outlined text-xs text-orange-400" id="audio-icon">volume_up</span>
+                      <span class="hidden sm:inline" id="audio-label">ALARM ON</span>
+                    </button>
+                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-ping"
+                      id="simulator-live-indicator"></span>
+                  </div>
+                </div>
+                <!-- Segmented Bar Rhythm State Selectors -->
+                <div class="grid grid-cols-3 gap-1.5 p-1 rounded-lg bg-slate-900/90 border border-slate-800/80"
+                  id="arrhythmia-selector-bar">
+                  <button
+                    class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-orange-950/80 text-orange-300 border border-orange-500/50 shadow-sm"
+                    id="btn-rhythm-normal" onclick="setRhythmState('normal')">
+                    <span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>Normal Sinus
+                    </span>
+                    <span class="font-label-code-sm text-[9px] text-orange-400/80">72 BPM</span>
+                  </button>
+                  <button
+                    class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent"
+                    id="btn-rhythm-tachy" onclick="setRhythmState('tachycardia')">
+                    <span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-400 opacity-60"></span>Tachycardia
+                    </span>
+                    <span class="font-label-code-sm text-[9px] text-slate-400">&gt;130 BPM</span>
+                  </button>
+                  <button
+                    class="rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent"
+                    id="btn-rhythm-pvc" onclick="setRhythmState('pvc')">
+                    <span class="font-label-code-sm text-[10px] font-bold leading-tight flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 opacity-60"></span>PVC / Trigeminy
+                    </span>
+                    <span class="font-label-code-sm text-[9px] text-slate-400">Ectopic Couplets</span>
+                  </button>
+                </div>
+                <!-- Dynamic Rhythm Alert Banner & Escalation CTA -->
+                <div
+                  class="flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg bg-orange-950/40 border border-orange-500/30 text-orange-300 transition-all duration-300"
+                  id="rhythm-alert-banner">
+                  <div class="flex items-center gap-1.5 overflow-hidden">
+                    <span class="material-symbols-outlined text-sm shrink-0" id="alert-banner-icon">check_circle</span>
+                    <span class="font-label-code-sm text-[10px] truncate" id="alert-banner-text">STATUS: Regular Sinus
+                      Rhythm — No Ventricular Arrhythmia</span>
+                  </div>
+                  <button
+                    class="hidden shrink-0 items-center gap-1 px-2 py-0.5 rounded bg-red-600 hover:bg-red-500 text-white font-label-code-sm text-[10px] font-bold shadow transition-colors"
+                    id="alert-escalate-btn" onclick="acknowledgeAlert()">
+                    <span class="material-symbols-outlined text-xs">notification_important</span>
+                    <span>Escalate MD</span>
+                  </button>
+                </div>
+                <!-- Lead II ECG Monitor Strip -->
+                <div class="px-2.5 py-2 rounded-lg bg-slate-950 border border-slate-800/90 relative overflow-hidden">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-ping" id="ecg-ping-dot"></span>
+                      <span class="font-label-code-sm text-[10px] text-orange-400 font-bold uppercase tracking-wider"
+                        id="ecg-lead-label">LEAD II • ECG MONITOR</span>
+                      <span
+                        class="hidden sm:inline-block font-label-code-sm text-[9px] text-slate-400 px-1 py-0.2 rounded bg-slate-900 border border-slate-700/50">25
+                        mm/s • 10 mm/mV</span>
+                    </div>
+                    <div class="flex items-center gap-1 font-label-code-sm text-[10px] text-slate-300 font-medium">
+                      <span class="text-priority-low font-bold" id="ecg-bpm-readout">72 BPM</span>
+                      <span class="text-slate-600">|</span>
+                      <span class="text-slate-400 hidden sm:inline" id="ecg-interval-readout">PR: 142ms QRS: 88ms</span>
+                    </div>
+                  </div>
+                  <div
+                    class="relative w-full h-14 bg-slate-950 rounded border border-slate-800/80 overflow-hidden flex items-center">
+                    <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <pattern height="12" id="ecgGrid" patternunits="userSpaceOnUse" width="12">
+                          <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#818CF8" stroke-width="0.5"></path>
+                        </pattern>
+                      </defs>
+                      <rect fill="url(#ecgGrid)" height="100%" width="100%"></rect>
+                    </svg>
+                    <!-- Active Lead Waveform Container -->
+                    <div class="w-full h-full relative z-10 flex items-center" id="waveform-svg-container">
+                      <!-- SVG Normal Sinus -->
+                      <svg class="w-full h-full relative z-10 overflow-visible" fill="none" id="svg-normal-wave"
+                        preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <lineargradient id="ecgTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stop-color="#C2410C" stop-opacity="0.15"></stop>
+                            <stop offset="70%" stop-color="#F97316" stop-opacity="0.85"></stop>
+                            <stop offset="98%" stop-color="#FDBA74" stop-opacity="1"></stop>
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
+                          </lineargradient>
+                          <filter height="160%" id="ecgGlow" width="120%" x="-10%" y="-30%">
+                            <fegaussianblur result="glow" stddeviation="1.5"></fegaussianblur>
+                            <femerge>
+                              <femergenode in="glow"></femergenode>
+                              <femergenode in="SourceGraphic"></femergenode>
+                            </femerge>
+                          </filter>
+                        </defs>
+                        <path
+                          d="M0,28 L30,28 Q34,28 36,25 Q38,22 40,28 L50,28 L53,30 L57,6 L62,48 L65,28 L72,28 Q78,28 82,23 Q86,18 90,28 L120,28 L150,28 Q154,28 156,25 Q158,22 160,28 L170,28 L173,30 L177,6 L182,48 L185,28 L192,28 Q198,28 202,23 Q206,18 210,28 L240,28 L270,28 Q274,28 276,25 Q278,22 280,28 L290,28 L293,30 L297,6 L302,48 L305,28 L312,28 Q318,28 322,23 Q326,18 330,28 L360,28"
+                          filter="url(#ecgGlow)" stroke="url(#ecgTraceGrad)" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="1.8"></path>
+                      </svg>
+                      <!-- SVG Tachycardia -->
+                      <svg class="w-full h-full relative z-10 overflow-visible hidden" fill="none" id="svg-tachy-wave"
+                        preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <lineargradient id="tachyTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.25"></stop>
+                            <stop offset="70%" stop-color="#f87171" stop-opacity="0.9"></stop>
+                            <stop offset="98%" stop-color="#fecaca" stop-opacity="1"></stop>
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
+                          </lineargradient>
+                          <filter height="160%" id="tachyGlow" width="120%" x="-10%" y="-30%">
+                            <fegaussianblur result="glow" stddeviation="1.8"></fegaussianblur>
+                            <femerge>
+                              <femergenode in="glow"></femergenode>
+                              <femergenode in="SourceGraphic"></femergenode>
+                            </femerge>
+                          </filter>
+                        </defs>
+                        <path
+                          d="M0,28 L12,28 Q15,28 16,24 Q18,22 19,28 L24,28 L26,31 L29,4 L33,50 L35,28 L39,28 Q43,28 46,22 Q48,18 51,28 L62,28 Q65,28 67,24 Q69,22 71,28 L76,28 L78,31 L81,4 L85,50 L87,28 L91,28 Q95,28 98,22 Q100,18 103,28 L114,28 Q117,28 119,24 Q121,22 123,28 L128,28 L130,31 L133,4 L137,50 L139,28 L143,28 Q147,28 150,22 Q152,18 155,28 L166,28 Q169,28 171,24 Q173,22 175,28 L180,28 L182,31 L185,4 L189,50 L191,28 L195,28 Q199,28 202,22 Q204,18 207,28 L218,28 Q221,28 223,24 Q225,22 227,28 L232,28 L234,31 L237,4 L241,50 L243,28 L247,28 Q251,28 254,22 Q256,18 259,28 L270,28 Q273,28 275,24 Q277,22 279,28 L284,28 L286,31 L289,4 L293,50 L295,28 L299,28 Q303,28 306,22 Q308,18 311,28 L322,28 Q325,28 327,24 Q329,22 331,28 L336,28 L338,31 L341,4 L345,50 L347,28 L351,28 Q355,28 358,22 L360,28"
+                          filter="url(#tachyGlow)" stroke="url(#tachyTraceGrad)" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="1.8"></path>
+                      </svg>
+                      <!-- SVG PVC / Trigeminy -->
+                      <svg class="w-full h-full relative z-10 overflow-visible hidden" fill="none" id="svg-pvc-wave"
+                        preserveaspectratio="none" viewbox="0 0 360 56" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <lineargradient id="pvcTraceGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"></stop>
+                            <stop offset="55%" stop-color="#fbbf24" stop-opacity="0.85"></stop>
+                            <stop offset="90%" stop-color="#f87171" stop-opacity="1"></stop>
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
+                          </lineargradient>
+                          <filter height="160%" id="pvcGlow" width="120%" x="-10%" y="-30%">
+                            <fegaussianblur result="glow" stddeviation="1.6"></fegaussianblur>
+                            <femerge>
+                              <femergenode in="glow"></femergenode>
+                              <femergenode in="SourceGraphic"></femergenode>
+                            </femerge>
+                          </filter>
+                        </defs>
+                        <!-- Normal beat -> Ectopic Wide PVC -> Compensatory Pause -> Normal beat -->
+                        <path
+                          d="M0,28 L24,28 Q27,28 29,25 Q31,22 33,28 L40,28 L43,30 L47,8 L52,48 L55,28 L62,28 Q67,28 71,23 Q74,19 77,28 L95,28 L98,32 C101,36 103,48 107,52 C112,54 115,10 119,4 C123,-2 128,15 133,36 C136,46 142,48 147,38 C151,30 156,28 160,28 L215,28 Q218,28 220,25 Q222,22 224,28 L231,28 L234,30 L238,8 L243,48 L246,28 L253,28 Q258,28 262,23 Q265,19 268,28 L286,28 L289,32 C292,36 294,48 298,52 C303,54 306,10 310,4 C314,-2 319,15 324,36 C327,46 333,48 338,38 C342,30 347,28 351,28 L360,28"
+                          filter="url(#pvcGlow)" stroke="url(#pvcTraceGrad)" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div
+                      class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-20">
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between mt-1 text-[9px] font-label-code-sm text-slate-400">
+                    <span class="flex items-center gap-1" id="ecg-cal-info"><span
+                        class="w-1 h-1 rounded-full bg-orange-400"></span>CAL 1.0mV</span>
+                    <span id="ecg-qt-info">QT/QTc: 396 / 418ms</span>
+                    <span class="text-slate-300 font-semibold" id="ecg-sync-status">SYNCHRONIZED</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Key Metrics 4-Card Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-lg mb-space-xl">
+          <!-- Card 1: Total Cases -->
+          <div
+            class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Volume (30
+                  Days)</span>
+                <div class="font-headline-xl text-headline-xl text-primary mt-1">1,248</div>
+              </div>
+              <div
+                class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+                <span class="material-symbols-outlined text-2xl">folder_managed</span>
+              </div>
+            </div>
+            <div class="mt-space-md flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-priority-low text-base">trending_up</span>
+              <span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">+12% vs last month</span>
+              <span class="font-body-sm text-body-sm text-outline ml-auto">DICOM Instances</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container"></div>
+          </div>
+          <!-- Card 2: Pending Reviews -->
+          <div
+            class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Pending
+                    Reviews</span>
+                  <span
+                    class="px-2 py-0.5 rounded-full bg-priority-high-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">Active</span>
+                </div>
+                <div class="font-headline-xl text-headline-xl text-primary mt-1">37</div>
+              </div>
+              <div
+                class="w-11 h-11 rounded-lg bg-priority-high-soft flex items-center justify-center text-priority-high">
+                <span class="material-symbols-outlined text-2xl">hourglass_top</span>
+              </div>
+            </div>
+            <div class="mt-space-md flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-priority-high text-base">stethoscope</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Requires Doctor
+                Approval</span>
+              <span class="font-label-code-sm text-label-code-sm text-outline ml-auto">Avg 22m</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-high/60"></div>
+          </div>
+          <!-- Card 3: High-Priority Cases -->
+          <div
+            class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span
+                    class="font-label-code-sm text-label-code-sm text-priority-critical uppercase font-bold tracking-wider">Critical
+                    Queue</span>
+                  <span class="w-2 h-2 rounded-full bg-priority-critical animate-ping"></span>
+                </div>
+                <div class="font-headline-xl text-headline-xl text-priority-critical mt-1">12</div>
+              </div>
+              <div
+                class="w-11 h-11 rounded-lg bg-priority-critical-soft flex items-center justify-center text-priority-critical">
+                <span class="material-symbols-outlined text-2xl">e911_emergency</span>
+              </div>
+            </div>
+            <div class="mt-space-md flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-priority-critical text-base">emergency</span>
+              <span class="font-body-bold text-body-bold text-priority-critical">Immediate Review Needed</span>
+              <span class="font-label-code-sm text-label-code-sm text-outline ml-auto">&lt; 60m SLA</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-critical"></div>
+          </div>
+          <!-- Card 4: Completed Analyses -->
+          <div
+            class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="font-label-code-sm text-label-code-sm text-outline uppercase font-semibold">Verified
+                  Decisions</span>
+                <div class="font-headline-xl text-headline-xl text-primary mt-1">1,086</div>
+              </div>
+              <div class="w-11 h-11 rounded-lg bg-priority-low-soft flex items-center justify-center text-priority-low">
+                <span class="material-symbols-outlined text-2xl">task_alt</span>
+              </div>
+            </div>
+            <div class="mt-space-md flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-priority-low text-base">verified</span>
+              <span class="font-label-code-sm text-label-code-sm text-priority-low font-bold">99.4% concordance</span>
+              <span class="font-body-sm text-body-sm text-outline ml-auto">AI vs MD</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-priority-low"></div>
+          </div>
+        </div>
+        <!-- Main Asymmetric Grid: 8 cols left, 4 cols right -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+          <!-- LEFT COLUMN (Span 8) -->
+          <div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
+            <!-- Trend & Inflow Visual Chart Card -->
+            <div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-space-sm mb-space-md">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="font-headline-sm text-headline-sm text-primary">Analysis Inflow &amp; Clinical Sign-off
+                      Velocity</h2>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">SIMULATED
+                      DATA</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Comparing AI raw inferencing rate against
+                    board-certified sign-offs</p>
+                </div>
+                <!-- Time Range Selector Segmented Control -->
+                <div class="inline-flex p-1 rounded-lg bg-surface-container-low self-start sm:self-auto"
+                  id="range-toggle-group">
+                  <button
+                    class="px-3 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors"
+                    onclick="setChartRange('7D', this)">7D</button>
+                  <button
+                    class="px-3 py-1 rounded-md bg-surface-card shadow-sm text-primary font-label-code-sm text-label-code-sm font-bold transition-colors"
+                    onclick="setChartRange('30D', this)">30D</button>
+                  <button
+                    class="px-3 py-1 rounded-md text-on-surface-variant font-label-code-sm text-label-code-sm hover:text-on-surface transition-colors"
+                    onclick="setChartRange('90D', this)">90D</button>
+                </div>
+              </div>
+              <!-- Legend & Spark Stats -->
+              <div
+                class="flex flex-wrap items-center gap-space-lg mb-space-md py-space-sm px-space-md rounded-lg bg-surface-container-low">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-sm bg-primary-container"></span>
+                  <span class="font-body-sm text-body-sm text-on-surface">Scans Processed: <strong
+                      class="font-label-code text-label-code">1,248</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-sm bg-border-focus"></span>
+                  <span class="font-body-sm text-body-sm text-on-surface">Doctor Approved: <strong
+                      class="font-label-code text-label-code">1,086</strong></span>
+                </div>
+                <div
+                  class="ml-auto hidden md:flex items-center gap-2 text-outline font-label-code-sm text-label-code-sm">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  <span>Peak Velocity: 14:00 - 18:00</span>
+                </div>
+              </div>
+              <!-- High Fidelity SVG Line Chart with Grid & Tooltip Anchor -->
+              <div class="w-full h-64 relative">
+                <svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none"
+                  viewbox="0 0 760 220">
+                  <defs>
+                    <lineargradient id="processedFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#312E81" stop-opacity="0.25"></stop>
+                      <stop offset="100%" stop-color="#312E81" stop-opacity="0.0"></stop>
+                    </lineargradient>
+                    <lineargradient id="approvedFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#F97316" stop-opacity="0.3"></stop>
+                      <stop offset="100%" stop-color="#F97316" stop-opacity="0.0"></stop>
+                    </lineargradient>
+                  </defs>
+                  <!-- Horizontal Background Guidelines -->
+                  <line stroke="#E4E2F5" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="20" y2="20"></line>
+                  <line stroke="#E4E2F5" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="70" y2="70"></line>
+                  <line stroke="#E4E2F5" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="120" y2="120">
+                  </line>
+                  <line stroke="#E4E2F5" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="760" y1="170" y2="170">
+                  </line>
+                  <!-- Processed Scans Area & Line (Navy) -->
+                  <path d="M0,160 Q70,140 140,110 T280,105 T420,60 T560,75 T700,35 L760,25 L760,210 L0,210 Z"
+                    fill="url(#processedFill)"></path>
+                  <path d="M0,160 Q70,140 140,110 T280,105 T420,60 T560,75 T700,35 L760,25" stroke="#312E81"
+                    stroke-linecap="round" stroke-width="2.5"></path>
+                  <!-- Approved Scans Area & Line (Teal) -->
+                  <path d="M0,180 Q70,165 140,135 T280,130 T420,85 T560,95 T700,55 L760,40 L760,210 L0,210 Z"
+                    fill="url(#approvedFill)"></path>
+                  <path d="M0,180 Q70,165 140,135 T280,130 T420,85 T560,95 T700,55 L760,40" stroke="#F97316"
+                    stroke-linecap="round" stroke-width="2.5"></path>
+                  <!-- Data Callout Markers -->
+                  <circle cx="420" cy="60" fill="#312E81" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+                  <circle cx="420" cy="85" fill="#F97316" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+                  <circle cx="700" cy="35" fill="#312E81" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+                  <circle cx="700" cy="55" fill="#F97316" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+                </svg>
+                <!-- Timeline X-Axis Labels -->
+                <div
+                  class="flex justify-between items-center text-outline font-label-code-sm text-label-code-sm mt-3 pt-2">
+                  <span>Nov 01</span>
+                  <span>Nov 05</span>
+                  <span>Nov 09</span>
+                  <span>Nov 13</span>
+                  <span>Nov 17 (Peak Day)</span>
+                  <span>Today</span>
+                </div>
+              </div>
+            </div>
+            <!-- Recent Medical Cases Data Table Module -->
+            <div class="rounded-xl bg-surface-card shadow-sm flex flex-col overflow-hidden">
+              <!-- Table Search & Filters Bar -->
+              <div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+                <div>
+                  <h2 class="font-headline-sm text-headline-sm text-primary">Recent Medical Worklist</h2>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Live feed of DICOM ingested series mapped
+                    to AI predictive triage</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-space-sm">
+                  <div class="relative">
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg pointer-events-none">filter_list</span>
+                    <select
+                      class="h-10 pl-9 pr-8 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-card transition-all cursor-pointer">
+                      <option value="all">All Modalities</option>
+                      <option value="xr">Chest X-ray</option>
+                      <option value="mri">Brain MRI</option>
+                      <option value="ct">Abdominal CT</option>
+                    </select>
+                  </div>
+                  <div class="relative">
+                    <input
+                      class="h-10 pl-3 pr-8 bg-surface-container-low rounded-lg font-label-code-sm text-label-code-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-card transition-all"
+                      placeholder="Filter patient ID..." type="text" />
+                    <span
+                      class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-lg">search</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Scrollable Table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                  <thead
+                    class="bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm uppercase tracking-wider">
+                    <tr>
+                      <th class="py-3.5 px-space-md font-semibold">Patient ID</th>
+                      <th class="py-3.5 px-space-md font-semibold">Modality</th>
+                      <th class="py-3.5 px-space-md font-semibold">Study Date</th>
+                      <th class="py-3.5 px-space-md font-semibold">AI Status</th>
+                      <th class="py-3.5 px-space-md font-semibold">Priority</th>
+                      <th class="py-3.5 px-space-md font-semibold">Clinician</th>
+                      <th class="py-3.5 px-space-md font-semibold text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="font-body-sm text-body-sm">
+                    <!-- Row 1: PT-20481 (Critical) -->
+                    <tr class="hover:bg-surface-container-low/70 transition-colors">
+                      <td class="py-3.5 px-space-md">
+                        <div class="flex items-center gap-1.5">
+                          <span class="material-symbols-outlined text-priority-critical text-base">emergency</span>
+                          <span class="font-label-code text-label-code font-bold text-primary">PT-20481</span>
+                        </div>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Chest
+                          X-ray</span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov
+                        17, 2026</td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+                          <span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+                          Awaiting Review
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-critical-soft text-priority-critical font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-sm">warning</span>
+                          CRITICAL
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</td>
+                      <td class="py-3.5 px-space-md text-right">
+                        <button
+                          class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-colors">
+                          <span>View Case</span>
+                          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <!-- Row 2: PT-20485 (Moderate) -->
+                    <tr class="hover:bg-surface-container-low/70 transition-colors bg-surface-container-lowest">
+                      <td class="py-3.5 px-space-md">
+                        <span class="font-label-code text-label-code font-bold text-primary">PT-20485</span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Brain
+                          MRI</span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov
+                        17, 2026</td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-xs">done</span>
+                          Completed
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-moderate-soft text-priority-high font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-sm">info</span>
+                          MODERATE
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. S. Rao</td>
+                      <td class="py-3.5 px-space-md text-right">
+                        <button
+                          class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-body-bold text-body-bold transition-colors">
+                          <span>View Case</span>
+                          <span class="material-symbols-outlined text-sm">visibility</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <!-- Row 3: PT-20492 (High) -->
+                    <tr class="hover:bg-surface-container-low/70 transition-colors">
+                      <td class="py-3.5 px-space-md">
+                        <div class="flex items-center gap-1.5">
+                          <span class="material-symbols-outlined text-priority-high text-base">priority_high</span>
+                          <span class="font-label-code text-label-code font-bold text-primary">PT-20492</span>
+                        </div>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Abdominal
+                          CT</span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov
+                        17, 2026</td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+                          <span class="w-1.5 h-1.5 rounded-full bg-priority-high animate-pulse"></span>
+                          Awaiting Review
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-high-soft text-priority-high font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-sm">warning_amber</span>
+                          HIGH
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. K. Nair</td>
+                      <td class="py-3.5 px-space-md text-right">
+                        <button
+                          class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-bold text-body-bold shadow-sm transition-colors">
+                          <span>View Case</span>
+                          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <!-- Row 4: PT-20510 (Low / In Processing) -->
+                    <tr class="hover:bg-surface-container-low/70 transition-colors bg-surface-container-lowest">
+                      <td class="py-3.5 px-space-md">
+                        <span class="font-label-code text-label-code font-bold text-primary">PT-20510</span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-body-sm text-body-sm font-medium">Chest
+                          X-ray</span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-label-code-sm text-label-code-sm text-on-surface-variant">Nov
+                        17, 2026</td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-surface-container-high text-secondary font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-xs animate-spin">sync</span>
+                          Processing
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md">
+                        <span
+                          class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-priority-low-soft text-priority-low font-badge-label text-badge-label font-bold">
+                          <span class="material-symbols-outlined text-sm">check_circle</span>
+                          LOW
+                        </span>
+                      </td>
+                      <td class="py-3.5 px-space-md font-body-bold text-body-bold text-on-surface">Dr. A. Mehta</td>
+                      <td class="py-3.5 px-space-md text-right">
+                        <button
+                          class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-outline font-body-bold text-body-bold cursor-not-allowed"
+                          disabled="">
+                          <span>Analysing</span>
+                          <span class="material-symbols-outlined text-sm">hourglass_empty</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Table Footer / Pagination -->
+              <div
+                class="p-space-md bg-surface-card flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+                <span class="font-body-sm text-body-sm text-on-surface-variant">
+                  Showing <strong class="text-on-surface font-semibold">1-4</strong> of <strong
+                    class="text-on-surface font-semibold">37</strong> pending studies
+                </span>
+                <div class="flex items-center gap-1.5">
+                  <button
+                    class="p-1.5 rounded-md bg-surface-container-low text-outline hover:text-on-surface disabled:opacity-40"
+                    disabled="">
+                    <span class="material-symbols-outlined text-lg">chevron_left</span>
+                  </button>
+                  <button
+                    class="w-8 h-8 rounded-md bg-primary text-on-primary font-label-code-sm text-label-code-sm font-bold">1</button>
+                  <button
+                    class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">2</button>
+                  <button
+                    class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">3</button>
+                  <span class="px-1 text-outline">...</span>
+                  <button
+                    class="w-8 h-8 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-code-sm text-label-code-sm">10</button>
+                  <button
+                    class="p-1.5 rounded-md bg-surface-container-low text-on-surface hover:bg-surface-container-high">
+                    <span class="material-symbols-outlined text-lg">chevron_right</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT COLUMN (Span 4): High-Priority Triage & Radiographic Distributions -->
+          <div class="xl:col-span-4 flex flex-col gap-space-lg min-w-0">
+            <!-- Critical Triage Urgent Action Panel -->
+            <div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col relative overflow-hidden">
+              <div class="flex items-center justify-between mb-space-sm">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-priority-critical text-xl">priority_high</span>
+                  <h2 class="font-headline-sm text-headline-sm text-primary">Triage Action Hub</h2>
+                </div>
+                <span
+                  class="inline-flex items-center px-2 py-0.5 rounded-full bg-priority-moderate-soft text-priority-high font-label-code-sm text-label-code-sm font-bold">DEMO
+                  / SIMULATED</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                Immediate automated alerts filtered by convolutional neural net high-risk activation.
               </p>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="font-label-code-sm text-label-code-sm text-outline">14m ago</span>
-<span class="w-1 h-1 rounded-full bg-outline"></span>
-<span class="font-label-code-sm text-label-code-sm text-priority-critical font-medium">P1 Priority Alert</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Simulated Safety & Regulatory Disclaimers Bottom Card -->
-<div class="mt-space-xl p-space-md rounded-xl bg-surface-card shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant shrink-0">
-<span class="material-symbols-outlined text-2xl text-secondary">gavel</span>
-</div>
-<div>
-<div class="flex items-center gap-2">
-<span class="font-body-bold text-body-bold text-primary">Software As A Medical Device (SaMD) Notice</span>
-<span class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container text-on-surface font-semibold">ISO 13485 CERTIFIED</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-          MediScan AI operates as non-autonomous computer-assisted detection (CADe). Primary evaluation responsibility rests with the interpreting clinician.
-        </p>
-</div>
-</div>
-<div class="flex items-center gap-space-md shrink-0">
-<div class="flex flex-col items-end">
-<span class="font-label-code-sm text-label-code-sm text-outline">Neural Engine V4.2.1-Prod</span>
-<span class="font-label-code-sm text-label-code-sm text-secondary font-bold">Calibration Verified Nov 18</span>
-</div>
-<button class="px-space-md py-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors font-body-bold text-body-bold text-xs">
-        View Audit Certificate
-      </button>
-</div>
-</div>
-<!-- Interactive Client-side Script for Dashboard Actions & Arrhythmia Simulator -->
-<script>
-    function setChartRange(range, el) {
-      const parent = document.getElementById('range-toggle-group');
-      if (!parent) return;
-      
-      const buttons = parent.querySelectorAll('button');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
-        btn.classList.add('text-on-surface-variant');
-      });
+              <!-- Triage Items Stack -->
+              <div class="flex flex-col gap-space-md">
+                <!-- Urgent Card 1 -->
+                <div
+                  class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-label-code font-bold text-priority-critical">PT-20481</span>
+                      <span
+                        class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-label-code-sm">Chest
+                        X-Ray</span>
+                    </div>
+                    <span
+                      class="inline-flex items-center gap-1 text-priority-critical font-label-code-sm text-label-code-sm font-bold">
+                      <span class="material-symbols-outlined text-xs">timer</span>
+                      Review within 45m
+                    </span>
+                  </div>
+                  <div class="font-body-bold text-body-bold text-primary">
+                    Right Pleural Effusion Suspicion
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Inference marker detects dense blunting of right costophrenic angle with <strong
+                      class="text-priority-critical">89% confidence</strong>.
+                  </p>
+                  <div class="mt-1 flex items-center justify-between pt-2">
+                    <span class="font-label-code-sm text-label-code-sm text-outline">Uploaded: 14 mins ago</span>
+                    <button
+                      class="px-3.5 py-1.5 rounded-lg bg-priority-critical text-on-error hover:bg-error transition-colors font-body-bold text-body-bold text-xs shadow-sm">
+                      Review now
+                    </button>
+                  </div>
+                </div>
+                <!-- Urgent Card 2 -->
+                <div
+                  class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-label-code font-bold text-priority-high">PT-20489</span>
+                      <span
+                        class="px-1.5 py-0.5 rounded bg-surface-card text-on-surface-variant font-label-code-sm text-label-code-sm">Brain
+                        MRI</span>
+                    </div>
+                    <span
+                      class="inline-flex items-center gap-1 text-priority-high font-label-code-sm text-label-code-sm font-bold">
+                      <span class="material-symbols-outlined text-xs">timer</span>
+                      Review within 1h 10m
+                    </span>
+                  </div>
+                  <div class="font-body-bold text-body-bold text-primary">
+                    Acute Ischemic Sign Simulated
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    DWI hyperintensity localized to left middle cerebral artery territory. High priority protocol.
+                  </p>
+                  <div class="mt-1 flex items-center justify-between pt-2">
+                    <span class="font-label-code-sm text-label-code-sm text-outline">Uploaded: 28 mins ago</span>
+                    <button
+                      class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors font-body-bold text-body-bold text-xs shadow-sm">
+                      Review now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modality & Risk Distribution Visualizers (2 Bento Sub-Cards) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-space-lg">
+              <!-- Modality Distribution Bar / Ratio Card -->
+              <div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
+                <div class="flex items-center justify-between mb-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-primary">Modality Breakdown</h3>
+                  <span class="material-symbols-outlined text-outline text-lg">medical_services</span>
+                </div>
+                <!-- Visual Segmented Bar -->
+                <div class="w-full h-3 rounded-full overflow-hidden flex bg-surface-container mb-space-md">
+                  <div class="h-full bg-primary-container" style="width: 54%" title="Chest X-Ray 54%"></div>
+                  <div class="h-full bg-border-focus" style="width: 28%" title="Brain MRI 28%"></div>
+                  <div class="h-full bg-secondary-fixed" style="width: 18%" title="Abdominal CT 18%"></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center justify-between font-body-sm text-body-sm">
+                    <span class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+                      Chest X-ray
+                    </span>
+                    <span class="font-label-code text-label-code font-bold text-primary">54% <span
+                        class="text-outline font-normal text-xs">(674)</span></span>
+                  </div>
+                  <div class="flex items-center justify-between font-body-sm text-body-sm">
+                    <span class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-border-focus"></span>
+                      Brain MRI
+                    </span>
+                    <span class="font-label-code text-label-code font-bold text-primary">28% <span
+                        class="text-outline font-normal text-xs">(349)</span></span>
+                  </div>
+                  <div class="flex items-center justify-between font-body-sm text-body-sm">
+                    <span class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>
+                      Abdominal CT
+                    </span>
+                    <span class="font-label-code text-label-code font-bold text-primary">18% <span
+                        class="text-outline font-normal text-xs">(225)</span></span>
+                  </div>
+                </div>
+              </div>
+              <!-- Risk Level Distribution Donut Card -->
+              <div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
+                <div class="flex items-center justify-between mb-space-sm">
+                  <h3 class="font-headline-sm text-headline-sm text-primary">Risk Stratification</h3>
+                  <span class="material-symbols-outlined text-outline text-lg">pie_chart</span>
+                </div>
+                <div class="flex items-center gap-space-md my-auto">
+                  <!-- Inline SVG Donut Chart -->
+                  <div class="relative w-28 h-28 shrink-0 flex items-center justify-center">
+                    <svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+                      <!-- Background Circle -->
+                      <path class="text-surface-container"
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
+                        stroke="currentColor" stroke-width="4"></path>
+                      <!-- Low (42%) -->
+                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none" stroke="#36A477" stroke-dasharray="42, 100" stroke-linecap="round" stroke-width="4">
+                      </path>
+                      <!-- Moderate (34%) offset 42 -->
+                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none" stroke="#E8BD45" stroke-dasharray="34, 100" stroke-dashoffset="-42"
+                        stroke-width="4"></path>
+                      <!-- High (16%) offset 76 -->
+                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none" stroke="#F39A38" stroke-dasharray="16, 100" stroke-dashoffset="-76"
+                        stroke-width="4"></path>
+                      <!-- Critical (8%) offset 92 -->
+                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none" stroke="#DC4444" stroke-dasharray="8, 100" stroke-dashoffset="-92"
+                        stroke-linecap="round" stroke-width="4"></path>
+                    </svg>
+                    <div class="absolute flex flex-col items-center">
+                      <span class="font-label-code text-label-code font-bold text-primary">100%</span>
+                      <span class="font-label-code-sm text-label-code-sm text-outline">Triage</span>
+                    </div>
+                  </div>
+                  <!-- Legend Grid -->
+                  <div class="flex flex-col gap-1.5 w-full">
+                    <div class="flex items-center justify-between font-body-sm text-body-sm">
+                      <span class="flex items-center gap-1.5"><span
+                          class="w-2 h-2 rounded-full bg-priority-critical"></span>Critical</span>
+                      <span class="font-label-code-sm text-label-code-sm font-bold text-priority-critical">8%</span>
+                    </div>
+                    <div class="flex items-center justify-between font-body-sm text-body-sm">
+                      <span class="flex items-center gap-1.5"><span
+                          class="w-2 h-2 rounded-full bg-priority-high"></span>High</span>
+                      <span class="font-label-code-sm text-label-code-sm font-bold text-priority-high">16%</span>
+                    </div>
+                    <div class="flex items-center justify-between font-body-sm text-body-sm">
+                      <span class="flex items-center gap-1.5"><span
+                          class="w-2 h-2 rounded-full bg-priority-moderate"></span>Moderate</span>
+                      <span class="font-label-code-sm text-label-code-sm font-bold text-on-surface">34%</span>
+                    </div>
+                    <div class="flex items-center justify-between font-body-sm text-body-sm">
+                      <span class="flex items-center gap-1.5"><span
+                          class="w-2 h-2 rounded-full bg-priority-low"></span>Low</span>
+                      <span class="font-label-code-sm text-label-code-sm font-bold text-priority-low">42%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Real-Time AI Analysis Activity Feed -->
+            <div class="p-space-lg rounded-xl bg-surface-card shadow-sm flex flex-col">
+              <div class="flex items-center justify-between mb-space-md">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-border-focus animate-ping"></span>
+                  <h3 class="font-headline-sm text-headline-sm text-primary">Live Engine Activity</h3>
+                </div>
+                <span class="font-label-code-sm text-label-code-sm text-outline">Audit Log #8492</span>
+              </div>
+              <div class="flex flex-col gap-space-md relative">
+                <!-- Continuous connecting faint vertical line -->
+                <div class="absolute left-3.5 top-2 bottom-2 w-0.5 bg-surface-container"></div>
+                <!-- Feed Item 1 -->
+                <div class="flex items-start gap-space-sm relative z-10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+                    <span class="material-symbols-outlined text-sm">memory</span>
+                  </div>
+                  <div class="flex flex-col flex-1">
+                    <p class="font-body-sm text-body-sm text-on-surface">
+                      Simulated inference completed for <span
+                        class="font-label-code-sm font-bold text-primary">PT-20512</span>
+                    </p>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="font-label-code-sm text-label-code-sm text-outline">Just now</span>
+                      <span class="w-1 h-1 rounded-full bg-outline"></span>
+                      <span class="font-label-code-sm text-label-code-sm text-secondary font-medium">98.2ms
+                        latency</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Feed Item 2 -->
+                <div class="flex items-start gap-space-sm relative z-10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-priority-low-soft flex items-center justify-center text-priority-low shrink-0">
+                    <span class="material-symbols-outlined text-sm">verified</span>
+                  </div>
+                  <div class="flex flex-col flex-1">
+                    <p class="font-body-sm text-body-sm text-on-surface">
+                      <strong class="font-semibold text-primary">Dr. P. Iyer</strong> signed off report for <span
+                        class="font-label-code-sm font-bold text-primary">PT-20470</span>
+                    </p>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="font-label-code-sm text-label-code-sm text-outline">3m ago</span>
+                      <span class="w-1 h-1 rounded-full bg-outline"></span>
+                      <span class="font-label-code-sm text-label-code-sm text-priority-low font-medium">Concordant
+                        match</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Feed Item 3 -->
+                <div class="flex items-start gap-space-sm relative z-10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-priority-critical-soft flex items-center justify-center text-priority-critical shrink-0">
+                    <span class="material-symbols-outlined text-sm">notification_important</span>
+                  </div>
+                  <div class="flex flex-col flex-1">
+                    <p class="font-body-sm text-body-sm text-on-surface">
+                      Critical finding escalated: <span
+                        class="font-label-code-sm font-bold text-primary">PT-20481</span> pushed to emergency board
+                    </p>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="font-label-code-sm text-label-code-sm text-outline">14m ago</span>
+                      <span class="w-1 h-1 rounded-full bg-outline"></span>
+                      <span class="font-label-code-sm text-label-code-sm text-priority-critical font-medium">P1 Priority
+                        Alert</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Simulated Safety & Regulatory Disclaimers Bottom Card -->
+        <div
+          class="mt-space-xl p-space-md rounded-xl bg-surface-card shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+          <div class="flex items-center gap-space-md">
+            <div
+              class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant shrink-0">
+              <span class="material-symbols-outlined text-2xl text-secondary">gavel</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-body-bold text-body-bold text-primary">Software As A Medical Device (SaMD)
+                  Notice</span>
+                <span
+                  class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container text-on-surface font-semibold">ISO
+                  13485 CERTIFIED</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                MediScan AI operates as non-autonomous computer-assisted detection (CADe). Primary evaluation
+                responsibility rests with the interpreting clinician.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-md shrink-0">
+            <div class="flex flex-col items-end">
+              <span class="font-label-code-sm text-label-code-sm text-outline">Neural Engine V4.2.1-Prod</span>
+              <span class="font-label-code-sm text-label-code-sm text-secondary font-bold">Calibration Verified Nov
+                18</span>
+            </div>
+            <button
+              class="px-space-md py-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors font-body-bold text-body-bold text-xs">
+              View Audit Certificate
+            </button>
+          </div>
+        </div>
+        <!-- Interactive Client-side Script for Dashboard Actions & Arrhythmia Simulator -->
+        <script>
+          function setChartRange(range, el) {
+            const parent = document.getElementById('range-toggle-group');
+            if (!parent) return;
 
-      el.classList.remove('text-on-surface-variant');
-      el.classList.add('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
-    }
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(btn => {
+              btn.classList.remove('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
+              btn.classList.add('text-on-surface-variant');
+            });
 
-    // Arrhythmia Telemetry State Controller
-    let currentRhythm = 'normal';
-    let audioAlarmEnabled = true;
+            el.classList.remove('text-on-surface-variant');
+            el.classList.add('bg-surface-card', 'shadow-sm', 'text-primary', 'font-bold');
+          }
 
-    const rhythmConfigs = {
-      normal: {
-        bpm: '72 BPM',
-        intervals: 'PR: 142ms QRS: 88ms',
-        pillText: '72 BPM • SINUS RHYTHM',
-        pillDotClass: 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse',
-        pillBorderClass: 'border-slate-700/80',
-        bannerClass: 'bg-emerald-950/40 border-emerald-500/30 text-emerald-300',
-        bannerIcon: 'check_circle',
-        bannerText: 'STATUS: Regular Sinus Rhythm — No Ventricular Arrhythmia',
-        leadClass: 'text-emerald-400',
-        bpmClass: 'text-priority-low font-bold',
-        syncText: 'SYNCHRONIZED',
-        showEscalate: false,
-        heartPulseClass: 'heart-pulsing-mesh',
-        rippleClass: 'cardiac-ripple w-44 h-44'
-      },
-      tachycardia: {
-        bpm: '138 BPM',
-        intervals: 'PR: 110ms QRS: 76ms (RAPID)',
-        pillText: 'TACHYCARDIA DETECTED • 138 BPM',
-        pillDotClass: 'w-2 h-2 rounded-full bg-red-500 animate-ping',
-        pillBorderClass: 'border-red-500/80 shadow-[0_0_15px_rgba(239,68,68,0.4)]',
-        bannerClass: 'bg-red-950/60 border-red-500/60 text-red-300 animate-pulse',
-        bannerIcon: 'crisis_alert',
-        bannerText: 'ALERT: Supraventricular Tachycardia (>130 BPM) — Prioritize Triage',
-        leadClass: 'text-red-400 font-bold',
-        bpmClass: 'text-red-400 font-bold animate-pulse',
-        syncText: 'RAPID TRACE',
-        showEscalate: true,
-        heartPulseClass: 'heart-pulsing-mesh mode-tachycardia',
-        rippleClass: 'cardiac-ripple w-44 h-44 mode-tachycardia'
-      },
-      pvc: {
-        bpm: '84 BPM IRREG',
-        intervals: 'WIDE BIZARRE QRS: 164ms • PAUSE: 1.4s',
-        pillText: 'FREQUENT PVCs / COUPLET • Lown Grade III',
-        pillDotClass: 'w-2 h-2 rounded-full bg-amber-400 animate-ping',
-        pillBorderClass: 'border-amber-500/80 shadow-[0_0_15px_rgba(245,158,11,0.35)]',
-        bannerClass: 'bg-amber-950/60 border-amber-500/60 text-amber-300',
-        bannerIcon: 'warning',
-        bannerText: 'ALERT: Ventricular Ectopy Pattern Detected — Frequent Premature Contractions',
-        leadClass: 'text-amber-400 font-bold',
-        bpmClass: 'text-amber-400 font-bold',
-        syncText: 'ECTOPIC PAUSE',
-        showEscalate: true,
-        heartPulseClass: 'heart-pulsing-mesh mode-pvc',
-        rippleClass: 'cardiac-ripple w-44 h-44 mode-pvc'
-      }
-    };
+          // Arrhythmia Telemetry State Controller
+          let currentRhythm = 'normal';
+          let audioAlarmEnabled = true;
 
-    function setRhythmState(state) {
-      currentRhythm = state;
-      const config = rhythmConfigs[state];
-      if (!config) return;
+          const rhythmConfigs = {
+            normal: {
+              bpm: '72 BPM',
+              intervals: 'PR: 142ms QRS: 88ms',
+              pillText: '72 BPM • SINUS RHYTHM',
+              pillDotClass: 'w-2 h-2 rounded-full bg-orange-400 animate-pulse',
+              pillBorderClass: 'border-slate-700/80',
+              bannerClass: 'bg-orange-950/40 border-orange-500/30 text-orange-300',
+              bannerIcon: 'check_circle',
+              bannerText: 'STATUS: Regular Sinus Rhythm — No Ventricular Arrhythmia',
+              leadClass: 'text-orange-400',
+              bpmClass: 'text-priority-low font-bold',
+              syncText: 'SYNCHRONIZED',
+              showEscalate: false,
+              heartPulseClass: 'heart-pulsing-mesh',
+              rippleClass: 'cardiac-ripple w-44 h-44'
+            },
+            tachycardia: {
+              bpm: '138 BPM',
+              intervals: 'PR: 110ms QRS: 76ms (RAPID)',
+              pillText: 'TACHYCARDIA DETECTED • 138 BPM',
+              pillDotClass: 'w-2 h-2 rounded-full bg-red-500 animate-ping',
+              pillBorderClass: 'border-red-500/80 shadow-[0_0_15px_rgba(239,68,68,0.4)]',
+              bannerClass: 'bg-red-950/60 border-red-500/60 text-red-300 animate-pulse',
+              bannerIcon: 'crisis_alert',
+              bannerText: 'ALERT: Supraventricular Tachycardia (>130 BPM) — Prioritize Triage',
+              leadClass: 'text-red-400 font-bold',
+              bpmClass: 'text-red-400 font-bold animate-pulse',
+              syncText: 'RAPID TRACE',
+              showEscalate: true,
+              heartPulseClass: 'heart-pulsing-mesh mode-tachycardia',
+              rippleClass: 'cardiac-ripple w-44 h-44 mode-tachycardia'
+            },
+            pvc: {
+              bpm: '84 BPM IRREG',
+              intervals: 'WIDE BIZARRE QRS: 164ms • PAUSE: 1.4s',
+              pillText: 'FREQUENT PVCs / COUPLET • Lown Grade III',
+              pillDotClass: 'w-2 h-2 rounded-full bg-amber-400 animate-ping',
+              pillBorderClass: 'border-amber-500/80 shadow-[0_0_15px_rgba(245,158,11,0.35)]',
+              bannerClass: 'bg-amber-950/60 border-amber-500/60 text-amber-300',
+              bannerIcon: 'warning',
+              bannerText: 'ALERT: Ventricular Ectopy Pattern Detected — Frequent Premature Contractions',
+              leadClass: 'text-amber-400 font-bold',
+              bpmClass: 'text-amber-400 font-bold',
+              syncText: 'ECTOPIC PAUSE',
+              showEscalate: true,
+              heartPulseClass: 'heart-pulsing-mesh mode-pvc',
+              rippleClass: 'cardiac-ripple w-44 h-44 mode-pvc'
+            }
+          };
 
-      // Update Segmented Button Styles
-      const btnNormal = document.getElementById('btn-rhythm-normal');
-      const btnTachy = document.getElementById('btn-rhythm-tachy');
-      const btnPVC = document.getElementById('btn-rhythm-pvc');
+          function setRhythmState(state) {
+            currentRhythm = state;
+            const config = rhythmConfigs[state];
+            if (!config) return;
 
-      const neutralClasses = 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent';
-      btnNormal.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
-      btnTachy.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
-      btnPVC.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
+            // Update Segmented Button Styles
+            const btnNormal = document.getElementById('btn-rhythm-normal');
+            const btnTachy = document.getElementById('btn-rhythm-tachy');
+            const btnPVC = document.getElementById('btn-rhythm-pvc');
 
-      if (state === 'normal') {
-        btnNormal.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-emerald-950/80 text-emerald-300 border border-emerald-500/50 shadow-sm';
-      } else if (state === 'tachycardia') {
-        btnTachy.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-red-950/80 text-red-300 border border-red-500/50 shadow-sm';
-      } else if (state === 'pvc') {
-        btnPVC.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-amber-950/80 text-amber-300 border border-amber-500/50 shadow-sm';
-      }
+            const neutralClasses = 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent';
+            btnNormal.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
+            btnTachy.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
+            btnPVC.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all ' + neutralClasses;
 
-      // Update Heart Pulsing Mesh & Ripples
-      const heartEl = document.getElementById('hero-pulsing-heart');
-      if (heartEl) {
-        heartEl.className = config.heartPulseClass;
-      }
-      ['cardiac-ripple-1', 'cardiac-ripple-2', 'cardiac-ripple-3'].forEach(id => {
-        const ripple = document.getElementById(id);
-        if (ripple) ripple.className = config.rippleClass;
-      });
+            if (state === 'normal') {
+              btnNormal.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-orange-950/80 text-orange-300 border border-orange-500/50 shadow-sm';
+            } else if (state === 'tachycardia') {
+              btnTachy.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-red-950/80 text-red-300 border border-red-500/50 shadow-sm';
+            } else if (state === 'pvc') {
+              btnPVC.className = 'rhythm-state-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-md text-center transition-all bg-amber-950/80 text-amber-300 border border-amber-500/50 shadow-sm';
+            }
 
-      // Update Heart Floating Status Pill
-      const pill = document.getElementById('heart-status-pill');
-      const pillDot = document.getElementById('heart-status-dot');
-      const pillLabel = document.getElementById('heart-status-label');
-      if (pill) {
-        pill.className = `absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-950/90 backdrop-blur-md flex items-center gap-2 shadow-lg pointer-events-none transition-all duration-300 ${config.pillBorderClass}`;
-      }
-      if (pillDot) pillDot.className = config.pillDotClass;
-      if (pillLabel) pillLabel.textContent = config.pillText;
+            // Update Heart Pulsing Mesh & Ripples
+            const heartEl = document.getElementById('hero-pulsing-heart');
+            if (heartEl) {
+              heartEl.className = config.heartPulseClass;
+            }
+            ['cardiac-ripple-1', 'cardiac-ripple-2', 'cardiac-ripple-3'].forEach(id => {
+              const ripple = document.getElementById(id);
+              if (ripple) ripple.className = config.rippleClass;
+            });
 
-      // Update Alert Banner
-      const banner = document.getElementById('rhythm-alert-banner');
-      const bannerIcon = document.getElementById('alert-banner-icon');
-      const bannerText = document.getElementById('alert-banner-text');
-      const escalateBtn = document.getElementById('alert-escalate-btn');
+            // Update Heart Floating Status Pill
+            const pill = document.getElementById('heart-status-pill');
+            const pillDot = document.getElementById('heart-status-dot');
+            const pillLabel = document.getElementById('heart-status-label');
+            if (pill) {
+              pill.className = `absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-950/90 backdrop-blur-md flex items-center gap-2 shadow-lg pointer-events-none transition-all duration-300 ${config.pillBorderClass}`;
+            }
+            if (pillDot) pillDot.className = config.pillDotClass;
+            if (pillLabel) pillLabel.textContent = config.pillText;
 
-      if (banner) {
-        banner.className = `flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg border transition-all duration-300 ${config.bannerClass}`;
-      }
-      if (bannerIcon) bannerIcon.textContent = config.bannerIcon;
-      if (bannerText) bannerText.textContent = config.bannerText;
+            // Update Alert Banner
+            const banner = document.getElementById('rhythm-alert-banner');
+            const bannerIcon = document.getElementById('alert-banner-icon');
+            const bannerText = document.getElementById('alert-banner-text');
+            const escalateBtn = document.getElementById('alert-escalate-btn');
 
-      if (escalateBtn) {
-        if (config.showEscalate) {
-          escalateBtn.classList.remove('hidden');
-          escalateBtn.classList.add('inline-flex');
-          escalateBtn.textContent = state === 'tachycardia' ? 'Escalate STAT' : 'Acknowledge Ectopy';
-        } else {
-          escalateBtn.classList.remove('inline-flex');
-          escalateBtn.classList.add('hidden');
-        }
-      }
+            if (banner) {
+              banner.className = `flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg border transition-all duration-300 ${config.bannerClass}`;
+            }
+            if (bannerIcon) bannerIcon.textContent = config.bannerIcon;
+            if (bannerText) bannerText.textContent = config.bannerText;
 
-      // Update Lead Monitor Readouts
-      const bpmEl = document.getElementById('ecg-bpm-readout');
-      const intervalEl = document.getElementById('ecg-interval-readout');
-      const syncEl = document.getElementById('ecg-sync-status');
-      const leadLabel = document.getElementById('ecg-lead-label');
+            if (escalateBtn) {
+              if (config.showEscalate) {
+                escalateBtn.classList.remove('hidden');
+                escalateBtn.classList.add('inline-flex');
+                escalateBtn.textContent = state === 'tachycardia' ? 'Escalate STAT' : 'Acknowledge Ectopy';
+              } else {
+                escalateBtn.classList.remove('inline-flex');
+                escalateBtn.classList.add('hidden');
+              }
+            }
 
-      if (bpmEl) {
-        bpmEl.textContent = config.bpm;
-        bpmEl.className = config.bpmClass;
-      }
-      if (intervalEl) intervalEl.textContent = config.intervals;
-      if (syncEl) syncEl.textContent = config.syncText;
-      if (leadLabel) leadLabel.className = `font-label-code-sm text-[10px] ${config.leadClass} uppercase tracking-wider`;
+            // Update Lead Monitor Readouts
+            const bpmEl = document.getElementById('ecg-bpm-readout');
+            const intervalEl = document.getElementById('ecg-interval-readout');
+            const syncEl = document.getElementById('ecg-sync-status');
+            const leadLabel = document.getElementById('ecg-lead-label');
 
-      // Switch Active Waveform SVG
-      const svgNormal = document.getElementById('svg-normal-wave');
-      const svgTachy = document.getElementById('svg-tachy-wave');
-      const svgPVC = document.getElementById('svg-pvc-wave');
+            if (bpmEl) {
+              bpmEl.textContent = config.bpm;
+              bpmEl.className = config.bpmClass;
+            }
+            if (intervalEl) intervalEl.textContent = config.intervals;
+            if (syncEl) syncEl.textContent = config.syncText;
+            if (leadLabel) leadLabel.className = `font-label-code-sm text-[10px] ${config.leadClass} uppercase tracking-wider`;
 
-      if (svgNormal && svgTachy && svgPVC) {
-        svgNormal.classList.add('hidden');
-        svgTachy.classList.add('hidden');
-        svgPVC.classList.add('hidden');
+            // Switch Active Waveform SVG
+            const svgNormal = document.getElementById('svg-normal-wave');
+            const svgTachy = document.getElementById('svg-tachy-wave');
+            const svgPVC = document.getElementById('svg-pvc-wave');
 
-        if (state === 'normal') svgNormal.classList.remove('hidden');
-        else if (state === 'tachycardia') svgTachy.classList.remove('hidden');
-        else if (state === 'pvc') svgPVC.classList.remove('hidden');
-      }
-    }
+            if (svgNormal && svgTachy && svgPVC) {
+              svgNormal.classList.add('hidden');
+              svgTachy.classList.add('hidden');
+              svgPVC.classList.add('hidden');
 
-    function toggleTelemetryAudio() {
-      audioAlarmEnabled = !audioAlarmEnabled;
-      const btn = document.getElementById('telemetry-audio-btn');
-      const icon = document.getElementById('audio-icon');
-      const label = document.getElementById('audio-label');
-      if (audioAlarmEnabled) {
-        icon.textContent = 'volume_up';
-        icon.className = 'material-symbols-outlined text-xs text-emerald-400';
-        label.textContent = 'ALARM ON';
-        btn.classList.remove('border-amber-500/50', 'text-amber-300');
-        btn.classList.add('text-slate-300');
-      } else {
-        icon.textContent = 'volume_off';
-        icon.className = 'material-symbols-outlined text-xs text-amber-400';
-        label.textContent = 'MUTED (2m)';
-        btn.classList.add('border-amber-500/50', 'text-amber-300');
-      }
-    }
+              if (state === 'normal') svgNormal.classList.remove('hidden');
+              else if (state === 'tachycardia') svgTachy.classList.remove('hidden');
+              else if (state === 'pvc') svgPVC.classList.remove('hidden');
+            }
+          }
 
-    function acknowledgeAlert() {
-      const bannerText = document.getElementById('alert-banner-text');
-      const escalateBtn = document.getElementById('alert-escalate-btn');
-      if (bannerText) {
-        bannerText.textContent = `ACKNOWLEDGED by Dr. Mehta (${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}) — Telemetry Priority Tagged`;
-      }
-      if (escalateBtn) {
-        escalateBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
-        escalateBtn.classList.add('bg-slate-700', 'text-slate-300');
-        escalateBtn.textContent = 'Tagged to Chart';
-        escalateBtn.disabled = true;
-      }
-    }
-  </script>
-</div></main></div>
-<script src="../mediscan-router.js"></script></body></html>
+          function toggleTelemetryAudio() {
+            audioAlarmEnabled = !audioAlarmEnabled;
+            const btn = document.getElementById('telemetry-audio-btn');
+            const icon = document.getElementById('audio-icon');
+            const label = document.getElementById('audio-label');
+            if (audioAlarmEnabled) {
+              icon.textContent = 'volume_up';
+              icon.className = 'material-symbols-outlined text-xs text-orange-400';
+              label.textContent = 'ALARM ON';
+              btn.classList.remove('border-amber-500/50', 'text-amber-300');
+              btn.classList.add('text-slate-300');
+            } else {
+              icon.textContent = 'volume_off';
+              icon.className = 'material-symbols-outlined text-xs text-amber-400';
+              label.textContent = 'MUTED (2m)';
+              btn.classList.add('border-amber-500/50', 'text-amber-300');
+            }
+          }
+
+          function acknowledgeAlert() {
+            const bannerText = document.getElementById('alert-banner-text');
+            const escalateBtn = document.getElementById('alert-escalate-btn');
+            if (bannerText) {
+              bannerText.textContent = `ACKNOWLEDGED by Dr. Mehta (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}) — Telemetry Priority Tagged`;
+            }
+            if (escalateBtn) {
+              escalateBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
+              escalateBtn.classList.add('bg-slate-700', 'text-slate-300');
+              escalateBtn.textContent = 'Tagged to Chart';
+              escalateBtn.disabled = true;
+            }
+          }
+        </script>
+      </div>
+    </main>
+  </div>
+  <script src="../mediscan-router.js"></script>
+</body>
+
+</html>

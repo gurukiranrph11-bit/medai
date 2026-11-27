@@ -1,6 +1,6 @@
 /**
  * MediScan AI - Cross-Screen Clinical Navigation & Workflow Router
- * Interconnects all Stitch-generated standalone prototype screens into a unified, interactive clinical application.
+ * Clinical navigation and workflow router for MediScan AI.
  */
 
 (function () {
@@ -61,12 +61,89 @@
   const currentFolder = getCurrentFolder();
   const currentTitle = SCREEN_TITLES[currentFolder] || 'MediScan Screen';
 
+  // Ensure high-definition typography is active
+  if (!document.querySelector('link[href*="typography.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = currentFolder ? '../typography.css' : 'typography.css';
+    document.head.appendChild(link);
+  }
+
   // Inform parent hub (if embedded in index.html)
   if (window.parent && window.parent !== window && currentFolder) {
     try {
       window.parent.postMessage({ type: 'MEDISCAN_PAGE_CHANGED', folder: currentFolder }, '*');
     } catch (e) {}
   }
+
+  // Shared Toast & Confirmation Modal Helper (Indigo + Orange Theme)
+  const MediScanUI = {
+    toast: function (message, type = 'success') {
+      let container = document.getElementById('mediscan-toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'mediscan-toast-container';
+        container.style.cssText = 'position:fixed;bottom:20px;left:20px;z-index:9998;display:flex;flex-direction:column;gap:8px;max-width:380px;pointer-events:none;font-family:Inter,sans-serif;';
+        document.body.appendChild(container);
+      }
+      const colors = {
+        success: { bg: '#312E81', border: '#F97316', icon: 'check_circle', iconColor: '#FDBA74' },
+        info: { bg: '#1E1B4B', border: '#818CF8', icon: 'info', iconColor: '#C7D2FE' },
+        warning: { bg: '#C2410C', border: '#F97316', icon: 'warning', iconColor: '#FFEDD5' },
+        error: { bg: '#991B1B', border: '#DC4444', icon: 'error', iconColor: '#FEE2E2' }
+      };
+      const c = colors[type] || colors.success;
+      const el = document.createElement('div');
+      el.style.cssText = `pointer-events:auto;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:${c.bg};color:#FFFFFF;border-left:4px solid ${c.border};box-shadow:0 10px 25px rgba(30,27,75,0.28);font-size:13px;font-weight:500;opacity:0;transform:translateY(8px);transition:all 0.2s ease;`;
+      el.innerHTML = `<span class="material-symbols-outlined" style="font-size:20px;color:${c.iconColor};flex-shrink:0;">${c.icon}</span><span style="flex:1;line-height:1.35;"></span><button type="button" style="background:none;border:none;color:#C7D2FE;cursor:pointer;font-size:16px;padding:0 2px;" aria-label="Close">&times;</button>`;
+      el.querySelector('span:nth-child(2)').textContent = message;
+      el.querySelector('button').onclick = () => el.remove();
+      container.appendChild(el);
+      requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(8px)';
+        setTimeout(() => el.remove(), 220);
+      }, 3200);
+    },
+    confirm: function ({ title = 'Confirm Action', message = 'Are you sure you want to proceed?', confirmText = 'Confirm', cancelText = 'Cancel', onConfirm }) {
+      let modal = document.getElementById('mediscan-confirm-modal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'mediscan-confirm-modal';
+        modal.style.cssText = 'position:fixed;inset:0;background:rgba(30,27,75,0.62);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;font-family:Inter,sans-serif;';
+        modal.innerHTML = `
+          <div style="background:#FFFFFF;border:1px solid #E4E2F5;border-radius:16px;max-width:440px;width:100%;padding:24px;box-shadow:0 20px 50px rgba(30,27,75,0.25);color:#1E1B4B;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <div style="width:40px;height:40px;border-radius:10px;background:#FFEDD5;color:#C2410C;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span class="material-symbols-outlined" style="font-size:22px;">verified_user</span>
+              </div>
+              <h3 id="ms-confirm-title" style="margin:0;font-size:17px;font-weight:700;color:#312E81;"></h3>
+            </div>
+            <p id="ms-confirm-msg" style="margin:0 0 20px 0;font-size:14px;line-height:1.5;color:#43474D;"></p>
+            <div style="display:flex;justify-content:flex-end;gap:10px;">
+              <button id="ms-confirm-cancel" type="button" style="padding:9px 16px;border-radius:8px;border:1px solid #E4E2F5;background:#F8F7FF;color:#1E1B4B;font-size:13px;font-weight:600;cursor:pointer;"></button>
+              <button id="ms-confirm-ok" type="button" style="padding:9px 18px;border-radius:8px;border:none;background:#312E81;color:#FFFFFF;font-size:13px;font-weight:600;cursor:pointer;"></button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+      modal.querySelector('#ms-confirm-title').textContent = title;
+      modal.querySelector('#ms-confirm-msg').textContent = message;
+      const cancelBtn = modal.querySelector('#ms-confirm-cancel');
+      const okBtn = modal.querySelector('#ms-confirm-ok');
+      cancelBtn.textContent = cancelText;
+      okBtn.textContent = confirmText;
+      modal.style.display = 'flex';
+      cancelBtn.onclick = () => { modal.style.display = 'none'; };
+      okBtn.onclick = () => {
+        modal.style.display = 'none';
+        if (typeof onConfirm === 'function') onConfirm();
+      };
+    }
+  };
+  window.MediScanUI = MediScanUI;
 
   function showAdminNotice() {
     let modal = document.getElementById('mediscan-admin-modal');
@@ -123,9 +200,11 @@
 
     // 2. Header elements (Logo, Bell, Avatar)
     const headerLogo = e.target.closest('header .font-headline-sm, header img[alt*="Logo"], header [class*="MediScan"]');
-    if (headerLogo && !currentFolder.startsWith('main_dashboard')) {
+    if (headerLogo) {
       e.preventDefault();
-      window.location.href = ROUTES['dashboard'];
+      if (!currentFolder.startsWith('main_dashboard')) {
+        window.location.href = ROUTES['dashboard'];
+      }
       return;
     }
 
@@ -138,7 +217,7 @@
       }
     }
 
-    const headerProfile = e.target.closest('header img[alt="Profile"], header div.flex.items-center.gap-space-sm');
+    const headerProfile = e.target.closest('header img[alt="Profile"], header .flex.items-center.gap-space-sm.pl-space-xs');
     if (headerProfile && !currentFolder.includes('user_profile_settings')) {
       e.preventDefault();
       window.location.href = ROUTES['settings-profile'];
@@ -151,16 +230,14 @@
 
     const text = (btn.textContent || '').trim();
 
-    // Sign in redirection
+    // Sign in redirection is handled by login_registration_mediscan_ai/code.html after field validation
     if (btn.id === 'btn-submit' || text.includes('Sign In to Clinical Workspace')) {
-      setTimeout(() => {
-        window.location.href = ROUTES['dashboard'];
-      }, 1400);
       return;
     }
 
-    // "Upload & Analyze" button
+    // "Upload & Analyze" button (on upload screen, let its progress bar animation finish before redirecting)
     if (text.includes('Upload & Analyze') || text.includes('Analyze Scan')) {
+      if (currentFolder === 'upload_medical_scan_mediscan_ai') return;
       e.preventDefault();
       window.location.href = ROUTES['ai-analysis'];
       return;
@@ -170,6 +247,19 @@
     if (text.includes('Generate Report') || text.includes('Create Report')) {
       e.preventDefault();
       window.location.href = ROUTES['reports'];
+      return;
+    }
+
+    // Viewer / Worklist quick links
+    if (text.includes('Open in PACS Viewer') || text.includes('Open Fullscreen DICOM Viewer') || text.includes('Open AI Analysis DICOM Viewer') || text.includes('Launch AI Analysis Viewer')) {
+      e.preventDefault();
+      window.location.href = ROUTES['ai-analysis'];
+      return;
+    }
+
+    if (text.includes('Back to Worklist')) {
+      e.preventDefault();
+      window.location.href = ROUTES['patients'];
       return;
     }
 
@@ -189,18 +279,28 @@
       }
     }
 
-    // Send Flagged to Prioritization
-    if (text.includes('Send Flagged to Prioritization') || text.includes('Prioritization Board')) {
+    // Send Flagged / Cohort to Prioritization
+    if (text.includes('Send Flagged to Prioritization') || text.includes('Prioritization Board') || text.includes('Send Cohort to Prioritization') || text === 'Prioritize') {
       e.preventDefault();
       window.location.href = ROUTES['risk-prioritization'];
       return;
     }
 
     // New Scan / Upload CTA
-    if (text.includes('+ New Case') || text.includes('Upload Scan') || text.includes('Upload New Scan') || text.includes('+ Upload DICOM Scan')) {
+    if (text.includes('+ New Case') || text.includes('Upload Scan') || text.includes('Upload New Scan') || text.includes('+ Upload DICOM')) {
       e.preventDefault();
       window.location.href = ROUTES['upload-scan'];
       return;
+    }
+
+    // Universal demo fallback for any unhandled button or <a href="#">
+    if (!e.defaultPrevented && !btn.hasAttribute('onclick') && !btn.hasAttribute('data-ms-handled') && btn.getAttribute('type') !== 'submit' && !btn.closest('#mediscan-quick-dock') && !btn.closest('#mediscan-confirm-modal') && !btn.closest('#mediscan-admin-modal') && !btn.closest('#mediscan-toast-container')) {
+      const href = btn.tagName === 'A' ? (btn.getAttribute('href') || '') : '#';
+      if (btn.tagName === 'BUTTON' || href === '#' || href === '') {
+        if (btn.tagName === 'A') e.preventDefault();
+        const label = text || btn.getAttribute('aria-label') || btn.getAttribute('title') || 'Action';
+        MediScanUI.toast(`${label} — Action completed (demo)`, 'info');
+      }
     }
   });
 
@@ -220,32 +320,32 @@
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         .md-dock-btn {
-          background: #15324B;
+          background: #312E81;
           color: #ffffff;
           padding: 8px 14px;
           border-radius: 9999px;
           display: flex;
           align-items: center;
           gap: 8px;
-          box-shadow: 0 4px 16px rgba(21, 50, 75, 0.25);
-          border: 1px solid rgba(22, 166, 161, 0.4);
+          box-shadow: 0 4px 16px rgba(49, 46, 129, 0.25);
+          border: 1px solid rgba(249, 115, 22, 0.4);
           cursor: pointer;
           font-size: 13px;
           font-weight: 600;
           transition: all 0.2s ease;
         }
         .md-dock-btn:hover {
-          background: #001d33;
-          border-color: #16A6A1;
+          background: #1E1B4B;
+          border-color: #F97316;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(21, 50, 75, 0.35);
+          box-shadow: 0 6px 20px rgba(49, 46, 129, 0.35);
         }
         .md-dock-pulse {
           width: 8px;
           height: 8px;
-          background-color: #16A6A1;
+          background-color: #F97316;
           border-radius: 9999px;
-          box-shadow: 0 0 8px #16A6A1;
+          box-shadow: 0 0 8px #F97316;
         }
         .md-dock-menu {
           display: none;
@@ -255,8 +355,8 @@
           width: 320px;
           background: #ffffff;
           border-radius: 16px;
-          box-shadow: 0 12px 36px rgba(21, 50, 75, 0.16);
-          border: 1px solid #E2E8F0;
+          box-shadow: 0 12px 36px rgba(49, 46, 129, 0.16);
+          border: 1px solid #E4E2F5;
           padding: 14px;
           max-height: 80vh;
           overflow-y: auto;
@@ -272,17 +372,17 @@
           gap: 10px;
           padding: 8px 10px;
           border-radius: 8px;
-          color: #0b1c30;
+          color: #1E1B4B;
           font-size: 13px;
           text-decoration: none;
           transition: background 0.15s ease;
         }
         .md-dock-item:hover {
-          background: #eff4ff;
-          color: #15324b;
+          background: #EEF0FF;
+          color: #312E81;
         }
         .md-dock-item.active {
-          background: #15324b;
+          background: #312E81;
           color: #ffffff;
           font-weight: 600;
         }
@@ -293,7 +393,7 @@
           letter-spacing: 0.05em;
           color: #73777e;
           padding: 4px 8px;
-          border-bottom: 1px solid #E2E8F0;
+          border-bottom: 1px solid #E4E2F5;
           margin-bottom: 4px;
           display: flex;
           justify-content: space-between;
@@ -302,12 +402,9 @@
       </style>
       <div class="md-dock-menu" id="md-menu">
         <div class="md-dock-header">
-          <span>MediScan Clinical Router</span>
-          <span style="color: #16A6A1;">Connected (18 Screens)</span>
+          <span>MediScan Clinical Navigation</span>
+          <span style="color: #F97316;">Quick Switch</span>
         </div>
-        <a href="${ROUTES['hub']}" class="md-dock-item" style="border: 1px dashed #16A6A1; background: #e5eeff;">
-          <span style="font-weight: 700; color: #15324B;">✦ Master Application Hub</span>
-        </a>
         <div style="font-size: 10px; color: #73777e; padding: 2px 8px; font-weight: 600;">CLINICAL WORKFLOW STEPS</div>
         <a href="${ROUTES['login']}" class="md-dock-item ${currentFolder === 'login_registration_mediscan_ai' ? 'active' : ''}">
           <span>1. Login & Verification</span>
